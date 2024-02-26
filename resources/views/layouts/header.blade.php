@@ -1,9 +1,9 @@
-<header class="">
-    <nav class="relative top-8 lg:top-12 rounded-full flex lg:mx-72 mx-4 flex-wrap items-center justify-between bg-[#FBFBFB] text-poppins shadow-xl"
+<header class="absolute w-screen">
+    <nav class="relative top-8 lg:top-12 rounded-full flex lg:mx-72 mx-4 flex-wrap items-center justify-between bg-primary text-poppins shadow-xl"
         data-te-navbar-ref>
         <div class="flex w-full flex-wrap items-center justify-between px-3">
             <div>
-                <a class="mx-2 my-1 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
+                <a class="mx-2 my-1 flex items-center text-white hover:text-white focus:text-white lg:mb-0 lg:mt-0"
                     href="#">
                     <img class="mr-2" src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp"
                         style="height: 20px" alt="TE Logo" loading="lazy" />
@@ -32,7 +32,7 @@
                 <ul class="list-style-none mr-auto flex flex-col pl-0 my-2 lg:flex-row" data-te-navbar-nav-ref>
                     <!-- Home link -->
                     <li class="pl-2 lg:my-0 lg:pl-2 lg:pr-1" data-te-nav-item-ref>
-                        <a class="text-primary hover:text-secondary " aria-current="page"
+                        <a class="text-white hover:text-secondary " aria-current="page"
                             href="#" data-te-nav-link-ref>
                             <div>
                                 <p class="font-passero text-3xl ">QuickBite</p>
@@ -44,7 +44,7 @@
 
                 <div class="flex items-center">
                     <button type="button" data-te-ripple-init data-te-ripple-color="light"
-                        class="mr-3 inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-primary focus:text-primary focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none">
+                        class="mr-3 inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
                         Login
                     </button>
                     {{-- <button type="button" data-te-ripple-init data-te-ripple-color="light"

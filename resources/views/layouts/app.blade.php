@@ -1,6 +1,6 @@
 @include('layouts.head')
 
-<body class="bg-primary">
+<body class="bg-primary mx-auto">
     <!-- Navbar -->
     @include('layouts.header')
 
