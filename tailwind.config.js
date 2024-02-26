@@ -10,6 +10,7 @@ theme: {
     colors: {
       "primary": "#181818",
       "secondary": "#FFC244",
+      "component": "#404040",
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],

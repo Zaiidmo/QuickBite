@@ -1,5 +1,5 @@
 <header class="absolute w-screen">
-    <nav class="relative top-8 lg:top-12 rounded-full flex lg:mx-72 mx-4 flex-wrap items-center justify-between bg-primary text-poppins shadow-xl"
+    <nav class="relative top-8 lg:top-12 rounded-full flex lg:mx-72 mx-4 flex-wrap items-center justify-between bg-component text-poppins shadow-xl"
         data-te-navbar-ref>
         <div class="flex w-full flex-wrap items-center justify-between px-3">
             <div>
