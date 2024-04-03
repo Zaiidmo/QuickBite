@@ -34,7 +34,75 @@ Search
             </div>
         </div>
     </section>
-    <section class="text-center">
+    <section class="text-center pb-12 border-b">
         <h1 class="my-8 font-passero text-7xl text-white">Here are our <br><span class="text-secondary">Delightful</span> menus !</h1>
+    </section>
+    <section class="max-w-screen-xl  mx-auto gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4">
+        <div class="rounded-2xl bg-component h-fit  col-span-1 ">
+            <h1 class="my-8 font-passero text-7xl text-white">Here are our <br><span class="text-secondary">Delightful</span> menus !</h1>
+        </div>
+        <!-- component -->
+        <div class="col-span-3 pt-12 p-4">
+            <div class="grid gap-14 md:grid-cols-3 md:gap-4 md:gap-y-12">
+              <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
+                <div
+                  class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
+                  <img src={{ asset('assets/images/Pizza.jpg')}} class="w-full h-full rounded-full" alt="Pizza">
+                </div>
+                <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
+                <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
+                <div class="flex justify-between mt-8">
+                    <p class="px-4 font-bold text-secondary">22.00 $</p>
+                    <button class="text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z"/></svg>
+                    </button>
+                </div>
+              </div>
+              <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
+                <div
+                  class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
+                  <img src={{ asset('assets/images/Pizza.jpg')}} class="w-full h-full rounded-full" alt="Pizza">
+                </div>
+                <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
+                <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
+                <div class="flex justify-between mt-8">
+                    <p class="px-4 font-bold text-secondary">22.00 $</p>
+                    <button class="text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z"/></svg>
+                    </button>
+                </div>
+              </div>
+              <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
+                <div
+                  class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
+                  <img src={{ asset('assets/images/Pizza.jpg')}} class="w-full h-full rounded-full" alt="Pizza">
+                </div>
+                <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
+                <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
+                <div class="flex justify-between mt-8">
+                    <p class="px-4 font-bold text-secondary">22.00 $</p>
+                    <button class="text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z"/></svg>
+                    </button>
+                </div>
+              </div>
+              <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
+                <div
+                  class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
+                  <img src={{ asset('assets/images/Pizza.jpg')}} class="w-full h-full rounded-full" alt="Pizza">
+                </div>
+                <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
+                <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
+                <div class="flex justify-between mt-8">
+                    <p class="px-4 font-bold text-secondary">22.00 $</p>
+                    <button class="text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z"/></svg>
+                    </button>
+                </div>
+              </div>
+              
+            </div>
+          
+          </div>
     </section>
 @endsection
