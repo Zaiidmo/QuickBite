@@ -252,4 +252,79 @@
 
             </div>
     </section>
+    <section class="w-full bg-transparent mt-12">
+        <h1 class="my-12 text-3xl lg:text-5xl font-bold font-passero mb-4 text-white text-center">
+            Share Your Ideas With Us
+        </h1>
+
+
+        <form class="max-w-screen-xl my-auto mx-auto">
+            <div class="flex gap-12 mb-5">
+                <div class="w-1/2">
+                    <label for="firstname" class="block mb-2 text-sm font-medium text-gray-300">Your First Name</label>
+                    <input type="text" id="firstname" name="fname"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
+                        placeholder="First Name" required />
+                </div>
+                <div class="w-1/2">
+                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Last
+                        Name</label>
+                    <input type="text" id="lastname" name="lname"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
+                        placeholder="Last Name" required />
+                </div>
+            </div>
+            <div class="mb-5">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                    Email</label>
+                <input type="email" id="email" name="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
+                    placeholder="email@example.com" required />
+            </div>
+            <div class="mb-5">
+                <textarea name="message" id="message" placeholder="Your Message Here"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
+                    rows="5"></textarea>
+
+            </div>
+            <button type="submit"
+                class="text-black mb-5 bg-secondary  hover:bg-component focus:ring-4 focus:outline-none hover:text-white focus:ring-primary font-medium rounded-2xl text-sm w-full px-5 py-2.5 text-center ">Submit</button>
+        </form>
+
+        <div class="max-w-screen-xl mx-auto flex justify-between my-12">
+            <div class="flex gap-4">
+                <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M13 8a3 3 0 0 1 3 3a1 1 0 0 0 2 0a5 5 0 0 0-5-5a1 1 0 0 0 0 2" />
+                        <path fill="currentColor"
+                            d="M13 4a7 7 0 0 1 7 7a1 1 0 0 0 2 0a9 9 0 0 0-9-9a1 1 0 0 0 0 2m8.75 11.91a1 1 0 0 0-.72-.65l-6-1.37a1 1 0 0 0-.92.26c-.14.13-.15.14-.8 1.38a9.91 9.91 0 0 1-4.87-4.89C9.71 10 9.72 10 9.85 9.85a1 1 0 0 0 .26-.92L8.74 3a1 1 0 0 0-.65-.72a3.79 3.79 0 0 0-.72-.18A3.94 3.94 0 0 0 6.6 2A4.6 4.6 0 0 0 2 6.6A15.42 15.42 0 0 0 17.4 22a4.6 4.6 0 0 0 4.6-4.6a4.77 4.77 0 0 0-.06-.76a4.34 4.34 0 0 0-.19-.73" />
+                    </svg>
+                </div>
+                <div class="flex flex-col justify-between items-start">
+                    <p class="text-xl max-w-4xl font-extrabold font-poppins text-center text-neutral-100 uppercase">Phone
+                    </p>
+                    <p class="text-lg max-w-4xl font-bold font-poppins text-center text-secondary uppercase ">+212
+                        524646666</p>
+                </div>
+
+            </div>
+            <div class="flex justify-between">
+                <div class="flex gap-4">
+                    <div class="flex flex-col justify-between items-end">
+                        <p class="text-xl max-w-4xl font-extrabold font-poppins text-center text-neutral-100 uppercase">
+                            Email</p>
+                        <p class="text-lg max-w-4xl font-bold font-poppins text-center text-secondary uppercase ">
+                            Contact@quickbite.com</p>
+                    </div>
+                    <div class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>  
 @endsection
