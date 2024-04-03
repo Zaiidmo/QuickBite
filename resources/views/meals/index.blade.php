@@ -13,22 +13,24 @@
                     <p class="text-lg max-w-4xl font-poppins text-center text-neutral-700 dark:text-neutral-300">where flavour
                         Fun. Fast. Tasty. Delicious.</p>
                 </div>
-                <div class="w-1/2" id='search-form'>
-                    <label
-                        class="mx-auto mt-8 relative bg-component min-w-sm w-full flex flex-col md:flex-row items-center justify-center text-white py-2 px-2 rounded-full gap-2 shadow-2xl focus-within:border-gray-300"
-                        for="search-bar">
-                        <input id="search" type="search" placeholder="Looking For Something Special ... ? " name="search"
-                            class="px-6 py-2 w-2/3 rounded-md flex-1 bg-component placeholder:text-secondary" required="">
-                        <button type="submit"
-                            class="w-1/3 md:w-auto px-6 py-3 bg-primary font-poppins border-secondary text-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-full transition-all">
-                            <div class="flex items-center transition-all opacity-1">
-                                <span class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
-                                    Search
-                                </span>
-                            </div>
+                <form action="" class="w-full mt-12">
+                    <div class="relative flex gap-4 p-1 rounded-full bg-component border-3 border-secondary shadow-md md:p-2">
+                        <select class="hidden p-3 rounded-full border border-secondary text-white bg-transparent md:block md:p-3 md:px-8" name="domain" id="domain">
+                            <option value="design">FastFood</option>
+                            <option value="development">Restaurant</option>
+                            <option value="marketing">Marketing</option>
+                        </select>
+                        <input placeholder="Looking For Something Special ... ? " class="w-full p-2 rounded-full placeholder:text-secondary bg-component " type="text">
+                        <button type="button" title="Start buying" class="py-3 rounded-full text-center bg-primary border-2 border-secondary md:px-12">
+                            <span class="hidden text-white font-semibold md:block">
+Search
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 mx-auto text-yellow-900 md:hidden" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
                         </button>
-                    </label>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
