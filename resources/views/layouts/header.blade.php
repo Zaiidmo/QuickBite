@@ -4,9 +4,9 @@
         <div class="flex w-full flex-wrap items-center justify-between px-3">
             <div>
                 <a class="mx-2 my-1 flex items-center text-white hover:text-white focus:text-white lg:mb-0 lg:mt-0"
-                    href="#">
-                    <img class="mr-2" src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp"
-                        style="height: 20px" alt="TE Logo" loading="lazy" />
+                    href="/">
+                    <img class="mr-2" src={{asset('assets/images/logo.png')}}
+                        style="height: 60px" alt="TE Logo" loading="lazy" />
                 </a>
             </div>
 
