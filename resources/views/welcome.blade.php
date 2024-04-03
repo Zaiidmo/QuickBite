@@ -327,7 +327,4 @@
         </div>
 
     </section>  
-    <section class="bg-component w-full">
-        
-    </section>
 @endsection
