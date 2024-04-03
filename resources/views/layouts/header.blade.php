@@ -1,7 +1,7 @@
 <header class="absolute w-screen">
-    <nav class="relative top-8 lg:top-12 rounded-full flex lg:mx-72 mx-4 flex-wrap items-center justify-between bg-component text-poppins shadow-xl"
+    <nav class="fixed top-8 lg:top-12 border-b border-gray-700 backdrop-blur-sm dark:bg-gray-900/70 xl:w-full xl:top-0 xl:left-0 xl:z-30 rounded-b-2xl"
         data-te-navbar-ref>
-        <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center justify-between px-3">
             <div>
                 <a class="mx-2 my-1 flex items-center text-white hover:text-white focus:text-white lg:mb-0 lg:mt-0"
                     href="/">
