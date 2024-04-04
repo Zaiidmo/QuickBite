@@ -42,7 +42,7 @@
     </section>
     <section class="max-w-screen-xl  mx-auto gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4">
         <div id="sidebar-multi-level-sidebar"
-            class="hidden z-40 transition-transform -translate-x-full sm:translate-x-0 rounded-2xl bg-component h-fit  col-span-1 "
+            class="z-40 transition-transform -translate-x-full sm:translate-x-0 rounded-2xl bg-component h-fit  col-span-1 "
             aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto bg-transparent">
                 <ul class="space-y-2 font-medium">
@@ -132,82 +132,107 @@
             </div>
         </div>
         <!-- component -->
-        <div class="md:col-span-2 lg:col-span-3 lg:pt-24 p-4">
-            <div class="grid gap-14 lg:grid-cols-3 md:grid-cols-2 md:gap-4 md:gap-y-24">
-                <div
-                class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
-                <img src={{ asset('assets/images/quarter_pounder.png') }} alt="quarter_pounder">
-
-                <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
-                    Quarter Pounder®* with Cheese
-                </p>
-                <p class="blueberry font-semibold text-gray-400 group-hover:text-gray-600 text-xs">
-                    One of Kind &amp; Unique Plants Collection Here at SMKY.
-                </p>
-                <div class="ordernow flex flex-row justify-between items-center w-full">
-                    <p class="ordernow-text text-secondary font-semibold group-hover:text-gray-800">
-                        $21.00
-                    </p>
-                    <p
-                        class="btun4 lg:inline-flex items-center gap-3 group-hover:bg-white/10 bg-secondary  shadow-[10px_10px_150px_#ff9f0d] cursor-pointer py-2 px-4 text-sm font-semibold rounded-full butn">
-                        Order Now
-                    </p>
-                </div>
-            </div>
-                <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
-                    <div
-                        class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
-                        <img src={{ asset('assets/images/Pizza.jpg') }} class="w-full h-full rounded-full" alt="Pizza">
+        <div class="md:col-span-2 lg:col-span-3 p-4">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4">
+                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                    href="#">
+                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                            students care about.
+                        </p>
+                        <div class="mt-4">
+                            <button type="button"
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
+                                Creating</button>
+                        </div>
                     </div>
-                    <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
-                    <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
-                    <div class="flex justify-between mt-8">
-                        <p class="px-4 font-bold text-secondary">22.00 $</p>
-                        <button class="text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z" />
-                            </svg>
-                        </button>
+                </a>
+                          
+                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                    href="#">
+                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                            students care about.
+                        </p>
+                        <div class="mt-4">
+                            <button type="button"
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
+                                Creating</button>
+                        </div>
                     </div>
-                </div>
-                <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
-                    <div
-                        class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
-                        <img src={{ asset('assets/images/Pizza.jpg') }} class="w-full h-full rounded-full" alt="Pizza">
+                </a>
+                          
+                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                    href="#">
+                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                            students care about.
+                        </p>
+                        <div class="mt-4">
+                            <button type="button"
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
+                                Creating</button>
+                        </div>
                     </div>
-                    <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
-                    <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
-                    <div class="flex justify-between mt-8">
-                        <p class="px-4 font-bold text-secondary">22.00 $</p>
-                        <button class="text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z" />
-                            </svg>
-                        </button>
+                </a>
+                          
+                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                    href="#">
+                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                            students care about.
+                        </p>
+                        <div class="mt-4">
+                            <button type="button"
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
+                                Creating</button>
+                        </div>
                     </div>
-                </div>
-                <div class="rounded-xl bg-gradient-to-t from-black to-secondary p-6 text-center shadow-xl">
-                    <div
-                        class="mx-auto flex h-48 w-48 -translate-y-24 transform items-center justify-center rounded-full shadow-lg shadow-teal-500/40">
-                        <img src={{ asset('assets/images/Pizza.jpg') }} class="w-full h-full rounded-full" alt="Pizza">
+                </a>
+                          
+                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                    href="#">
+                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                            students care about.
+                        </p>
+                        <div class="mt-4">
+                            <button type="button"
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
+                                Creating</button>
+                        </div>
                     </div>
-                    <h1 class="text-secondary mb-3 text-xl font-medium lg:px-14 ">Pizza</h1>
-                    <p class="px-4 text-gray-500">By: <span class="text-gray-300">Kh'oukha</span></p>
-                    <div class="flex justify-between mt-8">
-                        <p class="px-4 font-bold text-secondary">22.00 $</p>
-                        <button class="text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M9 20c0 1.1-.9 2-2 2s-1.99-.9-1.99-2S5.9 18 7 18s2 .9 2 2m8-2c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m.396-5a2 2 0 0 0 1.952-1.566L21 5H7V4a2 2 0 0 0-2-2H3v2h2v11a2 2 0 0 0 2 2h12a2 2 0 0 0-2-2H7v-2z" />
-                            </svg>
-                        </button>
+                </a>
+                          
+                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                    href="#">
+                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                            students care about.
+                        </p>
+                        <div class="mt-4">
+                            <button type="button"
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
+                                Creating</button>
+                        </div>
                     </div>
-                </div>
+                </a>
+                          
             </div>
 
         </div>
     </section>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> --}}
+    {{-- <p src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></p> --}}
 @endsection
