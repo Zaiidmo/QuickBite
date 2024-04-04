@@ -37,9 +37,11 @@ class MealsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Meals $meals)
+    public function show()
     {
-        //
+        return view('meals.show', [
+            // 'meals' => Meals::findOrFail($meals)
+        ]);
     }
 
     /**
