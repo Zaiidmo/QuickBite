@@ -5,8 +5,8 @@
 @section('content')
     <section class="text-gray-600 body-font overflow-hidden">
 
-        <div class="container px-5 py-36 mx-auto">
-            <div class="flex items-center py-2 overflow-x-auto whitespace-nowrap bg-component w-fit px-8 rounded-full">
+        <div class="container  px-5 py-36 mx-auto">
+            <div class="flex mb-8 items-center py-2 overflow-x-auto whitespace-nowrap bg-component w-fit px-8 rounded-full">
                 <a href="/" class="text-gray-600 dark:text-gray-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                         <path
@@ -39,62 +39,33 @@
                 </a>
             </div>
 
-            <div class="lg:w-4/5 mx-auto flex">
-                <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64" style="border-radius: 3rem;" src="">
-                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-10 mt-6 lg:mt-0">
+            <div class="lg:w-4/5 mx-auto gap-8 flex ">
+                <img alt="item" class="lg:w-1/2 w-full lg:h-auto h-64 rounded-3xl" src={{asset('assets/images/Pizza.jpg')}}>
+                <div class="lg:w-1/2 w-full bg-component rounded-3xl lg:px-10 lg:py-10 mt-6 lg:mt-0">
 
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Name</h1>
-                    <p class="text-xl fonct-bold">Price</p>
-
-                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
-                        <div class="flex">
-                            <span class="mr-3">Color</span>
-                            <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                            <button
-                                class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                            <button
-                                class="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
-                        </div>
-                        <div class="flex ml-6 items-center">
-                            <span class="mr-3">Size</span>
-                            <div class="relative">
-                                <select
-                                    class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
-                                    <option>SM</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                </select>
-                                <span
-                                    class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
-                                        <path d="M6 9l6 6 6-6"></path>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <h1 class="text-secondary font-poppins text-3xl font-extrabold mb-1">Name</h1>
+                    <p class="text-xl text-white font-poppins">Price</p>
+<hr class="mb-8">
                     <div class="flex gap-4">
-                        <span>Shipping</span>
-                        <div>
+                        <span class="text-white">Shipping</span>
+                        <div class="text-gray-400">
                             <h3>Free Shipping to Your Location</h3>
                             <p>Delivery Time: 14–17 days</p>
                         </div>
                     </div>
 
-                    <div class="flex gap-4 mt-8">
+                    {{-- <div class="flex gap-4 mt-8">
                         <h3>Quantity</h3>
                         <form action="">
                             <input class="h-6" type="number" id="tentacles" name="tentacles" min="0"
                                 max="100" />
                         </form>
                         <p>50 available / 104 sold</p>
-                    </div>
+                    </div> --}}
 
                     <div class="flex">
                         {{-- <span class="title-font font-medium text-2xl text-gray-900">$58.00</span> --}}
-                        <div class="mt-4 bg-gray-200 rounded-lg	p-4">
+                        <div class="mt-4 rounded-lg	p-4">
                             <h3 class="text-black text-xl text-fontbold">$79.98</h3>
                             <hr class="my-6 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
                             <div class="flex justify-items-center justify-center gap-3">
