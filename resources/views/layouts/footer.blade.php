@@ -1,5 +1,5 @@
 <footer class="bg-component w-full py-24 pb-4">
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-64 pb-12 border-b-2 border-white max-w-screen-xl mx-auto ">
+    <div class="grid grid-cols-3 px-4 md:px-64 pb-12 border-b-2 border-white max-w-screen-xl mx-auto items-center">
         <div>
             <h2 class="mb-6 text-sm font-semibold tracking-widest text-white uppercase">Quick Links</h2>
             <ul class="text-gray-500 py-3 tracking-widest dark:text-gray-400 font-medium">

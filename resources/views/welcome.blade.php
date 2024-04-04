@@ -7,7 +7,7 @@
         <div class="w-full h-full flex flex-col items-center justify-center">
             <img src="{{ asset('assets/images/hero.jpg') }}" alt="hero" class="w-full h-full object-cover" />
             <div class="absolute flex flex-col items-center">
-                <h1 class="text-8xl font-bold font-passero text-center mb-4 text-white ">Welcome to <span
+                <h1 class="text-4xl md:text-8xl font-bold font-passero text-center mb-4 text-white ">Welcome to <span
                         class="text-secondary">QuickBite</span></h1>
                 <p class="text-lg max-w-4xl font-poppins text-center text-neutral-700 dark:text-neutral-300">where flavour
                     meets
@@ -29,7 +29,7 @@
         </div>
     </section>
     <section class="text-center">
-        <h1 class="my-8 font-passero text-6xl text-white">Recommended <span class="text-secondary">Tasty</span> Food !</h1>
+        <h1 class="my-8 font-passero text-4xl md:text-6xl text-white">Recommended <span class="text-secondary">Tasty</span> Food !</h1>
         <div class="my-24 mx-auto max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <div
                 class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
@@ -144,7 +144,7 @@
     </section>
     <section class="bg-component text-center py-12 ">
         <h1 class="font-passero text-6xl text-white">Most <span class="text-secondary">Popular</span> Categories !</h1>
-        <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 mt-16">
             <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
                 <div class="w-full h-64 rounded-lg shadow-md">
                     <img src={{ asset('assets/images/hamburger.jpg') }} class="rounded-lg w-full h-full" alt="hamburger">
@@ -199,15 +199,15 @@
     <section class="w-screen h-screen top-1">
         <div class="w-full h-full flex flex-col items-center justify-center">
             <img src="{{ asset('assets/images/Testimonials.png') }}" alt="hero" class="w-full h-full object-cover" />
-            <div class="absolute w-full h-full flex flex-col items-center justify-around">
+            <div class="absolute w-full py-8  flex flex-col items-center md:justify-around">
                 <div class="flex flex-col justify-center">
                     <h1 class="text-5xl font-bold font-passero text-center mb-4 text-white "> Our Valuable Clients</h1>
                     <p class="text-xl max-w-4xl font-passero text-center text-neutral-700 dark:text-neutral-300">What
                         people are saying about us ?</p>
                 </div>
 
-                <figure class="max-w-screen-lg self-center mx-auto px-8 lg:px-0 text-center">
-                    <figcaption
+                <div class="max-w-screen-lg self-center mx-auto px-8 lg:px-0 text-center">
+                    <div
                         class="flex flex-col gap-12 items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
                         <div class="flex w-full justify-around text-white">
                             <button>
@@ -219,7 +219,7 @@
                                         d="M16 30a14 14 0 1 1 14-14a14.016 14.016 0 0 1-14 14m0-26a12 12 0 1 0 12 12A12.014 12.014 0 0 0 16 4" />
                                 </svg>
                             </button>
-                            <img class="w-38 h-38 border-8 border-secondary rounded-full"
+                            <img class="w-36 lg:w-56 h-36 lg:h-56 border-8 border-secondary rounded-full"
                                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
                                 alt="profile picture">
                             <button>
@@ -236,7 +236,7 @@
                             <cite class="text-xl font-medium text-white">Michael Gough</cite>
                             <cite class="text-sm text-gray-400">CEO at Google</cite>
                         </div>
-                    </figcaption>
+                    </div>
                     <svg class="w-10 lg:w-20 h-10 lg:h-20 mx-auto mb-3 text-gray-400 dark:text-gray-600"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
                         <path
@@ -248,7 +248,7 @@
                             contains tons of predesigned components and pages starting from login screen to complex
                             dashboard. Perfect choice for your next SaaS application."</p>
                     </blockquote>
-                </figure>
+                </div>
 
             </div>
     </section>
@@ -258,7 +258,7 @@
         </h1>
 
 
-        <form class="max-w-screen-xl my-auto mx-auto">
+        <form class="max-w-screen-xl lg:my-auto lg:mx-auto mx-4">
             <div class="flex gap-12 mb-5">
                 <div class="w-1/2">
                     <label for="firstname" class="block mb-2 text-sm font-medium text-gray-300">Your First Name</label>
@@ -291,33 +291,33 @@
                 class="text-black mb-5 bg-secondary  hover:bg-component focus:ring-4 focus:outline-none hover:text-white focus:ring-primary font-medium rounded-2xl text-sm w-full px-5 py-2.5 text-center ">Submit</button>
         </form>
 
-        <div class="max-w-screen-xl mx-auto flex justify-between my-12">
-            <div class="flex gap-4">
+        <div class="max-w-screen-xl lg:mx-auto flex items-center justify-between my-12 mx-4">
+            <div class="flex flex-col lg:flex-row gap-4">
                 <div class="text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="lg:w-14 lg:h-14 w-10 h-10" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M13 8a3 3 0 0 1 3 3a1 1 0 0 0 2 0a5 5 0 0 0-5-5a1 1 0 0 0 0 2" />
                         <path fill="currentColor"
                             d="M13 4a7 7 0 0 1 7 7a1 1 0 0 0 2 0a9 9 0 0 0-9-9a1 1 0 0 0 0 2m8.75 11.91a1 1 0 0 0-.72-.65l-6-1.37a1 1 0 0 0-.92.26c-.14.13-.15.14-.8 1.38a9.91 9.91 0 0 1-4.87-4.89C9.71 10 9.72 10 9.85 9.85a1 1 0 0 0 .26-.92L8.74 3a1 1 0 0 0-.65-.72a3.79 3.79 0 0 0-.72-.18A3.94 3.94 0 0 0 6.6 2A4.6 4.6 0 0 0 2 6.6A15.42 15.42 0 0 0 17.4 22a4.6 4.6 0 0 0 4.6-4.6a4.77 4.77 0 0 0-.06-.76a4.34 4.34 0 0 0-.19-.73" />
                     </svg>
                 </div>
                 <div class="flex flex-col justify-between items-start">
-                    <p class="text-xl max-w-4xl font-extrabold font-poppins text-center text-neutral-100 uppercase">Phone
+                    <p class="text-sm lg:text-xl max-w-4xl font-extrabold font-poppins text-center text-neutral-100 uppercase">Phone
                     </p>
-                    <p class="text-lg max-w-4xl font-bold font-poppins text-center text-secondary uppercase ">+212
+                    <p class="text-sm lg:text-lg max-w-4xl font-bold font-poppins text-center text-secondary uppercase ">+212
                         524646666</p>
                 </div>
 
             </div>
             <div class="flex justify-between">
-                <div class="flex gap-4">
+                <div class="flex flex-col-reverse items-end lg:flex-row gap-4">
                     <div class="flex flex-col justify-between items-end">
-                        <p class="text-xl max-w-4xl font-extrabold font-poppins text-center text-neutral-100 uppercase">
+                        <p class="text-sm lg:text-xl max-w-4xl font-extrabold font-poppins text-center text-neutral-100 uppercase">
                             Email</p>
-                        <p class="text-lg max-w-4xl font-bold font-poppins text-center text-secondary uppercase ">
+                        <p class="text-sm lg:text-xl max-w-4xl font-bold font-poppins text-center text-secondary uppercase ">
                             Contact@quickbite.com</p>
                     </div>
                     <div class="text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="lg:w-14 lg:h-14 w-10 h-10" viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z" />
                         </svg>
