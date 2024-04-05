@@ -1,5 +1,5 @@
 <header class="absolute w-screen">
-    <nav class="fixed w-full top-0 z-50 border-b border-gray-700 backdrop-blur-sm bg-gray-900/50 rounded-b-2xl"
+    <nav class="fixed w-full top-0 z-50 border-b border-gray-700 backdrop-blur-sm bg-black/40 rounded-b-2xl"
         data-te-navbar-ref>
         <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center justify-between px-3">
             <div>

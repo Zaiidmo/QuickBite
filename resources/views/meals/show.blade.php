@@ -3,10 +3,10 @@
 @section('title', 'QuickBite | Meals')
 
 @section('content')
-    <section class="text-gray-600 body-font overflow-hidden">
+    <section class="text-gray-600 font-poppins body-font overflow-hidden">
 
-        <div class="container  px-5 py-36 mx-auto">
-            <div class="flex mb-8 items-center py-2 overflow-x-auto whitespace-nowrap bg-component w-fit px-8 rounded-full">
+        <div class="container px-5 py-36 mx-auto">
+            <div class="flex mb-8 items-center py-2 overflow-x-auto whitespace-nowrap bg-component w-fit px-8 font-bold rounded-full">
                 <a href="/" class="text-gray-600 dark:text-gray-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                         <path
@@ -40,19 +40,25 @@
             </div>
 
             <div class="lg:w-4/5 mx-auto gap-8 flex ">
-                <img alt="item" class="lg:w-1/2 w-full lg:h-auto h-64 rounded-3xl" src={{asset('assets/images/Pizza.jpg')}}>
-                <div class="lg:w-1/2 w-full bg-component rounded-3xl lg:px-10 lg:py-10 mt-6 lg:mt-0">
-
-                    <h1 class="text-secondary font-poppins text-3xl font-extrabold mb-1">Name</h1>
-                    <p class="text-xl text-white font-poppins">Price</p>
-<hr class="mb-8">
-                    <div class="flex gap-4">
-                        <span class="text-white">Shipping</span>
-                        <div class="text-gray-400">
-                            <h3>Free Shipping to Your Location</h3>
-                            <p>Delivery Time: 14–17 days</p>
-                        </div>
+                <div class="flex flex-col gap-2 w-full lg:w-1/2">
+                    <img alt="item" class="lg:h-auto h-64 rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <img alt="item" class="rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
+                        <img alt="item" class=" rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
+                        <img alt="item" class=" rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
+                        <img alt="item" class=" rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
                     </div>
+                </div>
+                <div class="lg:w-1/2 w-full h-fit rounded-3xl lg:p-10 mt-6 lg:mt-0">
+
+                    <h1 class="text-secondary text-3xl font-extrabold mb-2">Name</h1>
+                    <p class="text-xl text-gray-400 ">From </p>
+                    <hr class="my-8">
+                    <div class="flex gap-4 mb-8">
+                        <p class="text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore adipisci provident recusandae, quas repudiandae molestiae minus officiis! Natus alias cupiditate dolorum officia voluptatem earum placeat, ex a voluptates, animi ab?</p>
+                    </div>
+
+                    <hr>
 
                     {{-- <div class="flex gap-4 mt-8">
                         <h3>Quantity</h3>
@@ -63,33 +69,25 @@
                         <p>50 available / 104 sold</p>
                     </div> --}}
 
-                    <div class="flex">
-                        {{-- <span class="title-font font-medium text-2xl text-gray-900">$58.00</span> --}}
-                        <div class="mt-4 rounded-lg	p-4">
-                            <h3 class="text-black text-xl text-fontbold">$79.98</h3>
-                            <hr class="my-6 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                            <div class="flex justify-items-center justify-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                    viewBox="0 0 1024 1024">
-                                    <path fill="currentColor"
-                                        d="M512 0C229.232 0 0 229.232 0 512c0 282.784 229.232 512 512 512c282.784 0 512-229.216 512-512C1024 229.232 794.784 0 512 0m0 961.008c-247.024 0-448-201.984-448-449.01c0-247.024 200.976-448 448-448s448 200.977 448 448s-200.976 449.01-448 449.01M736 480H544V288c0-17.664-14.336-32-32-32s-32 14.336-32 32v192H288c-17.664 0-32 14.336-32 32s14.336 32 32 32h192v192c0 17.664 14.336 32 32 32s32-14.336 32-32V544h192c17.664 0 32-14.336 32-32s-14.336-32-32-32" />
-                                </svg>
-                                <p>Add shipping insurance for $9( declared value only if the package gets lost, stolen or
-                                    damaged.)</p>
-                            </div>
-                        </div>
+                    <div class="flex gap-4 mt-8 justify-between items-center p-0">
+                        <span class="title-font font-medium text-2xl text-gray-400">$58.00</span>
 
-                    </div>
-
-                    <div class="flex gap-4 mt-8 justify-center p-0">
-                        <button class="group relative h-12 w-64 overflow-hidden rounded-lg bg-white text-lg shadow">
+                        <button
+                            class="group relative h-12 w-fit overflow-hidden rounded-lg bg-primary text-white hover:text-primary text-lg shadow">
                             <div
-                                class="absolute inset-0 w-3 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full">
+                                class="absolute inset-0 w-3 bg-secondary transition-all duration-[250ms] ease-out group-hover:w-full">
                             </div>
-                            <span class="relative text-black group-hover:text-white">Shop now</span>
+                            <div class="relative flex gap-4 px-4 items-center text-center w-fit ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M11 9V6H8V4h3V1h2v3h3v2h-3v3zM7 22q-.825 0-1.412-.587T5 20q0-.825.588-1.412T7 18q.825 0 1.413.588T9 20q0 .825-.587 1.413T7 22m10 0q-.825 0-1.412-.587T15 20q0-.825.588-1.412T17 18q.825 0 1.413.588T19 20q0 .825-.587 1.413T17 22M1 4V2h3.275l4.25 9h7l3.9-7H21.7l-4.4 7.95q-.275.5-.737.775T15.55 13H8.1L7 15h12v2H7q-1.125 0-1.713-.975T5.25 14.05L6.6 11.6L3 4z" />
+                                </svg>
+                                <span class="relative">Add To Cart</span>
+
+                            </div>
                         </button>
 
-                        <form action="" method="POST">
+                        {{-- <form action="" method="POST">
                             @csrf
                             @method('POST')
                             <input type="hidden" name="id" value="#">
@@ -117,12 +115,13 @@
                                     <span class="relative text-black group-hover:text-white">Add to basket</span>
                                 </div>
                             </button>
+                        </form> --}}
                     </div>
 
                 </div>
             </div>
 
-
+            
         </div>
     </section>
 @endsection
