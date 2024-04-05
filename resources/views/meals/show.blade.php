@@ -125,21 +125,79 @@
             </div>
 
             <div class="">
-                <h1 class="text-white text-4xl font-poppins">Description</h1>
-                <hr class="my-6">
-                <p class="text-gray-400 col-span-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                    adipisci
-                    provident recusandae, quas repudiandae molestiae minus officiis! Natus alias cupiditate dolorum
-                    officia voluptatem earum placeat, ex a voluptates, animi ab?
-                </p>
-                <h2 class="text-2xl font-rocksalt text-white mt-8" >Ingrediens: </h2>
-                <ul class="list-disc list-inside text-md text-white mt-2">
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                    <li>Item 4</li>
-                </ul>
-            </div> 
+                <div>
+                    <h1 class="text-white text-4xl font-poppins">Description</h1>
+                    <hr class="my-6">
+                    <p class="text-gray-400 leading-loose col-span-2">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Tempore
+                        adipisci
+                        provident recusandae, quas repudiandae molestiae minus officiis! Natus alias cupiditate dolorum
+                        officia voluptatem earum placeat, ex a voluptates, animi ab?
+                    </p>
+                </div>
+                <div class="flex flex-col justify-between mt-32 items-center">
+                    <h1 class="text-white text-6xl font-passero">Related products</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4">
+                        
+                        <div
+                            class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
+                            <img src={{ asset('assets/images/quarter_pounder.png') }} alt="quarter_pounder">
+
+                            <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
+                                Quarter Pounder®* with Cheese
+                            </p>
+                            <p class="blueberry font-semibold text-gray-400 group-hover:text-gray-600 text-xs">
+                                One of Kind &amp; Unique Plants Collection Here at SMKY.
+                            </p>
+                                <p class="ordernow-text text-secondary font-semibold group-hover:text-gray-800">
+                                    $21.00
+                                </p>
+                        </div>
+                        <div
+                            class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
+                            <img src={{ asset('assets/images/quarter_pounder.png') }} alt="quarter_pounder">
+
+                            <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
+                                Quarter Pounder®* with Cheese
+                            </p>
+                            <p class="blueberry font-semibold text-gray-400 group-hover:text-gray-600 text-xs">
+                                One of Kind &amp; Unique Plants Collection Here at SMKY.
+                            </p>
+                                <p class="ordernow-text text-secondary font-semibold group-hover:text-gray-800">
+                                    $21.00
+                                </p>
+                        </div>
+                        <div
+                            class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
+                            <img src={{ asset('assets/images/quarter_pounder.png') }} alt="quarter_pounder">
+
+                            <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
+                                Quarter Pounder®* with Cheese
+                            </p>
+                            <p class="blueberry font-semibold text-gray-400 group-hover:text-gray-600 text-xs">
+                                One of Kind &amp; Unique Plants Collection Here at SMKY.
+                            </p>
+                                <p class="ordernow-text text-secondary font-semibold group-hover:text-gray-800">
+                                    $21.00
+                                </p>
+                        </div>
+                        <div
+                            class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
+                            <img src={{ asset('assets/images/quarter_pounder.png') }} alt="quarter_pounder">
+
+                            <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
+                                Quarter Pounder®* with Cheese
+                            </p>
+                            <p class="blueberry font-semibold text-gray-400 group-hover:text-gray-600 text-xs">
+                                One of Kind &amp; Unique Plants Collection Here at SMKY.
+                            </p>
+                                <p class="ordernow-text text-secondary font-semibold group-hover:text-gray-800">
+                                    $21.00
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
     </section>
