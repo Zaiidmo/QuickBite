@@ -14,7 +14,8 @@ theme: {
     },
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
-      passero: ["Passero One", "sans-serif"]
+      passero: ["Passero One", "sans-serif"],
+      rocksalt: ["Rock Salt", "cursive"],
       // salsa: ["Salsa", "cursive"],
   },
   fontSize: {

@@ -3,10 +3,11 @@
 @section('title', 'QuickBite | Meals')
 
 @section('content')
-    <section class="text-gray-600 font-poppins body-font overflow-hidden">
+    <section class="text-gray-600 font-poppins body-font overflow-hidden max-w-screen-xl mx-auto">
 
         <div class="container px-5 py-36 mx-auto">
-            <div class="flex mb-8 items-center py-2 overflow-x-auto whitespace-nowrap bg-component w-fit px-8 font-bold rounded-full">
+            <div
+                class="flex mb-8 items-center py-2 overflow-x-auto whitespace-nowrap bg-component w-fit px-8 font-bold rounded-full">
                 <a href="/" class="text-gray-600 dark:text-gray-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                         <path
@@ -39,7 +40,7 @@
                 </a>
             </div>
 
-            <div class="lg:w-4/5 mx-auto gap-8 flex ">
+            <div class="mb-8 gap-8 flex ">
                 <div class="flex flex-col gap-2 w-full lg:w-1/2">
                     <img alt="item" class="lg:h-auto h-64 rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -55,7 +56,9 @@
                     <p class="text-xl text-gray-400 ">From </p>
                     <hr class="my-8">
                     <div class="flex gap-4 mb-8">
-                        <p class="text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore adipisci provident recusandae, quas repudiandae molestiae minus officiis! Natus alias cupiditate dolorum officia voluptatem earum placeat, ex a voluptates, animi ab?</p>
+                        <p class="text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore adipisci
+                            provident recusandae, quas repudiandae molestiae minus officiis! Natus alias cupiditate dolorum
+                            officia voluptatem earum placeat, ex a voluptates, animi ab?</p>
                     </div>
 
                     <hr>
@@ -121,7 +124,23 @@
                 </div>
             </div>
 
-            
+            <div class="">
+                <h1 class="text-white text-4xl font-poppins">Description</h1>
+                <hr class="my-6">
+                <p class="text-gray-400 col-span-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                    adipisci
+                    provident recusandae, quas repudiandae molestiae minus officiis! Natus alias cupiditate dolorum
+                    officia voluptatem earum placeat, ex a voluptates, animi ab?
+                </p>
+                <h2 class="text-2xl font-rocksalt text-white mt-8" >Ingrediens: </h2>
+                <ul class="list-disc list-inside text-md text-white mt-2">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                </ul>
+            </div> 
+        </div>
         </div>
     </section>
 @endsection

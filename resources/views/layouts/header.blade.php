@@ -6,7 +6,7 @@
                 <a class="mx-2 my-1 flex items-center text-white hover:text-white focus:text-white lg:mb-0 lg:mt-0"
                     href="/">
                     <img class="mr-2" src={{asset('assets/images/logo.png')}}
-                        style="height: 60px" alt="TE Logo" loading="lazy" />
+                        style="height: 60px" alt="QuickBite" />
                 </a>
             </div>
 
@@ -33,10 +33,10 @@
                     <!-- Home link -->
                     <li class="pl-2 lg:my-0 lg:pl-2 lg:pr-1" data-te-nav-item-ref>
                         <a class="text-white hover:text-secondary " aria-current="page"
-                            href="#" data-te-nav-link-ref>
+                            href="/" data-te-nav-link-ref>
                             <div>
                                 <p class="font-passero text-3xl ">QuickBite</p>
-                                <span>Delivering Delight, One Bite at a Time!</span>
+                                {{-- <span>Delivering Delight, One Bite at a Time!</span> --}}
                             </div>
                         </a>
                     </li>
