@@ -40,7 +40,7 @@
                 </a>
             </div>
 
-            <div class="mb-8 gap-8 flex ">
+            <div class="mb-8 gap-8 flex flex-col md:flex-row ">
                 <div class="flex flex-col gap-2 w-full lg:w-1/2">
                     <img alt="item" class="lg:h-auto h-64 rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
