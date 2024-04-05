@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="flex flex-col gap-2">
-                        <div class="flex justify-between">
+                        <div class="flex justify-between items-center">
                             <label class="text-white" for="password">Password</label>
                             <a href="#" class="text-secondary underline text-sm "> Forgot Password ?</a>
 
@@ -90,8 +90,8 @@
                         class="self-center w-1/2 py-2 text-xl text-white bg-primary border-2 rounded-xl hover:text-black hover:bg-secondary hover:border-secondary transition-all">Login</button>
                 </form>
                 <div class="text-center mt-6">
-                    <p class="mt-4 text-sm text-white">New To <span class="font-passero">QUICKBITE</span> <span
-                            class="underline text-secondary cursor-pointer"> Create an account</span>
+                    <p class="mt-4 text-sm text-white">New To <span class="font-passero">QUICKBITE</span> <a href="/register"
+                            class="underline text-secondary cursor-pointer"> Create an account</a>
                     </p>
                 </div>
             </div>
