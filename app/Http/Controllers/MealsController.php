@@ -39,9 +39,7 @@ class MealsController extends Controller
      */
     public function show()
     {
-        return view('meals.show', [
-            // 'meals' => Meals::findOrFail($meals)
-        ]);
+        return view('meals.show');
     }
 
     /**

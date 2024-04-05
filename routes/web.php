@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/meals', function () {
-    return view('meals.show');
-});
+// Route::get('/meals', function () {
+//     return view('meals.show');
+// });
 
-// Route::resource('meals', MealsController::class);
+Route::resource('meals', MealsController::class);
