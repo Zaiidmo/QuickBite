@@ -1,12 +1,12 @@
 <header class="absolute w-screen">
     <nav class="fixed w-full top-0 z-50 border-b border-gray-700 backdrop-blur-sm bg-black/40 rounded-b-2xl"
         data-te-navbar-ref>
-        <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center justify-between px-3">
+        <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
             <div>
                 <a class="mx-2 my-1 flex items-center text-white hover:text-white focus:text-white lg:mb-0 lg:mt-0"
                     href="/">
                     <img class="mr-2" src={{asset('assets/images/logo.png')}}
-                        style="height: 60px" alt="QuickBite" />
+                        style="height: 40px" alt="QuickBite" />
                 </a>
             </div>
 
