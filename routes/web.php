@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MealsController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/meals', function () {
-//     return view('meals.show');
-// });
-
+Route::get('/login', [AuthController::class, 'loginView'])->name('login');
 Route::resource('meals', MealsController::class);
