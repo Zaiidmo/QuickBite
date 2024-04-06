@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.noFooterMaster')
 
 @section('title', 'QuickBite | Login')
 
 @section('content')
-    <section class="h-screen relative font-poppins ">
+    <section class="overflow-hidden h-screen relative font-poppins ">
         {{-- <img class="w-full h-full relative" src="{{ asset('assets/images/background.jpg') }}" alt="Cover"> --}}
         <div class="min-h-screen bg-component flex justify-center items-center">
             <div class="absolute w-60 h-60 rounded-xl bg-secondary -top-5 -left-16 z-0 transform rotate-45 hidden md:block">
