@@ -69,7 +69,7 @@
 
 
 <aside id="sidebar-multi-level-sidebar"
-    class="fixed bottom-2 top-2 left-4  z-40 w-72  transition-transform -translate-x-full sm:translate-x-0"
+    class="hidden lg:block fixed bottom-2 top-2 left-4  z-40 w-72  transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto border-b border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
         <ul class="space-y-2 font-medium">

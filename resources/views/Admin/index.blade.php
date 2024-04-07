@@ -106,8 +106,8 @@
 
         </div>
     </section>
-    <section id="statistics_tables" class="font-poppins grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 lg:max-w-screen-2xl lg:mx-auto lg:pr-16 ">
-        <div class="flex flex-col backdrop-blur-sm bg-black/40 border-2 border-secondary rounded-lg  overflow-x-auto p-1.5 align-middle col-span-1">
+    <section id="statistics_tables" class="font-poppins mx-4 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 lg:max-w-screen-2xl lg:mx-auto lg:pr-16 ">
+        <div class="flex flex-col w-full backdrop-blur-sm bg-black/40 border-2 border-secondary rounded-lg overflow-x-auto p-1.5 align-middle col-span-1">
             <h1 class="font-passero text-2xl text-white m-4">
                 Top <span class="text-secondary">Customers</span>
             </h1>
