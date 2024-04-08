@@ -12,13 +12,13 @@
             <table class="w-full divide-y divide-gray-400 text-center">
                 <thead class="text-center">
                     <tr>
-                        <th scope="col" class="px-6 py-3 text-xs  font-extrabold text-gray-400 uppercase">Ref
+                        <th scope="col" class="px-6 py-3 text-xs  font-extrabold text-gray-400 uppercase">Transaction ID
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                             Order N
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
-                            Total
+                            Amount
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                             Made By
@@ -27,9 +27,9 @@
                             Made On
                         </th>
 
-                        {{-- <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
-                            Action
-                        </th> --}}
+                        <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                            Status
+                        </th>
 
                     </tr>
                 </thead>
@@ -40,6 +40,7 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-white">47 $</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-white">Neil Sims</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-white">18-12-2022</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><span class="py-1 px-3 rounded-full bg-secondary border">Paid</span></td>
 
 
                     </tr>
