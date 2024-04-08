@@ -37,4 +37,5 @@ Route::group(['middleware' => 'guest', 'prefix' => 'Admin'], function(){
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::get('/meals', [DashboardController::class, 'meals'])->name('mealsManagement');
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
+    Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });

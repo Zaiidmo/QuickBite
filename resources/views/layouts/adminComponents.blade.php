@@ -148,7 +148,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('mealsManagement')}}"
+                <a href="{{ route('mealsManagement') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -162,7 +162,7 @@
 
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Settings</label>
             <li>
-                <a href="{{route('settings')}}"
+                <a href="{{ route('settings') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
                         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -179,7 +179,7 @@
 
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">User</label>
             <li>
-                <a href="#"
+                <a href="{{ route('profile') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
                         <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28"
@@ -195,7 +195,17 @@
                             </path>
                         </g>
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Account</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('profile') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400"  viewBox="0 0 20 20">
+                        <path fill="currentColor"
+                            d="M9 2a4 4 0 1 0 0 8a4 4 0 0 0 0-8m-4.991 9A2 2 0 0 0 2 13c0 1.691.833 2.966 2.135 3.797C5.417 17.614 7.145 18 9 18q.617 0 1.21-.057A5.48 5.48 0 0 1 9 14.5c0-1.33.472-2.55 1.257-3.5zm6.626 2.92a2 2 0 0 0 1.43-2.478l-.155-.557q.382-.293.821-.497l.338.358a2 2 0 0 0 2.91.001l.324-.344q.448.212.835.518l-.126.423a2 2 0 0 0 1.456 2.519l.349.082a4.7 4.7 0 0 1 .01 1.017l-.46.117a2 2 0 0 0-1.431 2.479l.156.556q-.383.294-.822.498l-.338-.358a2 2 0 0 0-2.909-.002l-.325.344a4.3 4.3 0 0 1-.835-.518l.127-.422a2 2 0 0 0-1.456-2.52l-.35-.082a4.7 4.7 0 0 1-.01-1.016zm4.865.58a1 1 0 1 0-2 0a1 1 0 0 0 2 0" />
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Edit Profile</span>
                 </a>
             </li>
             <li>

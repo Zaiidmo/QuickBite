@@ -27,4 +27,7 @@ class DashboardController extends Controller
     public function settings () {
         return view('Admin.settings');
     }
+    public function profile () {
+        return view('profile.index');
+    }
 }
