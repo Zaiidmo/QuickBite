@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MealsController;
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,5 @@ Route::group(['middleware' => 'guest', 'prefix' => 'Admin'], function(){
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });
+
+Route::resource('restaurants', RestaurantController::class);
