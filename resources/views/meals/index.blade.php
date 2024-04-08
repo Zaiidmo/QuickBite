@@ -49,7 +49,8 @@
                     <li>
                         <button type="button"
                             class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-lg group text-white hover:bg-primary"
-                            aria-controls="category_dropdown" data-collapse-toggle="category_dropdown">
+                            aria-controls="category_dropdown" data-collapse-toggle="category_dropdown"
+                            onclick="filterByCat()">
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Filter By Category </span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 10 6">
@@ -77,7 +78,7 @@
                     <li>
                         <button type="button"
                             class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-lg group text-white hover:bg-primary"
-                            aria-controls="Restaurant_dropdown" data-collapse-toggle="Restaurant_dropdown">
+                            aria-controls="Restaurant_dropdown" data-collapse-toggle="Restaurant_dropdown" onclick="filterByRestau()">
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Filter By Restaurant
                             </span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -86,7 +87,7 @@
                                     d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
-                        <ul id="Restaurant_dropdown" class="hidden py-2 space-y-2">
+                        <ul id="restaurant_dropdown" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="#"
                                     class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group  text-white hover:border hover:border-2-primary">Youcode</a>
@@ -106,7 +107,7 @@
                     <li>
                         <button type="button"
                             class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-lg group text-white hover:bg-primary"
-                            aria-controls="Price_dropdown" data-collapse-toggle="Price_dropdown">
+                            aria-controls="Price_dropdown" data-collapse-toggle="Price_dropdown" onclick="filterByPrice()">
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Filter By Price </span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 10 6">
@@ -114,7 +115,7 @@
                                     d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
-                        <ul id="Price_dropdown" class="hidden py-2 space-y-2">
+                        <ul id="price_dropdown" class="hidden py-2 space-y-2">
 
                             <div class="relative mb-6">
                                 <label for="labels-range-input" class="sr-only">Price_range</label>
@@ -136,10 +137,11 @@
             <div class="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4">
                 <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                            your
                             students care about.
                         </p>
                         <div class="mt-4">
@@ -149,13 +151,14 @@
                         </div>
                     </div>
                 </a>
-                          
+
                 <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                            your
                             students care about.
                         </p>
                         <div class="mt-4">
@@ -165,13 +168,14 @@
                         </div>
                     </div>
                 </a>
-                          
+
                 <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                            your
                             students care about.
                         </p>
                         <div class="mt-4">
@@ -181,13 +185,14 @@
                         </div>
                     </div>
                 </a>
-                          
+
                 <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                            your
                             students care about.
                         </p>
                         <div class="mt-4">
@@ -197,13 +202,14 @@
                         </div>
                     </div>
                 </a>
-                          
+
                 <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                            your
                             students care about.
                         </p>
                         <div class="mt-4">
@@ -213,13 +219,14 @@
                         </div>
                     </div>
                 </a>
-                          
+
                 <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg')}} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and your
+                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                            your
                             students care about.
                         </p>
                         <div class="mt-4">
@@ -229,10 +236,23 @@
                         </div>
                     </div>
                 </a>
-                          
+
             </div>
 
         </div>
     </section>
     {{-- <p src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></p> --}}
+@endsection
+@section('scripts')
+    <script>
+        const filterByCat = () => {
+            document.getElementById('category_dropdown').classList.toggle('hidden');
+        };
+        const filterByRestau = () => {
+            document.getElementById('restaurant_dropdown').classList.toggle('hidden');
+        };
+        const filterByPrice = () => {
+            document.getElementById('price_dropdown').classList.toggle('hidden');
+        };
+    </script>
 @endsection
