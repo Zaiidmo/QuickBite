@@ -105,21 +105,21 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="{{ route('usersManagement')}}"
+                        <a href="{{ route('usersManagement')}}#all"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">All
                             Users</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('usersManagement')}}#customers"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customers</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('usersManagement')}}#restau_owners"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Restaurants
                             Owners</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('usersManagement')}}#delivery_boys"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Delivery
                             Guys</a>
                     </li>
@@ -200,7 +200,7 @@
 
 
 {{-- Main Content --}}
-<main class="w-full max-w-screen-2xl ml-auto mt-32">
+<main class="w-full max-w-screen-2xl ml-auto my-24">
 
     @yield('content')
 
