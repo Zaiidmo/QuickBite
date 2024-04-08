@@ -9,25 +9,22 @@
             Users Management
         </h1>
         <div class="w-full backdrop-blur-xl bg-black/40 rounded-lg border-2 border-secondary">
-            <table class="w-full divide-y divide-gray-400">
-                <thead>
+            <table class="w-full divide-y divide-gray-400 text-center">
+                <thead class="text-center">
                     <tr>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">User
+                        <th scope="col" class="px-6 py-3 text-xs text-start font-extrabold text-gray-400 uppercase">User
                         </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                        <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                             Registered At
                         </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                        <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                             Position
                         </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Purshased/Published
+                        
+                        <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                            Action
                         </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">Total
-                        </th>
-                        <th scope="col" class="relative py-3.5 px-4">
-                            <span class="sr-only">Edit</span>
-                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -43,8 +40,7 @@
                         </th>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-white">12-12-2021</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-white">Customer</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">23 order</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">100 $</td>
+                        
                         <td class="px-4 py-4  text-sm whitespace-nowrap">
                             <div class="flex justify-evenly ">
                                 <button class="text-red-600">
