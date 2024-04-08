@@ -18,4 +18,7 @@ class DashboardController extends Controller
     public function restaurants () {
         return view('Admin.restaurants');
     }
+    public function payments () {
+        return view('Admin.payments');
+    }
 }

@@ -73,6 +73,8 @@
     aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
         <ul class="space-y-2 font-medium">
+            <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Admin</label>
+
             <li>
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -105,28 +107,28 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="{{ route('usersManagement')}}#all"
+                        <a href="{{ route('usersManagement') }}#all"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">All
                             Users</a>
                     </li>
                     <li>
-                        <a href="{{ route('usersManagement')}}#customers"
+                        <a href="{{ route('usersManagement') }}#customers"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customers</a>
                     </li>
                     <li>
-                        <a href="{{ route('usersManagement')}}#restau_owners"
+                        <a href="{{ route('usersManagement') }}#restau_owners"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Restaurants
                             Owners</a>
                     </li>
                     <li>
-                        <a href="{{ route('usersManagement')}}#delivery_boys"
+                        <a href="{{ route('usersManagement') }}#delivery_boys"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Delivery
                             Guys</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="{{ route('restaurantsManagement')}}"
+                <a href="{{ route('restaurantsManagement') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="currentColor"
@@ -136,7 +138,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ route('payments') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
                         <path fill="currentColor"
@@ -146,54 +148,83 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{route('mealsManagement')}}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                        <path
-                            d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        viewBox="0 0 18 20">
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                         <path
                             d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                     </svg>
                     <span class="flex-1 ms-3 whitespace-nowrap">Meals</span>
                 </a>
             </li>
+
+
+            <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Settings</label>
+            <li>
+                <a href="{{route('settings')}}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <path
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37c1 .608 2.296.07 2.572-1.065" />
+                            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0" />
+                        </g>
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Settings</span>
+                </a>
+            </li>
+
+
+            <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">User</label>
             <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28"
+                            stroke-linecap="round" stroke-width="2">
+                            <path d="M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21">
+                                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
+                                    values="28;0" />
+                            </path>
+                            <path
+                                d="M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z">
+                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s"
+                                    dur="0.4s" values="28;0" />
+                            </path>
+                        </g>
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Account</span>
                 </a>
             </li>
             <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
-                        <path
-                            d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
-                        <path
-                            d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
+                            <path stroke-dasharray="32" stroke-dashoffset="32"
+                                d="M12 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20H12">
+                                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
+                                    values="32;0" />
+                            </path>
+                            <path stroke-dasharray="12" stroke-dashoffset="12" d="M9 12h11.5" opacity="0">
+                                <set attributeName="opacity" begin="0.5s" to="1" />
+                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s"
+                                    dur="0.2s" values="12;0" />
+                            </path>
+                            <path stroke-dasharray="6" stroke-dashoffset="6" d="M20.5 12l-3.5 -3.5M20.5 12l-3.5 3.5"
+                                opacity="0">
+                                <set attributeName="opacity" begin="0.7s" to="1" />
+                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s"
+                                    dur="0.2s" values="6;0" />
+                            </path>
+                        </g>
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
                 </a>
             </li>
+
         </ul>
     </div>
 </aside>
@@ -304,16 +335,16 @@
             }
         },
         plugins: {
-                title: {
-                    display: true,
-                    text: 'Most Seller Restaurants', // Your personalized title
-                    font: {
-                        size: 18,
-                        weight: 'bold',
-                        family: 'passero'
-                    }
+            title: {
+                display: true,
+                text: 'Most Seller Restaurants', // Your personalized title
+                font: {
+                    size: 18,
+                    weight: 'bold',
+                    family: 'passero'
                 }
             }
+        }
     };
 
     // Create the bar chart
@@ -322,5 +353,4 @@
         data: restaurantData,
         options: restaurantOptions
     });
-
 </script>
