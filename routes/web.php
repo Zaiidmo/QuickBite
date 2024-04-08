@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MealsController;
 use Illuminate\Support\Facades\Route;
@@ -29,12 +30,7 @@ Route::group(['middleware' => 'guest'], function () {
     
 });
 
-Route::get('/dashboard', function() { 
-    return view('Admin.index');
+Route::group(['middleware' => 'guest', 'prefix' => 'Admin'], function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
 });
-// Route::group(['middleware' => 'guest'], function () {
-//     // Route::post('/login', [AuthController::class, 'login'])->name('login');
-//     Route::get('/register', [AuthController::class, 'registerView'])->name('registerView');
-//     // Route::post('/register', [AuthController::class, 'register'])->name('register');
-    
-// })->prefix('admin');
