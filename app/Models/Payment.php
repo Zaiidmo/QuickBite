@@ -5,23 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Restaurant extends Model
+class Payment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'address',
-        'phone',
-        'email',
-        'cover',
-        'description',
+        'reference',
+        'status',
+        'amount',
         'user_id',
+        'order_id',
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function meals() {
-        return $this->hasMany(Meal::class);
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
     }
+
+    
 }
