@@ -75,7 +75,10 @@
                     <p class="text-white font-poppins w-fit">+212 666 666666</p>
                 </div>
                 <div class="flex gap-4 items justify-between">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z" />
+                    </svg>
                     <p class="text-white font-poppins w-fit">contact@restaurant.com</p>
                 </div>
             </div>
@@ -85,8 +88,187 @@
 
     <section class="max-w-screen-xl mx-auto">
         <h1 class="my-4 md:my-8 font-passero text-center text-4xl md:text-7xl text-white">Here is our <br><span
-            class="text-secondary">Delightful</span>
-        menu !</h1>
+                class="text-secondary">Delightful</span>
+            menu !</h1>
+        <hr class="my-2 text-secondary">
+    </section>
+    <section class="max-w-screen-xl  mx-auto gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4">
+        <div id="sidebar-multi-level-sidebar"
+            class="z-40 transition-transform -translate-x-full sm:translate-x-0 rounded-2xl bg-component h-fit  col-span-1 "
+            aria-label="Sidebar">
+            <div class="h-full pl-3 py-4 overflow-y-auto bg-transparent">
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-l-lg group text-white hover:bg-primary">
+                            Category 1
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- component -->
+        <div class="md:col-span-2 lg:col-span-3 p-4">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4">
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a class="p-2 w-fit h-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                        href="#">
+                        <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                        <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                            <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
+                            {{-- <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
+                                your
+                                students care about.
+                            </p> --}}
+                            <div class="mt-4">
+                                <button type="button"
+                                    class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">23 $</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
     </section>
     {{-- <section id="update-popup" class="hidden">
         <div id="update-popup-container"
