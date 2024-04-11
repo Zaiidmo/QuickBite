@@ -2,6 +2,11 @@
 
 namespace App\Repositories;
 
-class UserRepository {
+use App\Models\User;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 
+class UserRepository implements UserRepositoryInterface{
+    public function register(array $credentials){
+        return User::create($credentials);
+    }
 }

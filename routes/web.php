@@ -24,13 +24,10 @@ Route::get('/', function () {
 
 Route::resource('meals', MealController::class);
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/register', [RegisterController::class, 'index'])->name('regiter');
-    Route::post('/register', [RegisterController::class, 'register'])->name('registering');
-    Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
-    // Route::post('/login', [AuthController::class, 'login'])->name('login');
-    
-});
+Route::get('/register', [RegisterController::class, 'index'])->name('regiter');
+Route::post('/registering', [RegisterController::class, 'register'])->name('registering');
+Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
+
 
 Route::group(['middleware' => 'guest', 'prefix' => 'Admin'], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

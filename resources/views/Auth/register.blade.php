@@ -33,7 +33,8 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form class="flex text-start flex-col gap-4">
+                <form action="{{ route('registering') }}" method="POST" class="flex text-start flex-col gap-4">
+                    @csrf
 
                     <div class="flex  flex-col gap-2">
                         <label class="text-white" for="username">Your Username</label>
@@ -99,7 +100,7 @@
 
                     <div class="flex flex-col gap-2">
                         <div class="flex justify-between">
-                            <label class="text-white" for="password">Confirm Your Password</label>
+                            <label class="text-white" for="password_confirmation">Confirm Your Password</label>
                         </div>
                         <div class="flex w-full">
                             <div class="relative w-full">
@@ -111,7 +112,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input type="password" name = "password" id="password"
+                                <input type="password" name = "password_confirmation" id="password_confirmation"
                                     class="text-white bg-component text-sm rounded-lg block w-full ps-10 p-2.5 "
                                     placeholder="********">
                             </div>
@@ -134,7 +135,8 @@
                     </div>
 
                     <button type="submit"
-                        class="self-center w-1/2 py-2 text-xl text-white bg-primary border-2 border-secondary rounded-xl hover:text-black hover:bg-secondary hover:border-component transition-all">Next</button>
+                        class="self-center w-1/2 py-2 text-xl text-white bg-primary border-2 border-secondary rounded-xl hover:text-black hover:bg-secondary hover:border-component transition-all">Submit</button>
+
                 </form>
                 <div class="text-center mt-6">
                     <p class="mt-4 text-sm text-white">Already have an account ? <a href="/login"
@@ -143,7 +145,8 @@
                 </div>
             </div>
             <div class="w-40 h-40 absolute bg-secondary rounded-full top-0 right-12 hidden md:block"></div>
-            <div class="w-20 h-40 absolute bg-secondary rounded-full bottom-20 left-10 transform rotate-45 hidden md:block">
+            <div
+                class="w-20 h-40 absolute bg-secondary rounded-full bottom-20 left-10 transform rotate-45 hidden md:block">
             </div>
         </div>
 
@@ -204,7 +207,7 @@
                         </div>
                     </div>
                 `;
-            } else  if (userType === 'delivery_guy') {
+            } else if (userType === 'delivery_guy') {
                 extraInputsDiv.innerHTML = `
                 <div class="flex flex-col gap-2">
                         <label class="text-white text-sm font-bold" for="type">Vehicle Type</label>
@@ -232,7 +235,7 @@
             } else {
                 // If the user type is not selected, hide the extra inputs
                 extraInputsDiv.style.display = 'none';
-            
+
             }
 
             // Show the extra inputs
