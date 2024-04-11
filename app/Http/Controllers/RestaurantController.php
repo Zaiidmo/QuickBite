@@ -37,9 +37,9 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Restaurant $restaurant)
+    public function show()
     {
-        //
+        return view('restaurants.show');
     }
 
     /**
