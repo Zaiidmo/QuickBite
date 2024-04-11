@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MealsController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,13 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('meals', MealsController::class);
+Route::resource('meals', MealController::class);
 
 Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [RegisterController::class, 'index'])->name('regiter');
+    Route::post('/register', [RegisterController::class, 'register'])->name('registering');
     Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
     // Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/register', [AuthController::class, 'registerView'])->name('registerView');
-    // Route::post('/register', [AuthController::class, 'register'])->name('register');
     
 });
 
