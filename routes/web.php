@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource('meals', MealController::class);
+
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
 
