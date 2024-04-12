@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Role;
 use App\Models\User;
 
 class UserRepository implements UserRepositoryInterface
@@ -9,12 +10,13 @@ class UserRepository implements UserRepositoryInterface
     public function create(array $data)
     {
         $data['password'] = bcrypt($data['password']);
-        $role = $data['user_type'];
+        $role = Role::where('slug', $data['user_type'])->get();
         unset($data['user_type']);
         $user = User::create($data);
         if($user) {
             $user->roles()->attach($role);
-            auth()->login($user);
+            dd('$user');
+            // auth()->login($user);
             return true;
         } return false ;
 

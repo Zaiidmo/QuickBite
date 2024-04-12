@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
         // Super Admin Seeder
 
         \App\Models\User::create([
-            'name' => 'Super Admin',
+            'username' => 'Super Admin',
             'email' => 'super@quickbite.com',
-        'password' => bcrypt('password'),]);
+            'password' => bcrypt('password'),]);
 
         
     }
