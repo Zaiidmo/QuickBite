@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,18 +18,17 @@ class DatabaseSeeder extends Seeder
         //Permission Seeder
         $this->call(PermissionSeeder::class);
 
-        
-        //Role Seeder 
+        //Role Seeder
         $this->call(RoleSeeder::class);
 
-
         // Super Admin Seeder
+        $superAdminRole = Role::where('slug', 'super-admin')->first();
 
-        \App\Models\User::create([
+        $superAdmin = User::create([
             'username' => 'Super Admin',
             'email' => 'super@quickbite.com',
-            'password' => bcrypt('password'),]);
-
-        
+            'password' => bcrypt('password'),
+        ]);
+        $superAdmin->roles()->attach($superAdminRole);
     }
 }
