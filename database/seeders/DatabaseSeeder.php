@@ -12,8 +12,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //Permission Seeder
+        $this->call(PermissionSeeder::class);
+
+        
         //Role Seeder 
         $this->call(RoleSeeder::class);
+
+
+        // Super Admin Seeder
+
+        \App\Models\User::create([
+            'name' => 'Super Admin',
+            'email' => 'super@quickbite.com',
+        'password' => bcrypt('password'),]);
 
         
     }

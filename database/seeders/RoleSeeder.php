@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Role;
@@ -13,8 +14,11 @@ class RoleSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
+        $permissions = Permission::all();
+        $superPermissions = $permissions->pluck('id')->toArray();
         $roles = [
             [
                 'name' => 'Super Admin',
@@ -39,7 +43,16 @@ class RoleSeeder extends Seeder
         ];
 
         foreach ($roles as $roleData) {
-            Role::create($roleData);
+            // Create or update the role
+            $role = Role::updateOrCreate(
+                ['slug' => $roleData['slug']],
+                ['name' => $roleData['name']]
+            );
+
+            // If the role is Super Admin, assign all permissions
+            if ($roleData['slug'] === 'super-admin') {
+                $role->permissions()->sync($superPermissions);
+            }
         }
     }
 }
