@@ -6,29 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('users_permissions', function (Blueprint $table) {
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('permission_id');
-    
-            //FOREIGN KEY
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('permission_id')->constrained()->onDelete('cascade');
-    
-            //PRIMARY KEYS
-            $table->primary(['user_id','permission_id']);
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('permission_id');
+
+            // FOREIGN KEYS
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+
+            // PRIMARY KEY
+            $table->primary(['user_id', 'permission_id']);
         });
     }
-    
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('users_permissions');
     }
