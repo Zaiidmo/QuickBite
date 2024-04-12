@@ -11,6 +11,7 @@ class UserRepository implements UserRepositoryInterface
     {
         $data['password'] = bcrypt($data['password']);
         $role = Role::where('slug', $data['user_type'])->get();
+
         $user = User::create($data);
         if($user) {
             $user->roles()->attach($role);

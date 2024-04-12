@@ -195,13 +195,13 @@
             } else if (userType === 'restaurant-owner') {
                 extraInputsDiv.innerHTML = `
                 <div class="flex  flex-col gap-2">
-                        <label class="text-white" for="name">Legal Name</label>
+                        <label class="text-white" for="legal_name">Legal Name</label>
                         <div class="flex w-full">
                             <div class="relative w-full">
                                 <div class="text-white absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26"><path fill="currentColor" d="M16.563 15.9c-.159-.052-1.164-.505-.536-2.414h-.009c1.637-1.686 2.888-4.399 2.888-7.07c0-4.107-2.731-6.26-5.905-6.26c-3.176 0-5.892 2.152-5.892 6.26c0 2.682 1.244 5.406 2.891 7.088c.642 1.684-.506 2.309-.746 2.397c-3.324 1.202-7.224 3.393-7.224 5.556v.811c0 2.947 5.714 3.617 11.002 3.617c5.296 0 10.938-.67 10.938-3.617v-.811c0-2.228-3.919-4.402-7.407-5.557"/></svg>
                                 </div>
-                                <input type="text" name="name" id="name"
+                                <input type="text" name="legal_name" id="legal_name"
                                     class="text-white bg-component text-sm rounded-lg block w-full ps-10 p-2.5 "
                                     placeholder="Please Provide Your Legal Name">
                             </div>
@@ -212,21 +212,22 @@
                 extraInputsDiv.innerHTML = `
                 <div class="flex flex-col gap-2">
                         <label class="text-white text-sm font-bold" for="type">Vehicle Type</label>
-                        <select name="vehicle_type" id="vehicle_type"
+                        <select name="vehicle" id="vehicle"
                             class="text-white bg-component text-sm rounded-lg block w-full p-2.5">
                             <option selected>select vehicle type</option>
-                            <option value="bicycle">Bicycle</option>
-                            <option value="motorcycle">Motorcycle</option>
+                            <option value="foot">Foot</option>
+                            <option value="bike">Bicycle</option>
+                            <option value="bike">Motorcycle</option>
                             <option value="car">Car</option>
                         </select>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label class="text-white" for="registration_number">Registration Number</label>
+                        <label class="text-white" for="vehicle_registration">Registration Number</label>
                         <div class="relative w-full">
                                 <div class="text-white absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M2 5.25A2.25 2.25 0 0 1 4.25 3h10a2.25 2.25 0 0 1 2.25 2.25V6h1.55c.87 0 1.662.501 2.034 1.287l1.7 3.587c.142.301.216.63.216.963v5.413a2.25 2.25 0 0 1-2.25 2.25h-1.791a3 3 0 0 1-5.917 0H9.958a3 3 0 0 1-5.92-.01A2.25 2.25 0 0 1 2 17.25zM20.5 15.5h-1.25a.75.75 0 1 0 0 1.5h1.25zm-.317-4.5L18.73 7.929a.75.75 0 0 0-.678-.429H16.5V11zM7 20.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m9.5-1.5a1.5 1.5 0 1 0-3 0a1.5 1.5 0 0 0 3 0"/></svg>
                                 </div>
-                                <input type="text" name="registration_number" id="registration_number"
+                                <input type="text" name="vehicle_registration" id="vehicle_registration"
                             class="text-white bg-component text-sm rounded-lg block w-full ps-10 p-2.5"
                             placeholder="Vehicle Registration Number">
                             </div>

@@ -24,20 +24,37 @@ class RegisterRequest extends FormRequest
     {
         $rules = [
             'username' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'user_type' => 'required',
+            'legal_name' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:255',
+            'vehicle' => 'nullable|string|in:foot,bike,car',
+            'vehicle_registration' => 'nullable|string|max:255',
         ];
-        if ($this->user_type === 'customer') {
-            $rules['address'] = 'required|string|max:255';
-            $rules['phone'] = 'required|string|max:255';
-        } elseif ($this->user_type === 'restaurant_owner') {
-            $rules['name'] = 'required|string|max:255';
-        } elseif ($this->user_type === 'delivery_guy') {
-            $rules['vehicle_type'] = 'required|string|in:bicycle,motorcycle,car';
-            $rules['registration_number'] = 'required|string|max:255';
-        }
-
         return $rules;
+    }
+    public function messages()
+    {
+        return [
+            'username.required' => 'Username is required',
+            'email.required' => 'Email is required',
+            'email.email' => 'Email is invalid',
+            'email.unique' => 'Email is already taken',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password must be at least 6 characters',
+            'user_type.required' => 'User type is required',
+            'legal_name.string' => 'Legal name must be a string',
+            'legal_name.max' => 'Legal name must not exceed 255 characters',
+            'address.string' => 'Address must be a string',
+            'address.max' => 'Address must not exceed 255 characters',
+            'phone.string' => 'Phone must be a string',
+            'phone.max' => 'Phone must not exceed 255 characters',
+            'vehicle_type.string' => 'Vehicle type must be a string',
+            'vehicle_type.in' => 'Vehicle type must be bicycle, motorcycle or car',
+            'vehicle_registration.string' => 'Registration number must be a string',
+            'vehicle_registration.max' => 'Registration number must not exceed 255 characters',
+        ];
     }
 }

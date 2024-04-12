@@ -22,7 +22,7 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request) {
         $data = $request->validated();
-        // dd($data['user_type']);
+        // dd([$data]);
         
         $this->userRepository->create($data);
         // return redirect()->route('login');
