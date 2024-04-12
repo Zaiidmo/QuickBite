@@ -125,8 +125,8 @@
                             class="text-white bg-component text-sm rounded-lg block w-full p-2.5">
                             <option selected>select account type</option>
                             <option value="customer">Customer</option>
-                            <option value="restaurant_owner">Restaurant Owner</option>
-                            <option value="delivery_guy">Delivery Guy</option>
+                            <option value="restaurant-owner">Restaurant Owner</option>
+                            <option value="driver">Delivery Guy</option>
                         </select>
                     </div>
 
@@ -192,7 +192,7 @@
                         </div>
                     </div>
                 `;
-            } else if (userType === 'restaurant_owner') {
+            } else if (userType === 'restaurant-owner') {
                 extraInputsDiv.innerHTML = `
                 <div class="flex  flex-col gap-2">
                         <label class="text-white" for="name">Legal Name</label>
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                 `;
-            } else if (userType === 'delivery_guy') {
+            } else if (userType === 'driver') {
                 extraInputsDiv.innerHTML = `
                 <div class="flex flex-col gap-2">
                         <label class="text-white text-sm font-bold" for="type">Vehicle Type</label>

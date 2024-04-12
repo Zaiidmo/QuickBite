@@ -8,6 +8,7 @@ class RegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -19,33 +20,24 @@ class RegisterRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
-        return [
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            'user_type' =>'required|in:customer,restaurant,driver',
-
-            'legal_name' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:255',
-            'address' => 'nullable|string|max:255',
-            'vehicle' => 'nullable|string|max:255',
-            'vehicle_registration' => 'nullable|string|max:255',
+        $rules = [
+            'username' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+            'user_type' => 'required',
         ];
-    }
+        if ($this->user_type === 'customer') {
+            $rules['address'] = 'required|string|max:255';
+            $rules['phone'] = 'required|string|max:255';
+        } elseif ($this->user_type === 'restaurant_owner') {
+            $rules['name'] = 'required|string|max:255';
+        } elseif ($this->user_type === 'delivery_guy') {
+            $rules['vehicle_type'] = 'required|string|in:bicycle,motorcycle,car';
+            $rules['registration_number'] = 'required|string|max:255';
+        }
 
-    public function messages()
-    {
-        return [
-            'email.required' => 'Email address is required !! ',
-            'email.email' => 'Unvalid Email address ; example@email.com',
-            'email.unique' => 'you already have an account',
-            'username.required' => 'User name required',
-            'username.string' => 'unvalid name',
-            'password.required' => 'password required',
-            'password.min' => 'password not strong enough !',
-            'user_type.required' => 'Please select a type for your account',
-        ];
+        return $rules;
     }
 }

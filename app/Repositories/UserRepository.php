@@ -11,14 +11,13 @@ class UserRepository implements UserRepositoryInterface
     {
         $data['password'] = bcrypt($data['password']);
         $role = Role::where('slug', $data['user_type'])->get();
-        unset($data['user_type']);
         $user = User::create($data);
         if($user) {
             $user->roles()->attach($role);
-            dd('$user');
+            dd($user);
             // auth()->login($user);
-            return true;
-        } return false ;
+            return redirect('/')->with('success', 'You have been registered successfully');
+        } return back()->with('error', 'Something went wrong') ;
 
     }
 }
