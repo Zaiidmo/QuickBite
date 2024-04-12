@@ -15,9 +15,9 @@ class UserRepository implements UserRepositoryInterface
         $user = User::create($data);
         if($user) {
             $user->roles()->attach($role);
-            dd($user);
+            // dd($user);
             // auth()->login($user);
-            return redirect('/')->with('success', 'You have been registered successfully');
+            return redirect('/login')->with('success', 'Account created successfully');
         } return back()->with('error', 'Something went wrong') ;
 
     }

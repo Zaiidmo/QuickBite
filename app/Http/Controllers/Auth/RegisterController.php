@@ -25,6 +25,5 @@ class RegisterController extends Controller
         // dd([$data]);
         
         $this->userRepository->create($data);
-        // return redirect()->route('login');
     }
 }
