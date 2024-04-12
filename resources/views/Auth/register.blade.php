@@ -33,7 +33,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form id="registrationForm" action="{{ route('registering') }}" method="POST"
+                <form id="registrationForm" action="{{ route('register.store') }}" method="POST"
                     class="flex text-start flex-col gap-4">
                     @csrf
                     <div class="flex  flex-col gap-2">

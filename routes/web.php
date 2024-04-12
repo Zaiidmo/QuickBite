@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +22,8 @@ Route::get('/', function () {
 });
 
 Route::resource('meals', MealController::class);
-
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
 
 
 
