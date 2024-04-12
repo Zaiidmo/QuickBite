@@ -24,9 +24,7 @@ Route::get('/', function () {
 
 Route::resource('meals', MealController::class);
 
-Route::get('/register', [RegisterController::class, 'index'])->name('regiter');
-Route::post('/registering', [RegisterController::class, 'register'])->name('registering');
-Route::get('/login', [AuthController::class, 'loginView'])->name('loginView');
+
 
 
 Route::group(['middleware' => 'guest', 'prefix' => 'Admin'], function(){

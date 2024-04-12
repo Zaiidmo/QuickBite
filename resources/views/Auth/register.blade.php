@@ -33,9 +33,9 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form action="{{ route('registering') }}" method="POST" class="flex text-start flex-col gap-4">
+                <form id="registrationForm" action="{{ route('registering') }}" method="POST"
+                    class="flex text-start flex-col gap-4">
                     @csrf
-
                     <div class="flex  flex-col gap-2">
                         <label class="text-white" for="username">Your Username</label>
                         <div class="flex w-full">
@@ -79,8 +79,8 @@
                     <div class="flex flex-col gap-2">
                         <div class="flex justify-between">
                             <label class="text-white" for="password">Password</label>
-
                         </div>
+
                         <div class="flex w-full">
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -163,6 +163,7 @@
 
             // Depending on the selected user type, display the corresponding extra inputs
             if (userType === 'customer') {
+                // Populate extra inputs for customer
                 extraInputsDiv.innerHTML = `
                 <div class="flex  flex-col gap-2">
                         <label class="text-white" for="address">Your Address</label>
