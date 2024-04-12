@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Repositories\UserRepositoryInterface;
 
 class LoginController extends Controller
@@ -18,8 +19,10 @@ class LoginController extends Controller
         return view('Auth.login');
     }
 
-    public function login() {
-        $credentials = $request->validated()
+    public function login(LoginRequest $request) {
+        // dd($request);
+        $credentials = $request->validated();
+        $this->userRepository->connect($credentials);
     }
 
 }

@@ -27,6 +27,7 @@ Route::resource('meals', MealController::class);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
+Route::post('/login', [LoginController::class, 'login'])->name('login.connect');
 
 
 

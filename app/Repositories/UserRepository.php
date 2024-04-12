@@ -21,4 +21,12 @@ class UserRepository implements UserRepositoryInterface
         } return back()->with('error', 'Something went wrong') ;
 
     }
+
+    public function connect(array $data)
+    {
+        if(auth()->attempt($data)) {
+            // dd($data);
+            return redirect('/');
+        } return back()->with('error', 'Invalid credentials');
+    }
 }

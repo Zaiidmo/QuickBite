@@ -33,7 +33,8 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form class="flex  text-start flex-col gap-4">
+                <form action="{{ route('login.connect')}}" method="POST" class="flex text-start flex-col gap-4">
+                    @csrf
                     <div class="flex  flex-col gap-2">
                         <label class="text-white" for="username">Username</label>
                         <div class="flex w-full">
@@ -77,14 +78,14 @@
                         </div>
                     </div>
 
-                    <div class="flex items-start mb-5">
+                    {{-- <div class="flex items-start mb-5">
                         <div class="flex items-center h-5">
                             <input id="remember" type="checkbox" value=""
                                 class="w-4 h-4 border rounded focus:ring-3 bg-gray-700 border-gray-600 dark:focus:ring-secondary dark:ring-offset-secondary dark:focus:ring-offset-gray-800" />
                         </div>
                         <label for="remember" class="ms-2 text-sm font-medium text-gray-300">Remember
                             me</label>
-                    </div>
+                    </div> --}}
 
                     <button type="submit"
                         class="self-center w-1/2 py-2 text-xl text-white bg-primary border-2 rounded-xl hover:text-black hover:bg-secondary hover:border-secondary transition-all">Login</button>
