@@ -19,4 +19,9 @@ class RestaurantRepository implements RestaurantRepositoryInterface
     {
         return Restaurant::create($data);
     }
+
+    public function kill(Restaurant $restaurant)
+    {
+        return $restaurant->delete();
+    }
 }

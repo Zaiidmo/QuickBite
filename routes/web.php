@@ -53,5 +53,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
     Route::post('/storingRestaurant', [RestaurantController::class, 'store'])->name('restaurants.store');
     Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
+    Route::put('/destroyingRestaurant', [RestaurantController::class, 'destroy'])->name('restaurants.kill');
     Route::get('/restaurantsManagement', [RestaurantController::class, 'dashboard'])->name('restaurantsManagement');
 });
