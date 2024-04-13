@@ -169,7 +169,41 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-white">180 $ /Month</td>
 
                             <td class="px-4 py-4  text-sm whitespace-nowrap">
-                                <div class="flex justify-evenly ">
+                                <div class="flex justify-evenly items-center ">
+                                    <div class="group relative w-fit">
+                                        <button class="text-secondary" onclick="displayUpdatePopup()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 48 48">
+                                                <g fill="none" stroke="currentColor" stroke-linejoin="round"
+                                                    stroke-width="4">
+                                                    <path stroke-linecap="round"
+                                                        d="M42 26v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h14" />
+                                                    <path fill="currentColor" d="M14 26.72V34h7.317L42 13.308L34.695 6z" />
+                                                </g>
+                                            </svg>
+                                        </button>
+                                        <span
+                                            class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                                    z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                                    group-hover:scale-100">Edit
+                                        </span>
+                                    </div>
+
+                                    <div class="group relative w-fit">
+                                        <button class="text-orange-700">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+                                            </svg>
+                                        </button>
+                                        <span
+                                            class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                                    z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                                    group-hover:scale-100">Closed
+                                        </span>
+                                    </div>
+
                                     <div class="group relative w-fit">
                                         <button class="text-red-900">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -180,9 +214,7 @@
                                         </button>
                                         <span
                                             class="absolute -top-14 left-[50%] -translate-x-[50%] 
-                                    z-20 origin-left scale-0 px-3 rounded-lg border 
-                                    border-gray-300 bg-white py-2 text-sm font-bold
-                                    shadow-md transition-all duration-300 ease-in-out 
+                                    z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
                                     group-hover:scale-100">Delete
                                         </span>
                                     </div>
@@ -195,6 +227,108 @@
                 </tbody>
             </table>
         </div>
+    </section>
+
+    <section id="updatePopup" class=" relative  hidden">
+        <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
+            <div class="absolute bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
+                <button id="updatePopup-close" onclick="closeUpdatePopup()" type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"><svg
+                        aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            cliprule="evenodd"></path>
+                    </svg>
+                </button>
+
+                <div class="p-5">
+
+                    @foreach ($ownedRestaurants as $restaurant)
+                        <div class="text-center">
+                            <p class="mb-1 text-2xl font-semibold leading-10 text-white font-passero">
+                                Edit Restaurant
+                            </p>
+                        </div>
+                        <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide" action=""
+                            method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="flex flex-row justify-between mt-8 gap-8">
+                                <div class="w-full">
+                                    <label for="Event Title"
+                                        class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
+                                        Name</label>
+                                    <input type="text" value="{{ $restaurant->name }}" name="name"
+                                        class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-5 py-2.5 text-white "
+                                        required />
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <label for="description" class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
+                                    Description</label>
+                                <textarea id="description" name="description" placeholder="A tiny bio of what this is about .!"
+                                    class="block mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 text-xs px-5 py-2.5 text-white "
+                                    required></textarea>
+                            </div>
+
+                            <div class="flex flex-row justify-between mt-8 gap-8">
+                                <div class="w-full">
+                                    <label for="adress"
+                                        class="block text-sm text-white dark:text-gray-300">Address</label>
+                                    <input type="text" name="location"
+                                        class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-2 py-2.5 text-white"
+                                        value="{{ $restaurant->address }}" />
+                                </div>
+                                <div class="w-full">
+                                    <label for="phone"
+                                        class="block text-sm text-gray-500 dark:text-gray-300">Phone</label>
+                                    <input type="phone" name="phone"
+                                        class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-2 py-2.5 text-subtle focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
+                                        value="{{ $restaurant->phone }}" />
+                                </div>
+                                <div class="w-full">
+                                    <label for="email"
+                                        class="block text-sm text-gray-500 dark:text-gray-300">Email</label>
+                                    <input type="email" name="email"
+                                        class="block  text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-2 py-2.5 text-subtle focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
+                                        value="{{ $restaurant->email }}" />
+                                </div>
+
+                            </div>
+
+                            <div class="mt-8 w-full">
+                                <label for="cover" class="block text-sm text-gray-500 dark:text-gray-300">Upload a
+                                    cover</label>
+                                <label for="cover"
+                                    class="flex flex-col text-xs items-center w-full p-5 mt-2 text-center bg-secondary/60 border-2 border-gray-200 border-dashed cursor-pointer rounded-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-300">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                                    </svg>
+
+                                    <h2 class="mt-1 font-medium tracking-wide text-gray-300">Upload a
+                                        cover</h2>
+
+                                    <p class="mt-2 text-xs tracking-wide text-gray-300">Upload or darg &
+                                        drop your
+                                        file JPG, JPEG, PNG. </p> <input name="cover" id="cover" type="file"
+                                        class="hidden" value="{{ $restaurant->cover }}" />
+                                </label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit"
+                                class="mt-8 py-2.5 w-full bg-primary border-2 text-white border-secondary hover:bg-secondary hover:border-primary hover:text-black text-lg font-poppins tracking-widest font-extrabold rounded-full">
+                                U P D A T E
+                            </button>
+                        </form>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section id="createModal" class=" relative  hidden">
@@ -309,7 +443,24 @@
 
         document.addEventListener("keydown", function(event) {
             const modal = document.getElementById('createModal');
-            if (event.keyCode === 27) { 
+            if (event.keyCode === 27) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        function displayUpdatePopup() {
+            const modal = document.getElementById('updatePopup');
+            modal.classList.remove('hidden');
+        }
+
+        function closeUpdatePopup() {
+            const modal = document.getElementById('updatePopup');
+            modal.classList.add('hidden');
+        }
+
+        document.addEventListener("keydown", function(event) {
+            const modal = document.getElementById('updatePopup');
+            if (event.keyCode === 27) {
                 modal.classList.add('hidden');
             }
         });
