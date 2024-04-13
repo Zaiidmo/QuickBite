@@ -11,6 +11,7 @@ interface UserRepositoryInterface
     public function create(array $data);
 
     public function connect(array $data);
+    public function disconnect();
 
     // public function update(array $data, $id);
 

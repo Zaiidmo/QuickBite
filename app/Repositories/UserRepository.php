@@ -17,8 +17,8 @@ class UserRepository implements UserRepositoryInterface
             $user->roles()->attach($role);
             // dd($user);
             // auth()->login($user);
-            return redirect('/login')->with('success', 'Account created successfully');
-        } return back()->with('error', 'Something went wrong') ;
+            return true;
+        } return false ;
 
     }
 
@@ -26,7 +26,16 @@ class UserRepository implements UserRepositoryInterface
     {
         if(auth()->attempt($data)) {
             // dd($data);
-            return redirect('/');
-        } return back()->with('error', 'Invalid credentials');
+            request()->session()->regenerate();
+            return true;
+        } return false;
     }
+
+    public function disconnect()
+    {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return true;
+}
 }

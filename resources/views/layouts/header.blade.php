@@ -29,38 +29,55 @@
             </button>
         </div>
         <!-- Collapsible navbar container -->
-        <div id="ScreenNavigator" class="hidden top-0 right-0 w-0 h-screen bg-black/40 backdrop-blur-xl overflow-hidden ">
+        <div id="ScreenNavigator"
+            class="hidden top-0 right-0 w-0 h-screen bg-black/40 backdrop-blur-xl overflow-hidden ">
             <div
-                class="md:max-w-screen-xl md:mx-auto w-screen h-screen md:w-full flex flex-col gap-12 justify-center items-center ">
+                class="md:max-w-screen-xl md:mx-auto w-screen h-screen md:w-full flex flex-col gap-8 justify-center items-center ">
                 <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-8xl text-white hover:text-secondary border-b border-secondary">
+                    class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
                     <a href="/">HOME</a>
                 </div>
                 <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-8xl text-white hover:text-secondary border-b border-secondary">
+                    class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
                     <a href="/">Meals</a>
                 </div>
                 <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-8xl text-white hover:text-secondary border-b border-secondary">
+                    class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
                     <a href="/">Restaurants</a>
                 </div>
-                <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-8xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="/">Dashboard</a>
-                </div>
+                @auth
+                    <div
+                        class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                        <a href="/">My Cart</a>
+                    </div>
+                    <div
+                        class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                        <a href="/">Dashboard</a>
+                    </div>
+                @endauth
                 <div class="flex flex-col md:flex-row gap-4 ">
-                    <a href="{{ route('login') }}"
-                        class="inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
-                        Login
-                    </a>
-                    <a href="{{ route('register') }}"
-                        class="inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
-                        Get Started Now
-                    </a>
-                    <a href="{{ route('register') }}"
-                        class="inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
-                        Get Started Now
-                    </a>
+                    @auth
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                class="flex items-center gap-2 border-b-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-black focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z" />
+                                </svg>
+                                Log Out
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}"
+                            class="inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
+                            Login
+                        </a>
+                        <a href="{{ route('register') }}"
+                            class="inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
+                            Get Started Now
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>

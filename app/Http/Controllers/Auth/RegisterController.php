@@ -24,6 +24,9 @@ class RegisterController extends Controller
         $data = $request->validated();
         // dd([$data]);
         
-        $this->userRepository->create($data);
+        $attempt = $this->userRepository->create($data);
+        if($attempt) {
+            return redirect()->route('login');
+        } return back()->with('error', 'Something went wrong');
     }
 }
