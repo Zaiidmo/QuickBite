@@ -14,4 +14,9 @@ class RestaurantRepository implements RestaurantRepositoryInterface
     public static function findByOwner($id) {
         return Restaurant::where('user_id', $id)->get();
     }
+
+    public function create($data)
+    {
+        return Restaurant::create($data);
+    }
 }

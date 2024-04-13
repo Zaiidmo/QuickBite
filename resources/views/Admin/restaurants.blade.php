@@ -8,6 +8,19 @@
             <h1 class=" text-center font-passero text-6xl text-white mb-12">
                 Restaurants Management
             </h1>
+            @if (session('success'))
+                    <div class="bg-green-100 mb-4 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative "
+                        role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="bg-red-100 mb-4 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative "
+                        role="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
             <div class="w-full backdrop-blur-xl bg-black/40 rounded-lg border-2 border-secondary">
                 <table class="w-full divide-y divide-gray-400 text-center">
                     <thead class="text-center">
@@ -241,7 +254,7 @@
                             cliprule="evenodd"></path>
                     </svg>
                 </button>
-
+                storingRestaurant
                 <div class="p-5">
 
                     @foreach ($ownedRestaurants as $restaurant)
@@ -352,16 +365,17 @@
                         </p>
                     </div>
 
-                    <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide" action="" method="POST"
+                    <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide" action="{{ route('restaurants.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+                        
                         <div class="flex flex-row justify-between mt-8 gap-8">
                             <div class="w-full">
                                 <label for="Event Title" class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
                                     Name</label>
                                 <input type="text" placeholder="Pizza's House" name="name"
                                     class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-5 py-2.5 text-white "
-                                    required />
+                                 />
                             </div>
                         </div>
 
@@ -370,13 +384,13 @@
                                 Description</label>
                             <textarea id="description" name="description" placeholder="A tiny bio of what this is about .!"
                                 class="block mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 text-xs px-5 py-2.5 text-white "
-                                required></textarea>
+                            ></textarea>
                         </div>
 
                         <div class="flex flex-row justify-between mt-8 gap-8">
                             <div class="w-full">
-                                <label for="adress" class="block text-sm text-white dark:text-gray-300">Address</label>
-                                <input type="text" name="location"
+                                <label for="address" class="block text-sm text-white dark:text-gray-300">Address</label>
+                                <input type="text" name="address"
                                     class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-2 py-2.5 text-white"
                                     placeholder="... ?" />
                             </div>
@@ -409,10 +423,10 @@
                                 <h2 class="mt-1 font-medium tracking-wide text-gray-300">Upload a
                                     cover</h2>
 
-                                <p class="mt-2 text-xs tracking-wide text-gray-300">Upload or darg &
+                                <p class="mt-2 text-xs tracking-wide text-gray-300">Upload or drag &
                                     drop your
                                     file JPG, JPEG, PNG. </p> <input name="cover" id="cover" type="file"
-                                    class="hidden" required />
+                                    class="hidden" />
                             </label>
                         </div>
 

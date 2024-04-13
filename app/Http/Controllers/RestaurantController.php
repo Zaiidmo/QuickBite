@@ -5,16 +5,31 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
+use App\Repositories\RestaurantRepositoryInterface;
 
 class RestaurantController extends Controller
 {
+    protected $restaurantRepository;
+
+    public function __construct(RestaurantRepositoryInterface $restaurantRepository)
+    {
+        $this->restaurantRepository = $restaurantRepository;
+    }
     /**
      * Display a listing of the resource.
      */
+    public function dashboard()
+    {   $user = auth()->user();
+        $restaurants = $this->restaurantRepository->all();
+        $ownedRestaurants = $this->restaurantRepository->findByOwner(auth()->user()->id);
+        return view('Admin.restaurants', compact('restaurants', 'ownedRestaurants'));
+    }
+
+
     public function index()
     {
         return view('restaurants.index', [
-            // 'restaurants' => Restaurant::all(),
+        'restaurants' => Restaurant::all(),
         ]);
     }
 
@@ -31,7 +46,20 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $user = auth()->user();
+        $data = $request->validated();
+        // dd($data);
+        if($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-restaurant')) {
+            $data['user_id'] = $user->id;
+            if($data['email'] === null ){
+                $data['email'] = $user->email;
+            }
+            $restaurant  = $this->restaurantRepository->create($data);
+            if($restaurant){
+                return back()->with('success','Restaurant Has Been Created Successfully !' );
+            }
+            return back()->with('error','Failed To Create Restaurant !' );
+        }
     }
 
     /**

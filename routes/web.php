@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\RestaurantController;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,10 +44,14 @@ Route::group(['middleware' => 'role:super-admin'], function(){
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
-    Route::get('/restaurantsManagement', [DashboardController::class, 'restaurants'])->name('restaurantsManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::get('/mealsManagement', [DashboardController::class, 'meals'])->name('mealsManagement');
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
 });
 
-Route::resource('restaurants', RestaurantController::class);
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
+    Route::post('/storingRestaurant', [RestaurantController::class, 'store'])->name('restaurants.store');
+    Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
+    Route::get('/restaurantsManagement', [RestaurantController::class, 'dashboard'])->name('restaurantsManagement');
+});
