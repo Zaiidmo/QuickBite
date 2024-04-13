@@ -4,10 +4,10 @@ namespace App\Repositories;
 
 interface UserRepositoryInterface
 {
-    // public function all();
+    public static function all();
 
-    // public function find($id);
-
+    public static function findByRole($role);
+    
     public function create(array $data);
 
     public function connect(array $data);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +14,11 @@ class DashboardController extends Controller
     }
 
     public function users () {
-        return view('Admin.users');
+        $users = UserRepository::all();
+        $customers = UserRepository::findByRole('customer');
+        $restaurants = UserRepository::findByRole('restaurant-owner');
+        $riders = UserRepository::findByRole('driver');
+        return view('Admin.users', compact('users', 'customers', 'restaurants', 'riders'));
     }
     public function restaurants () {
         return view('Admin.restaurants');
