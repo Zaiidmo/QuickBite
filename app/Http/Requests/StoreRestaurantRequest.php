@@ -30,4 +30,14 @@ class StoreRestaurantRequest extends FormRequest
             'cover' => 'nullable|string'
         ];
     }
+
+    public function messages() {
+        return [
+            'name.required' => 'The name field is required.',
+            'description.required' => 'The description field is required.',
+            'address.required' => 'The address field is required.',
+            'phone.required' => 'The phone field is required.',
+            'email.email' => 'The email field must be a valid email address.',
+        ];
+    }
 }
