@@ -23,7 +23,8 @@ class DashboardController extends Controller
     }
     public function restaurants () {
         $restaurants = RestaurantRepository::all();
-        return view('Admin.restaurants', compact('restaurants'));
+        $ownedRestaurants = RestaurantRepository::findByOwner(auth()->user()->id);
+        return view('Admin.restaurants', compact('restaurants', 'ownedRestaurants'));
     }
     public function payments () {
         return view('Admin.payments');

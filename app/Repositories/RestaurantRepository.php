@@ -10,4 +10,8 @@ class RestaurantRepository implements RestaurantRepositoryInterface
     {
         return Restaurant::all();
     }
+
+    public static function findByOwner($id) {
+        return Restaurant::where('user_id', $id)->get();
+    }
 }

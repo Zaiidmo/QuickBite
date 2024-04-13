@@ -41,7 +41,7 @@
                         <td scope="row"
                             class="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                 <div class="ps-3 text-left">
-                                    <div class="text-base font-semibold">{{ $restaurant->user()->username }}</div>
+                                    <div class="text-base font-semibold">{{ $restaurant->user->username }}</div>
                                     <div class="font-normal text-gray-500">{{ $restaurant->user->email }}</div>
                                 </div>
                             </td>
@@ -99,15 +99,15 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    @foreach($restaurants as $restaurant)
+                    @foreach($ownedRestaurants as $ownedRestaurant)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $restaurant->name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $restaurant->created_at}} </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $ownedRestaurant->name }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $ownedRestaurant->created_at}} </td>
                         <td scope="row"
                             class="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                 <div class="ps-3 text-left">
-                                    <div class="text-base font-semibold">{{ $restaurant->user()->username }}</div>
-                                    <div class="font-normal text-gray-500">{{ $restaurant->user->email }}</div>
+                                    <div class="text-base font-semibold">{{ $ownedRestaurant->user->username }}</div>
+                                    <div class="font-normal text-gray-500">{{ $ownedRestaurant->user->email }}</div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-white">249</td>
