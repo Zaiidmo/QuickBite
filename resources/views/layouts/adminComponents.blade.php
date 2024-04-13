@@ -5,16 +5,16 @@
         data-te-navbar-ref>
         <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
             <div>
-                <a class="mx-2 my-1 flex items-center text-white hover:text-secondary lg:mb-0 lg:mt-0"
-                    href="/">
+                <a class="mx-2 my-1 flex items-center text-white hover:text-secondary lg:mb-0 lg:mt-0" href="/">
                     <img class="mr-2" src={{ asset('assets/images/logo.png') }} style="height: 40px" alt="QuickBite" />
                     <p class="font-passero text-3xl ">QuickBite</p>
                 </a>
             </div>
 
             <!-- Hamburger button for mobile view -->
-            <button id="Hamburger" data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar"
-                aria-controls="sidebar-multi-level-sidebar" type="button"
+            <button id="Hamburger" data-drawer-target="sidebar-multi-level-sidebar"
+                data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar"
+                type="button"
                 class="lg:hidden inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -35,7 +35,8 @@
 <aside id="sidebar-multi-level-sidebar"
     class="w-screen hidden top-20 mt-3 lg:mt-0 uppercase lg:block fixed bottom-2 lg:top-2 left-4  z-40 lg:w-72  transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
+    <div
+        class="h-full px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
         <ul class="space-y-2  font-medium ">
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Admin</label>
 
@@ -178,7 +179,11 @@
             <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20V7.1L2.05 2.85L3.85 2L6.2 7.05h11.6L20.15 2l1.8.85L20 7.1V20zm6-7h4q.425 0 .713-.288T15 12t-.288-.712T14 11h-4q-.425 0-.712.288T9 12t.288.713T10 13m-4 5h12V9.05H6zm0 0V9.05z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" height="1em"
+                        viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M4 20V7.1L2.05 2.85L3.85 2L6.2 7.05h11.6L20.15 2l1.8.85L20 7.1V20zm6-7h4q.425 0 .713-.288T15 12t-.288-.712T14 11h-4q-.425 0-.712.288T9 12t.288.713T10 13m-4 5h12V9.05H6zm0 0V9.05z" />
+                    </svg>
                     <span class="flex-1 ms-3 whitespace-nowrap">Orders</span>
                 </a>
             </li>
@@ -392,8 +397,7 @@
     });
 
     //Navigation
-    document.getElementById('Hamburger').addEventListener('click', () =>{
+    document.getElementById('Hamburger').addEventListener('click', () => {
         document.getElementById('sidebar-multi-level-sidebar').classList.toggle('hidden')
     })
-
 </script>

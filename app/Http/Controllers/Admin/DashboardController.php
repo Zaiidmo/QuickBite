@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\RestaurantRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class DashboardController extends Controller
         return view('Admin.users', compact('users', 'customers', 'restaurants', 'riders'));
     }
     public function restaurants () {
-        return view('Admin.restaurants');
+        $restaurants = RestaurantRepository::all();
+        return view('Admin.restaurants', compact('restaurants'));
     }
     public function payments () {
         return view('Admin.payments');

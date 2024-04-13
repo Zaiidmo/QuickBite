@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <section id="all" class="mx-auto overflow-hidden pr-16">
+    <section id="all" class="mx-auto overflow-hidden sm:mx-4 lg:pr-16">
         <h1 class=" text-center font-passero text-6xl text-white mb-12">
             Restaurants Management
         </h1>
@@ -34,14 +34,15 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                    @foreach($restaurants as $restaurant)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">QUICKBITE</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">12-12-2021</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $restaurant->name }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $restaurant->created_at}} </td>
                         <td scope="row"
                             class="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                 <div class="ps-3 text-left">
-                                    <div class="text-base font-semibold">Neil Sims</div>
-                                    <div class="font-normal text-gray-500">neil.sims@flowbite.com</div>
+                                    <div class="text-base font-semibold">{{ $restaurant->user()->username }}</div>
+                                    <div class="font-normal text-gray-500">{{ $restaurant->user->email }}</div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-white">249</td>
@@ -61,6 +62,7 @@
                         </td>
 
                     </tr>
+                    @endforeach
 
                 </tbody>
             </table>

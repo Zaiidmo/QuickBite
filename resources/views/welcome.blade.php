@@ -15,16 +15,30 @@
                     to
                     crispy fries, we bring your favourite bites straight to your doorstep. Fast, fresh, and full of delight
                     QUICKBITE, your express ticket to a feast on the fly!</p>
+                @auth
+                <a href="{{ route('meals.index') }}">
+                    <button
+                        class="mt-12 bg-gradient-to-r from-yellow-300 to-secondary hover:from-yellow-400 font-poppins font-extrabold tracking-wider hover:to-secondary text-black py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                        Discover
+                    </button>
+                </a>
+
+                @else
                 <div class="flex gap-8 mt-12">
-                    <button
-                        class="bg-gradient-to-r from-yellow-300 to-secondary hover:from-yellow-400 hover:to-secondary text-black font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
-                        Get Started
-                    </button>
-                    <button
-                        class="bg-gradient-to-r from-component to-primary hover:from-component hover:primary text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
-                        Order Now
-                    </button>
+                    <a href="{{rouet('register')}}" class="inline-block">
+                        <button
+                            class="bg-gradient-to-r from-yellow-300 to-secondary hover:from-yellow-400 hover:to-secondary text-black font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                            Get Started
+                        </button>
+                    </a>
+                    <a href="{{route('meals.index')}}" class="inline-block">
+                        <button
+                            class="bg-gradient-to-r from-component to-primary hover:from-component hover:primary text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
+                            Order Now
+                        </button>
+                    </a>
                 </div>
+                @endauth
             </div>
         </div>
     </section>
