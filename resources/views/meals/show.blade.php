@@ -202,3 +202,6 @@
         </div>
     </section>
 @endsection
+@section('scripts')
+<script src="{{asset('assets/js/Navigator.js')}}"></script>
+@endsection

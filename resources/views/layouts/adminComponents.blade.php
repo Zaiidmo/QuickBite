@@ -1,20 +1,21 @@
 {{-- Header --}}
 
 <header class=" mx-auto max-w-screen-xl ">
-    <nav class="fixed w-full max-w-screen-2xl ml-auto top-2 z-50 border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl mx-auto "
+    <nav class="fixed w-full max-w-screen-2xl ml-auto top-2 z-50 border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl lg:mx-auto "
         data-te-navbar-ref>
         <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
             <div>
-                <a class="mx-2 my-1 flex items-center text-white hover:text-white focus:text-white lg:mb-0 lg:mt-0"
+                <a class="mx-2 my-1 flex items-center text-white hover:text-secondary lg:mb-0 lg:mt-0"
                     href="/">
                     <img class="mr-2" src={{ asset('assets/images/logo.png') }} style="height: 40px" alt="QuickBite" />
+                    <p class="font-passero text-3xl ">QuickBite</p>
                 </a>
             </div>
 
             <!-- Hamburger button for mobile view -->
-            <button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar"
+            <button id="Hamburger" data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar"
                 aria-controls="sidebar-multi-level-sidebar" type="button"
-                class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                class="lg:hidden inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
@@ -24,42 +25,6 @@
                 </svg>
             </button>
 
-            <!-- Collapsible navbar container -->
-            <div class="!visible hidden flex-grow  items-center lg:mt-0 lg:!flex lg:basis-auto"
-                id="navbarSupportedContent4" data-te-collapse-item>
-                <!-- Left links -->
-                <ul class="list-style-none mr-auto flex flex-col pl-0 my-2 lg:flex-row" data-te-navbar-nav-ref>
-                    <!-- Home link -->
-                    <li class="pl-2 lg:my-0 lg:pl-2 lg:pr-1" data-te-nav-item-ref>
-                        <a class="text-white hover:text-secondary " aria-current="page" href="/"
-                            data-te-nav-link-ref>
-                            <div>
-                                <p class="font-passero text-3xl ">QuickBite</p>
-                                {{-- <span>Delivering Delight, One Bite at a Time!</span> --}}
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="flex items-center">
-                    <button type="button" data-te-ripple-init data-te-ripple-color="light"
-                        class="mr-3 inline-block rounded-full border-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-white focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
-                        Login
-                    </button>
-                    {{-- <button type="button" data-te-ripple-init data-te-ripple-color="light"
-                        class="mr-3 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
-                        Sign up for free
-                    </button>
-                    <button type="button" data-te-ripple-init data-te-ripple-color="light"
-                        class="mr-3 inline-block rounded px-3 py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg motion-reduce:transition-none"
-                        style="background-color: #333">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                    </button> --}}
-                </div>
-            </div>
         </div>
     </nav>
 </header>
@@ -67,12 +32,11 @@
 {{-- Sidebar --}}
 
 
-
 <aside id="sidebar-multi-level-sidebar"
-    class="hidden uppercase lg:block fixed bottom-2 top-2 left-4  z-40 w-72  transition-transform -translate-x-full sm:translate-x-0"
+    class="w-screen hidden top-20 mt-3 lg:mt-0 uppercase lg:block fixed bottom-2 lg:top-2 left-4  z-40 lg:w-72  transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
-        <ul class="space-y-2 font-medium">
+    <div class="h-full px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
+        <ul class="space-y-2  font-medium ">
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Admin</label>
 
             <li>
@@ -426,4 +390,10 @@
         data: restaurantData,
         options: restaurantOptions
     });
+
+    //Navigation
+    document.getElementById('Hamburger').addEventListener('click', () =>{
+        document.getElementById('sidebar-multi-level-sidebar').classList.toggle('hidden')
+    })
+
 </script>

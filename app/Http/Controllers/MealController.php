@@ -13,7 +13,7 @@ class MealController extends Controller
      */
     public function index()
     {
-        return view('Meal.index', [
+        return view('meals.index', [
             // 'Meal' => Meal::all()
         ]);
     }

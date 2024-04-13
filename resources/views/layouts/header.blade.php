@@ -1,5 +1,5 @@
 <header class="absolute w-screen">
-    <nav class="fixed w-full top-0 z-50 border-b border-gray-700 backdrop-blur-sm bg-black/40 rounded-b-2xl  flexflex-wrap items-center justify-between  py-2 shadow-dark-mild lg:py-4"
+    <nav class="fixed w-full top-0 z-50 border-b border-gray-700 backdrop-blur-sm bg-black/40 rounded-b-2xl flexflex-wrap items-center justify-between  py-2 shadow-dark-mild lg:py-4"
         data-te-navbar-ref>
         <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
             <div>
@@ -35,15 +35,15 @@
                 class="md:max-w-screen-xl md:mx-auto w-screen h-screen md:w-full flex flex-col gap-8 justify-center items-center ">
                 <div
                     class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="/">HOME</a>
+                    <a href="{{route('home')}}">HOME</a>
                 </div>
                 <div
                     class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="/">Meals</a>
+                    <a href="{{route('meals.index')}}">Meals</a>
                 </div>
                 <div
                     class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="/">Restaurants</a>
+                    <a href="{{route('restaurants.index')}}">Restaurants</a>
                 </div>
                 @auth
                     <div
@@ -52,7 +52,7 @@
                     </div>
                     <div
                         class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                        <a href="/">Dashboard</a>
+                        <a href="{{route('dashboard')}}">Dashboard</a>
                     </div>
                 @endauth
                 <div class="flex flex-col md:flex-row gap-4 ">

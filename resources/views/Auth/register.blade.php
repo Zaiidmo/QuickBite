@@ -153,6 +153,7 @@
     </section>
 @endsection
 @section('scripts')
+<script src="{{asset('assets/js/Navigator.js')}}"></script>
     <script>
         function showExtraInputs() {
             var userType = document.getElementById('user_type').value;

@@ -255,4 +255,6 @@
             document.getElementById('price_dropdown').classList.toggle('hidden');
         };
     </script>
+
+<script src="{{asset('assets/js/Navigator.js')}}"></script>
 @endsection

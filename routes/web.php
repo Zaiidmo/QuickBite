@@ -32,17 +32,17 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });
 
 
-Route::group(['middleware' => 'auth', 'prefix' => 'Admin'], function(){
+Route::group(['middleware' => ['auth'], 'prefix' => 'Admin'], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
     Route::get('/restaurants', [DashboardController::class, 'restaurants'])->name('restaurantsManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::get('/meals', [DashboardController::class, 'meals'])->name('mealsManagement');
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
-    Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });
 
 Route::resource('restaurants', RestaurantController::class);
