@@ -25,7 +25,7 @@
 
                 @else
                 <div class="flex gap-8 mt-12">
-                    <a href="{{rouet('register')}}" class="inline-block">
+                    <a href="{{route('register')}}" class="inline-block">
                         <button
                             class="bg-gradient-to-r from-yellow-300 to-secondary hover:from-yellow-400 hover:to-secondary text-black font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
                             Get Started

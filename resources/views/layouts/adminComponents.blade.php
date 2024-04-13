@@ -38,6 +38,7 @@
     <div
         class="h-full px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
         <ul class="space-y-2  font-medium ">
+            @role('super-admin')
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Admin</label>
 
             <li>
@@ -140,11 +141,11 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Settings</span>
                 </a>
             </li>
-
-
+            @endrole
+            @role('restaurant-owner')
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Restaurants Owners</label>
             <li>
-                <a href="#"
+                <a href="{{route('restaurantsManagement')}}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
                         <path fill="currentColor"
@@ -154,28 +155,22 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('profile') }}"
+                <a href="{{ route('dashboard') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
-                        <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28"
-                            stroke-linecap="round" stroke-width="2">
-                            <path d="M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
-                                    values="28;0" />
-                            </path>
-                            <path
-                                d="M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s"
-                                    dur="0.4s" values="28;0" />
-                            </path>
-                        </g>
+                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                        <path
+                            d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                        <path
+                            d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
+                    <span class="ms-3">Dashboard</span>
                 </a>
             </li>
+            @endrole
 
 
-            <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Restaurants Owners</label>
+            <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Drivers</label>
             <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
