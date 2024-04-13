@@ -262,9 +262,9 @@
                         </div>
 
                         <div class="mt-8 w-full">
-                            <label for="poster" class="block text-sm text-gray-500 dark:text-gray-300">Upload a
-                                Poster</label>
-                            <label for="poster"
+                            <label for="cover" class="block text-sm text-gray-500 dark:text-gray-300">Upload a
+                                cover</label>
+                            <label for="cover"
                                 class="flex flex-col text-xs items-center w-full p-5 mt-2 text-center bg-secondary/60 border-2 border-gray-200 border-dashed cursor-pointer rounded-xl">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-300">
@@ -273,11 +273,11 @@
                                 </svg>
 
                                 <h2 class="mt-1 font-medium tracking-wide text-gray-300">Upload a
-                                    poster</h2>
+                                    cover</h2>
 
                                 <p class="mt-2 text-xs tracking-wide text-gray-300">Upload or darg &
                                     drop your
-                                    file JPG, JPEG, PNG. </p> <input name="poster" id="poster" type="file"
+                                    file JPG, JPEG, PNG. </p> <input name="cover" id="cover" type="file"
                                     class="hidden" required />
                             </label>
                         </div>
