@@ -236,7 +236,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{route('logout')}}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24">
                         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
@@ -281,7 +281,7 @@
         <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
             <div class="text-center w-full">
                 <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">© 2024 All rights reserved. Designed by
-                    <a href="#" class="hover:underline">Zaiid Moumnii</a>
+                    <a href="https://vlpha.netlify.app" class="hover:underline">Zaiid Moumnii</a>
                 </p>
             </div>
         </div>

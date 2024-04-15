@@ -14,7 +14,7 @@ class RestaurantController extends Controller
 
     public function __construct(RestaurantRepositoryInterface $restaurantRepository)
     {
-        // $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show']);
         $this->restaurantRepository = $restaurantRepository;
     }
     /**
@@ -128,11 +128,11 @@ class RestaurantController extends Controller
     {
         $user = $request->user();
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('delete-restaurant')) {
-            if ($restaurant->user_id !== $user->id) {
-                return back()->with('error', 'Unauthorized access');
-            } else {
+            if ($restaurant->user_id === $user->id || $user->hasRole('super-admin')) {
                 $restaurant = $this->restaurantRepository->kill($restaurant);
                 return back()->with('success', 'Restaurant Has Been Deleted Successfully !');
+            } else {
+                return back()->with('error', 'Unauthorized access');
             }
         }
         return back()->with('error', 'Unauthorized access');

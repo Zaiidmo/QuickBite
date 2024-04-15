@@ -46,8 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
+Route::group(['prefix' => 'restaurants'], function () {
+    Route::get('/', [RestaurantController::class, 'index'])->name('restaurants');
     Route::post('/storingRestaurant', [RestaurantController::class, 'store'])->name('restaurants.store');
     Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
     Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->name('restaurants.update');
