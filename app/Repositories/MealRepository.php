@@ -6,7 +6,7 @@ use App\Models\Meal;
 
 class MealRepository implements MealRepositoryInterface
 {
-    public function all()
+    public static function all()
     {
         return Meal::all();
     }

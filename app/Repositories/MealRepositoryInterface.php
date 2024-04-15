@@ -6,7 +6,7 @@ use App\Models\Meal;
 
 interface MealRepositoryInterface
 {
-    public function all();
+    public static function all();
     
     public function findById($id);
     

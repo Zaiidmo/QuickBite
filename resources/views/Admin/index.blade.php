@@ -32,7 +32,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    45
+                                    {{ $usersCount  }}
                                 </p>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    200
+                                    {{ $restaurantsCount  }}
                                 </p>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    2000
+                                    {{ $mealsCount  }}
                                 </p>
                             </div>
                         </div>
