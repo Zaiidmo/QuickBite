@@ -6,6 +6,7 @@ use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
 use App\Repositories\RestaurantRepositoryInterface;
+use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
@@ -46,7 +47,7 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        $user = auth()->user();
+        $user = $request->user();
         $data = $request->validated();
         // dd($data);
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-restaurant')) {
@@ -89,12 +90,11 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy(Request $request,Restaurant $restaurant)
     {
-        $user = auth()->user();
+        $user = $request->user();
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('delete-restaurant')) {
             if($restaurant->user_id !== $user->id) {
-                dd($user);
                 return back()->with('error', 'Unauthorized access');
             } else {
                 $restaurant = $this->restaurantRepository->kill($restaurant);

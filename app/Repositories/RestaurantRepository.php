@@ -22,6 +22,7 @@ class RestaurantRepository implements RestaurantRepositoryInterface
 
     public function kill(Restaurant $restaurant)
     {
+        
         return $restaurant->delete();
     }
 }

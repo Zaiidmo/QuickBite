@@ -43,7 +43,7 @@
                 </div>
                 <div
                     class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="{{route('restaurants.index')}}">Restaurants</a>
+                    <a href="{{route('restaurants')}}">Restaurants</a>
                 </div>
                 @auth
                     <div
