@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RestaurantController;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
@@ -34,14 +35,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });
 
-Route::group(['middleware' => 'role:super-admin'], function () {});
+Route::group(['middleware' => 'role:super-admin'], function () {
+    Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions');
+
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
-    Route::get('/rolesAndPermissions', [DashboardController::class, 'rolesAndPermissions'])->name('rolesAndPermissions');
 });
 
 Route::group(['prefix' => 'restaurants'], function () {

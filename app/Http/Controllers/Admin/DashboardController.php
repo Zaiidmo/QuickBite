@@ -28,13 +28,6 @@ class DashboardController extends Controller
         return view('Admin.users', compact('users', 'customers', 'restaurants', 'riders'));
     }
    
-    public function rolesAndPermissions () {
-        $roles = Role::all();
-        $permissions = Permission::all();
-        $users = UserRepository::all();
-        return view('Admin.authorizations', compact('roles', 'permissions', 'users'));
-    
-    }
     public function payments () {
         return view('Admin.payments');
     }
