@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <section id="all" class="mx-auto overflow-hidden pr-16">
+    <section id="all" class="lg:mx-auto overflow-hidden mx-4 lg:pr-16">
         <h1 class=" text-center font-passero text-6xl text-white mb-12">
             Users Management
         </h1>
@@ -80,7 +80,7 @@
         </div>
     </section>
 
-    <section id="customers" class="mx-auto mt-12 overflow-hidden pr-16">
+    <section id="customers" class="lg:mx-auto overflow-hidden mx-4 lg:pr-16">
         <h1 class=" text-center font-passero text-6xl text-white mb-12">
             Customers
         </h1>
@@ -156,7 +156,7 @@
         </div>
     </section>
 
-    <section id="restau-owners" class="mx-auto mt-12 overflow-hidden pr-16">
+    <section id="restau-owners" class="lg:mx-auto overflow-hidden mx-4 lg:pr-16">
         <h1 class=" text-center font-passero text-6xl text-white mb-12">
             Restaurants Owners
         </h1>
@@ -232,7 +232,7 @@
         </div>
     </section>
 
-    <section id="delivery_boys" class="mx-auto mt-12 overflow-hidden pr-16">
+    <section id="delivery_boys" class="lg:mx-auto overflow-hidden mx-4 lg:pr-16">
         <h1 class=" text-center font-passero text-6xl text-white mb-12">
             Delivery Guys
         </h1>

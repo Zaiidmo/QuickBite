@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
+    Route::get('/rolesAndPermissions', [DashboardController::class, 'rolesAndPermissions'])->name('rolesAndPermissions');
 });
 
 Route::group(['prefix' => 'restaurants'], function () {
