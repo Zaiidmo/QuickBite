@@ -24,24 +24,21 @@ Route::get('/', [Controller::class, 'index'])->name('home');
 
 Route::resource('meals', MealController::class);
 
-Route::group(['middleware' => 'guest'], function(){
+Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
     Route::post('/login', [LoginController::class, 'login'])->name('login.connect');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });
 
-Route::group(['middleware' => 'role:super-admin'], function(){
+Route::group(['middleware' => 'role:super-admin'], function () {});
 
-});
-
-
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
@@ -49,10 +46,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
     Route::post('/storingRestaurant', [RestaurantController::class, 'store'])->name('restaurants.store');
     Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
+    Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->name('restaurants.update');
     Route::delete('/destroyingRestaurant/{restaurant}', [RestaurantController::class, 'destroy'])->name('restaurants.kill');
     Route::get('/restaurantsManagement', [RestaurantController::class, 'dashboard'])->name('restaurantsManagement');
 });

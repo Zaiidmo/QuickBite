@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin | Users Management')
+@section('title', 'Admin | Restaurants Management')
 
 @section('content')
     @role('super-admin')
@@ -86,6 +86,32 @@
         <h1 class=" text-center font-passero text-6xl text-white mb-12">
             Restaurants Management
         </h1>
+
+        @if ($errors->any())
+            <div class="bg-red-100 mb-4 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
+                <strong class="font-bold">Whoops!</strong>
+                <span class="block sm:inline">There were some problems with your input.</span>
+                <ul class="list-disc mt-2 ml-4">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (session('success'))
+            <div class="bg-green-100 mb-4 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative "
+                role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="bg-red-100 mb-4 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative " role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+
 
         <div class="group relative w-fit mb-4 flex justify-center items-center text-zinc-600 text-sm font-bold">
             {{-- <div
@@ -184,7 +210,8 @@
                             <td class="px-4 py-4  text-sm whitespace-nowrap">
                                 <div class="flex justify-evenly items-center ">
                                     <div class="group relative w-fit">
-                                        <button data-restaurant-id="{{ $ownedRestaurant->id }}" class="text-secondary update-restaurant">
+                                        <button data-restaurant-id="{{ $ownedRestaurant->id }}"
+                                            class="text-secondary update-restaurant">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 48 48">
                                                 <g fill="none" stroke="currentColor" stroke-linejoin="round"
@@ -248,23 +275,22 @@
     </section>
 
     @foreach ($ownedRestaurants as $restaurant)
+        <section id="updatePopup-{{ $restaurant->id }}" class=" relative hidden">
+            <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
+                <div
+                    class="absolute bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
+                    <button data-restaurant-id="{{ $restaurant->id }}" id="updatePopup-close-{{ $restaurant->id }}"
+                        onclick="closeUpdatePopup({{ $restaurant->id }})" type="button"
+                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                cliprule="evenodd"></path>
+                        </svg>
+                    </button>
 
-    <section id="updatePopup-{{ $restaurant->id }}" class=" relative hidden">
-        <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
-            <div class="absolute bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
-                <button data-restaurant-id="{{ $restaurant->id }}"
-                    id="updatePopup-close-{{ $restaurant->id }}"
-                    onclick="closeUpdatePopup({{ $restaurant->id }})" type="button"
-                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            cliprule="evenodd"></path>
-                    </svg>
-                </button>
-
-                <div class="p-5">
+                    <div class="p-5">
 
                         <div class="text-center">
                             <p class="mb-1 text-2xl font-semibold leading-10 text-white font-passero">
@@ -274,17 +300,18 @@
                                 {{ $restaurant->name }}
                             </p>
                         </div>
-                        <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide" action=""
-                            method="POST" enctype="multipart/form-data">
+                        <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide"
+                            action="{{ route('restaurants.update', $restaurant) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="flex flex-row justify-between mt-8 gap-8">
                                 <div class="w-full">
                                     <label for="Event Title"
                                         class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
                                         Name</label>
                                     <input type="text" value="{{ $restaurant->name }}" name="name"
-                                        class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-5 py-2.5 text-white "
-                                        required />
+                                        class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-5 py-2.5 text-white " />
                                 </div>
                             </div>
 
@@ -292,8 +319,7 @@
                                 <label for="description" class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
                                     Description</label>
                                 <textarea id="description" name="description" placeholder="A tiny bio of what this is about .!"
-                                    class="block mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 text-xs px-5 py-2.5 text-white "
-                                    required></textarea>
+                                    class="block mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 text-xs px-5 py-2.5 text-white "></textarea>
                             </div>
 
                             <div class="flex flex-row justify-between mt-8 gap-8">
@@ -351,9 +377,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
-        @endforeach
+    @endforeach
 
     <section id="createModal" class=" relative  hidden">
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">

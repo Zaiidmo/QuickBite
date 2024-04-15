@@ -14,6 +14,7 @@ class RestaurantController extends Controller
 
     public function __construct(RestaurantRepositoryInterface $restaurantRepository)
     {
+        // $this->middleware('auth')->except(['index', 'show']);
         $this->restaurantRepository = $restaurantRepository;
     }
     /**
@@ -59,7 +60,7 @@ class RestaurantController extends Controller
             $request->cover->storeAs('public/uploads/restaurants', $fileName);
             $data['cover'] = $fileName;
         }
-        dd($fileName);
+        
 
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-restaurant')) {
             $data['user_id'] = $user->id;
@@ -99,7 +100,25 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $user = $request->user();
+        $data = $request->validated();
+
+        if ($request->hasFile('cover')) {
+            $fileName = time() . '_' . $request->file('cover')->getClientOriginalName();
+            $request->cover->storeAs('public/uploads/restaurants', $fileName);
+            $data['cover'] = $fileName;
+        }
+
+        if($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('update-restaurant')) {
+            if($restaurant->user_id !== $user->id) {
+                return back()->with('error', 'Unauthorized access');
+            }
+            
+            $restaurant = $this->restaurantRepository->edit($restaurant, $data);
+            return back()->with('success', 'Restaurant Has Been Updated Successfully !');
+        }
+        return back()->with('error', 'Unauthorized access');
+        
     }
 
     /**

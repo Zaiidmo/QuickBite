@@ -31,5 +31,9 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant->delete();
     }
 
+    public function edit(Restaurant $restaurant, $data)
+    {
+        return $restaurant->update($data);
+    }
 
 }

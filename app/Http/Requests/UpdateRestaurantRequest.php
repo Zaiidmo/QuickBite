@@ -11,7 +11,7 @@ class UpdateRestaurantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,22 @@ class UpdateRestaurantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'address' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|email',
+            'cover' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg',
+        ];
+    }
+
+    public function messages() {
+        return [
+            'name.required' => 'The name field is required.',
+            'description.required' => 'The description field is required.',
+            'address.required' => 'The address field is required.',
+            'phone.required' => 'The phone field is required.',
+            'email.email' => 'The email field must be a valid email address.',
         ];
     }
 }

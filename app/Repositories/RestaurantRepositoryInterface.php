@@ -16,4 +16,6 @@ interface RestaurantRepositoryInterface
 
     public function kill(Restaurant $restaurant);
 
+    public function edit(Restaurant $restaurant, $data);
+
 }
