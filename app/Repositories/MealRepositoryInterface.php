@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Meal;
 use App\Models\Restaurant;
 
 interface MealRepositoryInterface
@@ -13,7 +14,7 @@ interface MealRepositoryInterface
     public function findByOwner($id);
     public function create($data);
 
-    // public function kill(Restaurant $restaurant);
+    public function kill(Meal $meal);
 
     // public function edit(Restaurant $restaurant, $data);
 

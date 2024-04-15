@@ -24,6 +24,11 @@ class MealRepository implements MealRepositoryInterface
         return Meal::create($data);
     }
 
+    public function kill(Meal $meal)
+    {
+
+        return $meal->delete();
+    }
 
     
 }

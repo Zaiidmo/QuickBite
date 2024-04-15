@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Meal;
 use App\Repositories\MealRepositoryInterface;
 use App\Repositories\RestaurantRepository;
+use Illuminate\Http\Request ;
 
 class MealController extends Controller
 {
@@ -99,8 +100,17 @@ class MealController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Meal $Meal)
+    public function destroy(Request $request ,Meal $meal)
     {
-        //
+        $user = $request->user();
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('delete-meal')) {
+            if ($meal->user_id === $user->id || $user->hasRole('super-admin')) {
+                $meal = $this->mealRepository->kill($meal);
+                return back()->with('success', 'Meal Has Been Deleted Successfully !');
+            } else {
+                return back()->with('error', 'Unauthorized access');
+            }
+        }
+        return back()->with('error', 'Unauthorized access');
     }
 }
