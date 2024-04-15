@@ -15,6 +15,11 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return Restaurant::where('user_id', $id)->get();
     }
 
+    public function findById($id)
+    {
+        return Restaurant::find($id);
+    }
+
     public function create($data)
     {
         return Restaurant::create($data);
@@ -22,7 +27,9 @@ class RestaurantRepository implements RestaurantRepositoryInterface
 
     public function kill(Restaurant $restaurant)
     {
-        
+
         return $restaurant->delete();
     }
+
+
 }

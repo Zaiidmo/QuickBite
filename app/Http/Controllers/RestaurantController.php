@@ -49,26 +49,41 @@ class RestaurantController extends Controller
     {
         $user = $request->user();
         $data = $request->validated();
-        // dd($data);
+
+        if ($data['email'] === null) {
+            $data['email'] = $user->email;
+        }
+
+        if ($request->hasFile('cover')) {
+            $fileName = time() . '_' . $request->file('cover')->getClientOriginalName();
+            $request->cover->storeAs('public/uploads/restaurants', $fileName);
+            $data['cover'] = $fileName;
+        }
+        dd($fileName);
+
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-restaurant')) {
             $data['user_id'] = $user->id;
-            if ($data['email'] === null) {
-                $data['email'] = $user->email;
-            }
+
             $restaurant = $this->restaurantRepository->create($data);
+
             if ($restaurant) {
                 return back()->with('success', 'Restaurant Has Been Created Successfully !');
             }
-            return back()->with('error', 'Failed To Create Restaurant !');
+
+            // return back()->with('error', 'Failed To Create Restaurant !');
         }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id)
     {
-        return view('restaurants.show');
+        $restaurant = $this->restaurantRepository->findById($id);
+        if ($restaurant) {
+            return view('restaurants.show', compact('restaurant'));
+        }
+        return back()->with('error', 'Restaurant Not Found !');
     }
 
     /**
@@ -90,11 +105,11 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request,Restaurant $restaurant)
+    public function destroy(Request $request, Restaurant $restaurant)
     {
         $user = $request->user();
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('delete-restaurant')) {
-            if($restaurant->user_id !== $user->id) {
+            if ($restaurant->user_id !== $user->id) {
                 return back()->with('error', 'Unauthorized access');
             } else {
                 $restaurant = $this->restaurantRepository->kill($restaurant);

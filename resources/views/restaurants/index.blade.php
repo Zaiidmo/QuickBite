@@ -39,92 +39,25 @@
 </section>
 <section >
     <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 my-16">
+        @foreach($restaurants as $restaurant)
         <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
             <div class="w-full h-64 rounded-lg shadow-md">
-                <img src={{ asset('assets/images/hamburger.jpg') }} class="rounded-lg w-full h-full" alt="hamburger">
+                <img src="{{ asset('storage/uploads/restaurants/' . $restaurant->cover) }}" alt="Restaurant Banner " class="rounded-lg w-full h-full" alt="hamburger">
             </div>
 
             <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Hamburger
+                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">{{ $restaurant->name}}
                 </h3>
 
                 <div class="flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                    <button
-                        class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
+                    <a href="{{ route('restaurants.show', $restaurant)}}">
+                        <button
+                            class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-            <div class="w-full h-64 rounded-lg shadow-md">
-                <img src={{ asset('assets/images/Pizza.jpg') }} class="rounded-lg w-full h-full" alt="Pizza">
-            </div>
-
-            <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Pizza</h3>
-
-                <div class="flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                    <button
-                        class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-            <div class="w-full h-64 rounded-lg shadow-md">
-                <img src={{ asset('assets/images/BBQ.jpg') }} class="rounded-lg w-full h-full" alt="Pizza">
-            </div>
-
-            <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">BBQ</h3>
-
-                <div class="flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                    <button
-                        class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-            <div class="w-full h-64 rounded-lg shadow-md">
-                <img src={{ asset('assets/images/hamburger.jpg') }} class="rounded-lg w-full h-full" alt="hamburger">
-            </div>
-
-            <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Hamburger
-                </h3>
-
-                <div class="flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                    <button
-                        class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-            <div class="w-full h-64 rounded-lg shadow-md">
-                <img src={{ asset('assets/images/Pizza.jpg') }} class="rounded-lg w-full h-full" alt="Pizza">
-            </div>
-
-            <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Pizza</h3>
-
-                <div class="flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                    <button
-                        class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-            <div class="w-full h-64 rounded-lg shadow-md">
-                <img src={{ asset('assets/images/BBQ.jpg') }} class="rounded-lg w-full h-full" alt="Pizza">
-            </div>
-
-            <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-                <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">BBQ</h3>
-
-                <div class="flex items-center justify-center px-3 py-2 bg-gray-200 dark:bg-gray-700">
-                    <button
-                        class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">View Details</button>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
 @endsection

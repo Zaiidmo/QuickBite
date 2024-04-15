@@ -27,7 +27,7 @@ class StoreRestaurantRequest extends FormRequest
             'address' => 'required|string',
             'phone' => 'required|string',
             'email' => 'nullable|email',
-            'cover' => 'nullable|string'
+            'cover' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 
