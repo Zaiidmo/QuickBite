@@ -20,14 +20,13 @@ class PermissionController extends Controller
     }
     public function index()
     {
-        $roles = PermissionRepository::allRoles();
-        $roles = PermissionRepository::allPermissions();
+        $roles = $this->permissionRepository->allRoles();
+        $permissions = $this->permissionRepository->allPermissions();
         $users = UserRepository::all();
         return view('Admin.authorizations', compact('roles', 'permissions', 'users'));
     }
 
-    public function store(StoreRoleRequest $request)
-    {
-        
-    }
+    // public function store(StoreRoleRequest $request)
+    // {
+    // }
 }

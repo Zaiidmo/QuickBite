@@ -2,13 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Models\Permission;
-
 interface PermissionRepositoryInterface
 {
-    public static function allPermissions();
+    public function allPermissions();
 
-    public static function allRoles();
+    public function allRoles();
 
     // public static function findByOwner($id);
     

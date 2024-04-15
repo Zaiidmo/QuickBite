@@ -1,18 +1,18 @@
-<?php 
+<?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use App\Models\Permission;
 use App\Models\Role;
 
 class PermissionRepository implements PermissionRepositoryInterface
 {
-    public static function allPermissions()
+    public function allPermissions()
     {
         return Permission::all();
     }
 
-    public static function allRoles()
+    public function allRoles()
     {
         return Role::all();
     }
