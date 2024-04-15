@@ -9,18 +9,17 @@
                 Restaurants Management
             </h1>
             @if (session('success'))
-                    <div class="bg-green-100 mb-4 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative "
-                        role="alert">
-                        {{ session('success') }}
-                    </div>
-                @endif
+                <div class="bg-green-100 mb-4 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative "
+                    role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-                @if (session('error'))
-                    <div class="bg-red-100 mb-4 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative "
-                        role="alert">
-                        {{ session('error') }}
-                    </div>
-                @endif
+            @if (session('error'))
+                <div class="bg-red-100 mb-4 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative " role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="w-full backdrop-blur-xl bg-black/40 rounded-lg border-2 border-secondary">
                 <table class="w-full divide-y divide-gray-400 text-center">
                     <thead class="text-center">
@@ -71,6 +70,7 @@
                                                     d="m9.129 0l1.974.005c.778.094 1.46.46 2.022 1.078c.459.504.7 1.09.714 1.728h5.475a.69.69 0 0 1 .686.693a.689.689 0 0 1-.686.692l-1.836-.001v11.627c0 2.543-.949 4.178-3.041 4.178H5.419c-2.092 0-3.026-1.626-3.026-4.178V4.195H.686A.689.689 0 0 1 0 3.505c0-.383.307-.692.686-.692h5.47c.014-.514.205-1.035.554-1.55C7.23.495 8.042.074 9.129 0m6.977 4.195H3.764v11.627c0 1.888.52 2.794 1.655 2.794h9.018c1.139 0 1.67-.914 1.67-2.794zM6.716 6.34c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.686.692a.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692m2.726 0c.38 0 .686.31.686.692v8.05a.689.689 0 0 1-.686.692a.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692m2.728 0c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.685.692a.689.689 0 0 1-.686-.692v-8.05a.69.69 0 0 1 .686-.692M9.176 1.382c-.642.045-1.065.264-1.334.662c-.198.291-.297.543-.313.768l4.938-.001c-.014-.291-.129-.547-.352-.792c-.346-.38-.73-.586-1.093-.635z" />
                                             </svg>
                                         </button>
+
                                     </div>
                                 </td>
 
@@ -184,7 +184,7 @@
                             <td class="px-4 py-4  text-sm whitespace-nowrap">
                                 <div class="flex justify-evenly items-center ">
                                     <div class="group relative w-fit">
-                                        <button class="text-secondary" onclick="displayUpdatePopup()">
+                                        <button data-restaurant-id="{{ $ownedRestaurant->id }}" class="text-secondary update-restaurant">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 48 48">
                                                 <g fill="none" stroke="currentColor" stroke-linejoin="round"
@@ -218,16 +218,18 @@
                                     </div>
 
                                     <div class="group relative w-fit">
-                                        <form action="{{ route('restaurants.kill', $ownedRestaurant)}}" method="POST">
+                                        <form action="{{ route('restaurants.kill', $ownedRestaurant) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-900">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20">
-                                                    <path fill="currentColor" d="m9.129 0l1.974.005c.778.094 1.46.46 2.022 1.078c.459.504.7 1.09.714 1.728h5.475a.69.69 0 0 1 .686.693a.689.689 0 0 1-.686.692l-1.836-.001v11.627c0 2.543-.949 4.178-3.041 4.178H5.419c-2.092 0-3.026-1.626-3.026-4.178V4.195H.686A.689.689 0 0 1 0 3.505c0-.383.307-.692.686-.692h5.47c.014-.514.205-1.035.554-1.55C7.23.495 8.042.074 9.129 0m6.977 4.195H3.764v11.627c0 1.888.52 2.794 1.655 2.794h9.018c1.139 0 1.67-.914 1.67-2.794zM6.716 6.34c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.686.692a.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692m2.726 0c.38 0 .686.31.686.692v8.05a.689.689 0 0 1-.686.692a.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692m2.728 0c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.685.692a.689.689 0 0 1-.686-.692v-8.05a.69.69 0 0 1 .686-.692M9.176 1.382c-.642.045-1.065.264-1.334.662c-.198.291-.297.543-.313.768l4.938-.001c-.014-.291-.129-.547-.352-.792c-.346-.38-.73-.586-1.093-.635z" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 20 20">
+                                                    <path fill="currentColor"
+                                                        d="m9.129 0l1.974.005c.778.094 1.46.46 2.022 1.078c.459.504.7 1.09.714 1.728h5.475a.69.69 0 0 1 .686.693a.689.689 0 0 1-.686.692l-1.836-.001v11.627c0 2.543-.949 4.178-3.041 4.178H5.419c-2.092 0-3.026-1.626-3.026-4.178V4.195H.686A.689.689 0 0 1 0 3.505c0-.383.307-.692.686-.692h5.47c.014-.514.205-1.035.554-1.55C7.23.495 8.042.074 9.129 0m6.977 4.195H3.764v11.627c0 1.888.52 2.794 1.655 2.794h9.018c1.139 0 1.67-.914 1.67-2.794zM6.716 6.34c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.686.692a.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692m2.726 0c.38 0 .686.31.686.692v8.05a.689.689 0 0 1-.686.692a.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692m2.728 0c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.685.692a.689.689 0 0 1-.686-.692v-8.05a.69.69 0 0 1 .686-.692M9.176 1.382c-.642.045-1.065.264-1.334.662c-.198.291-.297.543-.313.768l4.938-.001c-.014-.291-.129-.547-.352-.792c-.346-.38-.73-.586-1.093-.635z" />
                                                 </svg>
                                             </button>
                                         </form>
-                                        
+
                                         <span
                                             class="absolute -top-14 left-[50%] -translate-x-[50%] 
                                     z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
@@ -245,25 +247,31 @@
         </div>
     </section>
 
-    <section id="updatePopup" class=" relative  hidden">
+    @foreach ($ownedRestaurants as $restaurant)
+
+    <section id="updatePopup-{{ $restaurant->id }}" class=" relative hidden">
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
             <div class="absolute bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
-                <button id="updatePopup-close" onclick="closeUpdatePopup()" type="button"
-                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"><svg
-                        aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
+                <button data-restaurant-id="{{ $restaurant->id }}"
+                    id="updatePopup-close-{{ $restaurant->id }}"
+                    onclick="closeUpdatePopup({{ $restaurant->id }})" type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                             cliprule="evenodd"></path>
                     </svg>
                 </button>
-                storingRestaurant
+
                 <div class="p-5">
 
-                    @foreach ($ownedRestaurants as $restaurant)
                         <div class="text-center">
                             <p class="mb-1 text-2xl font-semibold leading-10 text-white font-passero">
-                                Edit Restaurant
+                                Edit Restaurant Details
+                            </p>
+                            <p class="mb-1 text-xl font-semibold leading-10 text-white font-passero">
+                                {{ $restaurant->name }}
                             </p>
                         </div>
                         <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide" action=""
@@ -340,12 +348,12 @@
                                 U P D A T E
                             </button>
                         </form>
-                    @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </section>
+            
+        </section>
+        @endforeach
 
     <section id="createModal" class=" relative  hidden">
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
@@ -368,17 +376,16 @@
                         </p>
                     </div>
 
-                    <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide" action="{{ route('restaurants.store') }}" method="POST"
-                    enctype="multipart/form-data">
+                    <form class="mx-8 4 lg:mx-0 font-poppins font-semibold tracking-wide"
+                        action="{{ route('restaurants.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <div class="flex flex-row justify-between mt-8 gap-8">
                             <div class="w-full">
                                 <label for="Event Title" class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
                                     Name</label>
                                 <input type="text" placeholder="Pizza's House" name="name"
-                                    class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-5 py-2.5 text-white "
-                                 />
+                                    class="block text-xs mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 px-5 py-2.5 text-white " />
                             </div>
                         </div>
 
@@ -386,8 +393,7 @@
                             <label for="description" class="block text-sm text-gray-500 dark:text-gray-300">Restaurant
                                 Description</label>
                             <textarea id="description" name="description" placeholder="A tiny bio of what this is about .!"
-                                class="block mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 text-xs px-5 py-2.5 text-white "
-                            ></textarea>
+                                class="block mt-2 w-full placeholder-gray-300 rounded-lg border border-gray-200 bg-secondary/60 text-xs px-5 py-2.5 text-white "></textarea>
                         </div>
 
                         <div class="flex flex-row justify-between mt-8 gap-8">
@@ -416,17 +422,18 @@
                         <div class="mt-8 w-full">
                             <label
                                 class="flex flex-col items-center w-full p-5 mt-2 text-center bg-secondary/60 border-2 border-gray-200 border-dashed cursor-pointer rounded-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-8 h-8 text-gray-500 dark:text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-8 h-8 text-gray-500 dark:text-gray-400">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                                 </svg>
-        
+
                                 <h2 class="mt-1 font-medium tracking-wide text-gray-300">Upload a cover</h2>
-        
+
                                 <p class="mt-2 text-xs tracking-wide text-gray-300">Upload or darg & drop your
-                                    file JPG, JPEG, PNG. </p> 
-                                    <input name="cover" id="cover" type="file" class="hidden" />
+                                    file JPG, JPEG, PNG. </p>
+                                <input name="cover" id="cover" type="file" class="hidden" />
                             </label>
                         </div>
 
@@ -479,4 +486,5 @@
             }
         });
     </script>
+    <script src="{{ asset('assets/js/restaurantsManagement.js') }}"></script>
 @endsection

@@ -287,112 +287,11 @@
         </div>
     </nav>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    document.getElementById('collapse_btn').addEventListener('click', function() {
-        document.getElementById('dropdown-example').classList.toggle('hidden')
-    })
-</script>
-{{-- Earnings Chart --}}
-<script>
-    // Get the canvas element
-    var ctx = document.getElementById('earnings_chart').getContext('2d');
-
-    // Define the data for the chart
-    var data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
-            'November', 'December'
-        ],
-        datasets: [{
-            label: 'Earnings ($)',
-            backgroundColor: 'rgb(255, 194, 68)',
-            borderColor: 'rgb(255, 194, 68)',
-            data: [2000, 2500, 1800, 3200, 3500, 3800, 3000, 4000, 3800, 3600, 3200, 3000],
-            color: 'white',
-        }]
-    };
-
-    // Configure the options for the chart
-    var options = {
-        scales: {
-            y: {
-                beginAtZero: false // Allow the y-axis to start at zero
-            }
-        },
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white'
-                }
-            }
-        }
-    };
-
-    // Create the chart
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: options
-    });
-</script>
-
-
-{{-- Restaurants Chart --}}
-<script>
-    var restaurantData = {
-        labels: ['Restaurant A', 'Restaurant B', 'Restaurant C', 'Restaurant D', 'Restaurant E', 'Restaurant F',
-            'Restaurant G'
-        ],
-        datasets: [{
-            // label: 'Restaurants Statistics',
-            data: [300, 450, 600, 800, 550, 200, 400],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1
-        }]
-    };
-
-    // Chart options
-    var restaurantOptions = {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Most Seller Restaurants', // Your personalized title
-                font: {
-                    size: 18,
-                    weight: 'bold',
-                    family: 'passero'
-                }
-            }
-        }
-    };
-
-    // Create the bar chart
-    var restaurantChart = new Chart(document.getElementById('restau_chart'), {
-        type: 'bar',
-        data: restaurantData,
-        options: restaurantOptions
-    });
-
-    //Navigation
     document.getElementById('Hamburger').addEventListener('click', () => {
         document.getElementById('sidebar-multi-level-sidebar').classList.toggle('hidden')
     })
 </script>
+
+@yield('scripts')
