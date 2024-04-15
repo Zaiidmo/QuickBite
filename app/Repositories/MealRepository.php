@@ -30,5 +30,10 @@ class MealRepository implements MealRepositoryInterface
         return $meal->delete();
     }
 
+    public function edit(Meal $meal, $data)
+    {
+        return $meal->update($data);
+    }
+
     
 }

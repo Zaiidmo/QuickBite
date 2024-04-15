@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Meal;
-use App\Models\Restaurant;
 
 interface MealRepositoryInterface
 {
@@ -16,6 +15,6 @@ interface MealRepositoryInterface
 
     public function kill(Meal $meal);
 
-    // public function edit(Restaurant $restaurant, $data);
+    public function edit(Meal $meal, $data);
 
 }

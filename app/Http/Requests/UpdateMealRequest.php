@@ -11,7 +11,7 @@ class UpdateMealRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdateMealRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'nullable|numeric',
+            'category_id' => 'nullable|numeric',
+            'restaurant_id' => 'nullable|numeric',
+            'image' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

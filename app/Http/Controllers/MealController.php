@@ -92,10 +92,29 @@ class MealController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMealRequest $request, Meal $Meal)
+    public function update(UpdateMealRequest $request, Meal $meal)
     {
-        //
+        $user = $request->user();
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->image->storeAs('public/uploads/meals', $fileName);
+            $data['image'] = $fileName;
+        }
+
+        if($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('update-meal')) {
+            if($meal->user_id !== $user->id) {
+                return back()->with('error', 'Unauthorized access 1');
+            }
+            
+            $meal = $this->mealRepository->edit($meal, $data);
+            return back()->with('success', 'Restaurant Has Been Updated Successfully !');
+        }
+        return back()->with('error', 'Unauthorized access 2');
+        
     }
+    
 
     /**
      * Remove the specified resource from storage.
