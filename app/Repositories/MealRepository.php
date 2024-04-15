@@ -19,6 +19,10 @@ class MealRepository implements MealRepositoryInterface
         return Meal::where('user_id', $id)->get();
     }
     
+    public function create($data)
+    {
+        return Meal::create($data);
+    }
 
 
     

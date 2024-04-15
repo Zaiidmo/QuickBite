@@ -11,7 +11,7 @@ interface MealRepositoryInterface
     public function findById($id);
     
     public function findByOwner($id);
-    // public function create($data);
+    public function create($data);
 
     // public function kill(Restaurant $restaurant);
 

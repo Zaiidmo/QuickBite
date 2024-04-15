@@ -50,9 +50,28 @@ class MealController extends Controller
      */
     public function store(StoreMealRequest $request)
     {
-        //
-    }
+        $user = $request->user();
+        $data = $request->validated();
 
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->image->storeAs('public/uploads/meals', $fileName);
+            $data['image'] = $fileName;
+        }        
+
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-meal')) {
+            $data['user_id'] = $user->id;
+
+            $restaurant = $this->mealRepository->create($data);
+
+            if ($restaurant) {
+                return back()->with('success', 'Meal Has Been Created Successfully !');
+            }
+            // return back()->with('error', 'Failed To Create Restaurant !');
+
+        } 
+        return back()->with('error', 'You Are Not Authorized To Create Meals !');
+    }
     /**
      * Display the specified resource.
      */
