@@ -135,107 +135,27 @@
         <!-- component -->
         <div class="md:col-span-2 lg:col-span-3 p-4">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4">
-                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                @if($meals->count() > 0)
+                    @foreach($meals as $meal)
+                    <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
+                    <img src={{ asset('storage/uploads/meals/' . $meal->image) }} class="shadow rounded-lg overflow-hidden border">
                     <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
-                            your
-                            students care about.
+                        <h4 class="font-bold font-poppins text-secondary text-xl">{{ $meal-> name}}}</h4>
+                        <p class="mt-2 font-poppins text-white">By : {{ $meal->restaurant->name }}</p>
                         </p>
                         <div class="mt-4">
                             <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
-                                Creating</button>
+                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Add To Cart</button>
                         </div>
                     </div>
                 </a>
-
-                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
-                    href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
-                            your
-                            students care about.
-                        </p>
-                        <div class="mt-4">
-                            <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
-                                Creating</button>
-                        </div>
+                    @endforeach
+                    @else
+                    <div class="flex font-poppins justify-center items-center w-full h-full">
+                        <h1 class="text-2xl font-bold text-white">No Meals Found</h1>
                     </div>
-                </a>
-
-                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
-                    href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
-                            your
-                            students care about.
-                        </p>
-                        <div class="mt-4">
-                            <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
-                                Creating</button>
-                        </div>
-                    </div>
-                </a>
-
-                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
-                    href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
-                            your
-                            students care about.
-                        </p>
-                        <div class="mt-4">
-                            <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
-                                Creating</button>
-                        </div>
-                    </div>
-                </a>
-
-                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
-                    href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
-                            your
-                            students care about.
-                        </p>
-                        <div class="mt-4">
-                            <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
-                                Creating</button>
-                        </div>
-                    </div>
-                </a>
-
-                <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
-                    href="#">
-                    <img src={{ asset('assets/images/Pizza.jpg') }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">Pizza Pepperoni</h4>
-                        <p class="mt-2 font-poppins text-white">Create Exercises for any subject with the topics you and
-                            your
-                            students care about.
-                        </p>
-                        <div class="mt-4">
-                            <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Start
-                                Creating</button>
-                        </div>
-                    </div>
-                </a>
+                @endif
 
             </div>
 

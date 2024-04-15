@@ -5,17 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMealRequest;
 use App\Http\Requests\UpdateMealRequest;
 use App\Models\Meal;
+use App\Repositories\MealRepositoryInterface;
 
 class MealController extends Controller
 {
+    protected $mealRepository;
+
+    public function __construct(MealRepositoryInterface $mealRepository)
+    {
+        $this->middleware('auth')->except('index', 'show');
+        $this->mealRepository = $mealRepository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('meals.index', [
-            // 'Meal' => Meal::all()
-        ]);
+        $meals = $this->mealRepository->all();
+        return view('meals.index', [ 'meals' => $meals]);
     }
 
     /**
