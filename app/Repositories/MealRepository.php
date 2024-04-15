@@ -18,6 +18,7 @@ class MealRepository implements MealRepositoryInterface
     {
         return Meal::where('user_id', $id)->get();
     }
+    
 
 
     

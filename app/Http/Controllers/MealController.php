@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMealRequest;
 use App\Http\Requests\UpdateMealRequest;
+use App\Models\Category;
 use App\Models\Meal;
 use App\Repositories\MealRepositoryInterface;
+use App\Repositories\RestaurantRepository;
 
 class MealController extends Controller
 {
@@ -29,8 +31,11 @@ class MealController extends Controller
     {
         $user = auth()->user();
         $meals = $this->mealRepository->all();
-        $ownedmeals = $this->mealRepository->findByOwner($user->id);
-        return view('Admin.meals', compact('meals', 'ownedMeals'));
+        $restaurants = RestaurantRepository::all();
+        $categories = Category::all();
+        $ownedRestaurants = RestaurantRepository::findByOwner($user->id);
+        $ownedMeals = $this->mealRepository->findByOwner($user->id);
+        return view('Admin.meals', compact('meals', 'ownedMeals', 'restaurants', 'ownedRestaurants', 'categories'));
     }
     /**
      * Show the form for creating a new resource.

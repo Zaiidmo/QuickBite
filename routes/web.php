@@ -54,8 +54,8 @@ Route::group(['prefix' => 'restaurants'], function () {
 Route::group(['prefix' => 'meals'], function () {
     Route::get('/', [MealController::class, 'index'])->name('meals');
     Route::get('/mealsManagement', [MealController::class, 'dashboard'])->name('mealsManagement');
-    // Route::post('/storingRestaurant', [RestaurantController::class, 'store'])->name('meals.store');
-    // Route::get('/meals/{restaurant}', [RestaurantController::class, 'show'])->name('meals.show');
-    // Route::put('/meals/{restaurant}', [RestaurantController::class, 'update'])->name('meals.update');
-    // Route::delete('/destroyingRestaurant/{restaurant}', [RestaurantController::class, 'destroy'])->name('meals.kill');
+    Route::post('/storingMeal', [MealController::class, 'store'])->name('meals.store');
+    // Route::get('/meals/{Meal}', [MealController::class, 'show'])->name('meals.show');
+    // Route::put('/meals/{Meal}', [MealController::class, 'update'])->name('meals.update');
+    // Route::delete('/destroyingMeal/{Meal}', [MealController::class, 'destroy'])->name('meals.kill');
 });
