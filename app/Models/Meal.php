@@ -8,18 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Meal extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'price'];
+    protected $fillable = ['name', 'description', 'price', 'image', 'restaurant_id', 'category_id', 'user_id'];
 
-    public function orders(){
-        return $this->belongsToMany(Order::class , 'order_meal');
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_meal');
     }
 
-    public function restaurant() {
+    public function restaurant()
+    {
         return $this->belongsTo(Restaurant::class);
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }
-

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->text('description')->nullable();
-            $table->string('cover')->default('defaultRestauCover.png');
+            $table->string('cover')->default('defaultRestauCover.jpg');
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->softDeletes();
             $table->timestamps();

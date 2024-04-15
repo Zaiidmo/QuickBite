@@ -25,6 +25,13 @@ class MealController extends Controller
         return view('meals.index', [ 'meals' => $meals]);
     }
 
+    public function dashboard()
+    {
+        $user = auth()->user();
+        $meals = $this->mealRepository->all();
+        $ownedmeals = $this->mealRepository->findByOwner($user->id);
+        return view('Admin.meals', compact('meals', 'ownedMeals'));
+    }
     /**
      * Show the form for creating a new resource.
      */

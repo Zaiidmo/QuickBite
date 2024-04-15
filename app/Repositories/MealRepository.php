@@ -14,6 +14,10 @@ class MealRepository implements MealRepositoryInterface
     {
         return Meal::find($id);
     }
+    public function findByOwner($id)
+    {
+        return Meal::where('user_id', $id)->get();
+    }
 
 
     

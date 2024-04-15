@@ -39,7 +39,7 @@
                 </div>
                 <div
                     class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="{{route('meals.index')}}">Meals</a>
+                    <a href="{{route('meals')}}">Meals</a>
                 </div>
                 <div
                     class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
