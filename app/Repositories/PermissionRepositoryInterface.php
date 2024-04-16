@@ -15,12 +15,14 @@ interface PermissionRepositoryInterface
     public function attachPermissions($data);
     
     public function kill(Role $role);
+
+    public function edit(Role $role, $data);
+    
     // public static function findByOwner($id);
     
     // public function findById($id);
 
 
 
-    // public function edit(Permission $permission, $data);
 
 }

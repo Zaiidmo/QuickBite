@@ -39,6 +39,7 @@ Route::group(['middleware' => 'role:super-admin'], function () {
     Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions');
     Route::post('/permissions', [PermissionController::class, 'store'])->name('permissions.store');
     Route::delete('/deleteRole/{role}', [PermissionController::class, 'destroy'])->name('permissions.kill');
+    Route::put('/updateRole/{role}', [PermissionController::class, 'update'])->name('permissions.update');
 
 });
 

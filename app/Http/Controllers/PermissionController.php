@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRoleRequest;
+use App\Http\Requests\UpdateRoleRequest;
 use App\Models\Permission;
 use App\Models\Role;
 use app\Repositories\PermissionRepository;
@@ -39,5 +40,12 @@ class PermissionController extends Controller
         // dd($role);
         $this->permissionRepository->kill($role);
         return redirect()->back()->with('success', 'Role deleted successfully');
+    }
+
+    public function update(Role $role, UpdateRoleRequest $request)
+    {
+        $data = $request->validated();
+        $this->permissionRepository->edit($role, $data);
+        return redirect()->back()->with('success', 'Role updated successfully');
     }
 }
