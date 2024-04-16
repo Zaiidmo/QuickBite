@@ -23,7 +23,7 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'image' => 'required|image',
+            'image' => 'nullable|image',
         ];
     }
 
@@ -32,7 +32,6 @@ class UpdateCategoryRequest extends FormRequest
             'name.required' => 'The name field is required.',
             'name.string' => 'The name field must be a string.',
             'name.max' => 'The name field must not exceed 255 characters.',
-            'image.required' => 'The image field is required.',
             'image.image' => 'The image field must be an image.',
         ];
     }

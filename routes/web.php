@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::delete('/destroyingCategories/{category}', [CategoryController::class, 'destroy'])->name('categories.kill');
     Route::post('/storingCategories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::put('/categories', [CategoryController::class, 'update'])->name('categories.update');
+    Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');

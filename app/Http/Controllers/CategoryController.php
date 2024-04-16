@@ -44,7 +44,6 @@ class CategoryController extends Controller
         $request->image->storeAs('public/uploads/categories', $fileName);
         $data['image'] = $fileName;
 
-
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-category')) {
             $category = $this->categoryRepository->create($data);
             if ($category) {
@@ -81,13 +80,17 @@ class CategoryController extends Controller
         $user = $request->user();
         $data = $request->validated();
 
-        $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-        $request->image->storeAs('public/uploads/categories', $fileName);
-        $data['image'] = $fileName;
-
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->image->storeAs('public/uploads/categories', $fileName);
+            $data['image'] = $fileName;
+        } else {
+            $data['image'] = $category->image;
+        }
 
         if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('update-category')) {
             $category = $this->categoryRepository->update($category, $data);
+            // dd($category, $data)
             if ($category) {
                 return redirect()->back()->with('success', 'Category updated successfully.');
             } else {
