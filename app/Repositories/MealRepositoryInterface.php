@@ -20,4 +20,7 @@ interface MealRepositoryInterface
 
     public function edit(Meal $meal, $data);
 
+
+    public function findRelated($idOwneer, $idCategory);
+
 }

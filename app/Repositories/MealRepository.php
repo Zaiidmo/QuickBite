@@ -19,10 +19,11 @@ class MealRepository implements MealRepositoryInterface
         return Meal::where('user_id', $id)->get();
     }
 
-    public static function findByRestaurant($id){
+    public static function findByRestaurant($id)
+    {
         return Meal::where('restaurant_id', $id)->get();
     }
-    
+
     public function create($data)
     {
         return Meal::create($data);
@@ -30,7 +31,6 @@ class MealRepository implements MealRepositoryInterface
 
     public function kill(Meal $meal)
     {
-
         return $meal->delete();
     }
 
@@ -39,5 +39,17 @@ class MealRepository implements MealRepositoryInterface
         return $meal->update($data);
     }
 
-    
+    public function findRelated($idOwner, $idCategory)
+{
+    $restaurantMeals = Meal::where('restaurant_id', $idOwner)->latest()->take(4)->get();
+    $categoryMeals = Meal::where('category_id', $idCategory)->latest()->take(4)->get();
+
+    $relatedObjects = [
+        'restaurantMeals' => $restaurantMeals,
+        'categoryMeals' => $categoryMeals
+    ];
+
+    return $relatedObjects;
+}
+
 }

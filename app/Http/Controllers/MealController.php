@@ -76,9 +76,13 @@ class MealController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id)
     {
-        return view('Meal.show');
+        $meal = $this->mealRepository->findById($id);
+        $relatedItems = $this->mealRepository->findRelated($meal->restaurant_id, $meal->category_id);
+        $restaurants = $relatedItems['restaurantMeals'];
+        $category = $relatedItems['categoryMeals'];
+        return view('meals.show',  compact('meal', 'restaurants', 'category'));
     }
 
     /**
