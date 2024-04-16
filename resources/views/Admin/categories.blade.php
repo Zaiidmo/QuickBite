@@ -60,16 +60,14 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    {{-- @foreach ($ownedMeals as $ownedMeal)
+                    @foreach ($categories as $category)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $ownedMeal->name }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $ownedMeal->restaurant->name }}
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $category->name }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $category->meals->count() }}</td>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $ownedMeal->price }} $</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $ownedMeal->name }} </td>
                             <td class="px-4 py-4 flex justify-evenly items-center text-sm whitespace-nowrap">
                                 <div class="group relative w-fit">
-                                    <button data-meal-id="{{ $ownedMeal->id }}" class="text-secondary update-meal">
+                                    <button data-meal-id="{{ $category->id }}" class="text-secondary update-meal">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 48 48">
                                             <g fill="none" stroke="currentColor" stroke-linejoin="round"
@@ -87,7 +85,7 @@
                                     </span>
                                 </div>
                                 <div class="group relative w-fit">
-                                    <form action="{{ route('meals.kill', $ownedMeal) }}" method="POST">
+                                    <form action="{{ route('categories.kill', $category) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-900">
@@ -108,10 +106,9 @@
                             </td>
 
                         </tr>
-                    @endforeach --}}
+                    @endforeach 
                 </tbody>
             </table>
         </div>
     </section>
-
 @endsection

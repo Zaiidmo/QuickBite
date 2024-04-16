@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\CategoryRepository;
+use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\MealRepository;
 use App\Repositories\MealRepositoryInterface;
 use App\Repositories\PermissionRepository;
@@ -20,5 +22,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(RestaurantRepositoryInterface::class, RestaurantRepository::class);
         $this->app->bind(MealRepositoryInterface::class, MealRepository::class);
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
     }
 }

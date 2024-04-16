@@ -5,21 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Repositories\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
 {
     protected $categoryRepository;
 
-    public function __construct()
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
-        // $this->middleware('role:super-admin|admin');
+        $this->categoryRepository = $categoryRepository;
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Admin.categories');
+        $categories = $this->categoryRepository->all();
+        return view('Admin.categories', compact('categories'));
     }
 
     /**
@@ -67,6 +69,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $this->categoryRepository->kill($category);
+        return redirect()->back()->with('success','Category deleted successfully.');
     }
 }
