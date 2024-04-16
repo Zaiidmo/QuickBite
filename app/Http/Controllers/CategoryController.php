@@ -8,12 +8,18 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    protected $categoryRepository;
+
+    public function __construct()
+    {
+        // $this->middleware('role:super-admin|admin');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('Admin.categories');
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\PermissionController;
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'role:super-admin'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [DashboardController::class, 'users'])->name('usersManagement');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
