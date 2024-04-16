@@ -36,8 +36,8 @@
     class="w-screen hidden top-20 mt-3 lg:mt-0 uppercase lg:block fixed bottom-2 lg:top-2 left-4  z-40 lg:w-72  transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
     <div
-        class="h-full px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
-        <ul class="space-y-2  font-medium ">
+        class="h-full  px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
+        <ul class="space-y-2 lg:w-full font-medium ">
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Main Links</label>
 
             <li>

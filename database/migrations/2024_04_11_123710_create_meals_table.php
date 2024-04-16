@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('restaurant_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->string('image')->default('default.jpg');
+            $table->string('image')->default('default.png');
             $table->float('price')->unsigned();
             $table->timestamps();
         });

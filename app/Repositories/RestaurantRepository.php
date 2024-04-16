@@ -36,4 +36,8 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant->update($data);
     }
 
+    public function menu($id) {
+        return MealRepository::findByRestaurant($id);
+    }
+
 }

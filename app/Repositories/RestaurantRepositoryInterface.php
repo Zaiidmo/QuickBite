@@ -12,10 +12,12 @@ interface RestaurantRepositoryInterface
     
     public function findById($id);
 
+
     public function create($data);
 
     public function kill(Restaurant $restaurant);
 
     public function edit(Restaurant $restaurant, $data);
 
+    public function menu($id);
 }

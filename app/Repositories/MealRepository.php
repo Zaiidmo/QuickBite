@@ -18,6 +18,10 @@ class MealRepository implements MealRepositoryInterface
     {
         return Meal::where('user_id', $id)->get();
     }
+
+    public static function findByRestaurant($id){
+        return Meal::where('restaurant_id', $id)->get();
+    }
     
     public function create($data)
     {

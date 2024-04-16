@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
+use App\Repositories\MealRepository;
 use App\Repositories\RestaurantRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -80,9 +81,10 @@ class RestaurantController extends Controller
      */
     public function show(string $id)
     {
+        $meals = $this->restaurantRepository->menu($id);
         $restaurant = $this->restaurantRepository->findById($id);
         if ($restaurant) {
-            return view('restaurants.show', compact('restaurant'));
+            return view('restaurants.show', compact('restaurant', 'meals'));
         }
         return back()->with('error', 'Restaurant Not Found !');
     }
