@@ -18,43 +18,45 @@ class PermissionRepository implements PermissionRepositoryInterface
         return Role::all();
     }
 
-    public function createRole($data){
+    public function createRole($data)
+    {
         $role = Role::create($data);
         return $role;
     }
 
     public function attachPermissions($data)
-{
-    $permissionIds = $data['permission_id'];
+    {
+        $permissionIds = $data['permission_id'];
 
-    $permissions = [];
+        $permissions = [];
 
-    foreach ($permissionIds as $permissionId) {
-        $permissions[] = Permission::find($permissionId);
+        foreach ($permissionIds as $permissionId) {
+            $permissions[] = Permission::find($permissionId);
+        }
+
+        // Create the role excluding the permission_id from the data
+        unset($data['permission_id']);
+        $role = $this->createRole($data);
+
+        // Attach permissions to the role
+        $role->permissions()->saveMany($permissions);
     }
-
-    // Create the role excluding the permission_id from the data
-    unset($data['permission_id']);
-    $role = $this->createRole($data);
-
-    // Attach permissions to the role
-    $role->permissions()->saveMany($permissions);
-}
 
     public function kill(Role $role)
     {
         $role->delete();
     }
 
-    public function edit(Role $role, $data){
+    public function edit(Role $role, $data)
+    {
         $permissionIds = $data['permission_id'];
 
         $permissions = [];
-    
+
         foreach ($permissionIds as $permissionId) {
             $permissions[] = Permission::find($permissionId);
         }
-    
+
         // Create the role excluding the permission_id from the data
         unset($data['permission_id']);
 
@@ -72,18 +74,19 @@ class PermissionRepository implements PermissionRepositoryInterface
     }
 
     public function updatePermissions(User $user, $data)
-    {   
+    {
         $roleIds = $data['role_id'];
         $permissionIds = $data['permission_id'];
-        if($roleIds != null){
+        if ($roleIds != null) {
             $this->updateRoles($user, $data);
         }
-        if($permissionIds != null){
+        if ($permissionIds != null) {
             $permissions = [];
             foreach ($permissionIds as $permissionId) {
                 $permissions[] = Permission::find($permissionId);
             }
             $user->permissions()->sync($permissionIds, true);
         }
-}
+        $user->permissions()->sync($permissionIds, true);
+    }
 }
