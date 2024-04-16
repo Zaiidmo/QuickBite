@@ -10,5 +10,6 @@ interface CategoryRepositoryInterface
     public function kill(Category $category);
     // public function find($id);
     public function create($data);
-    // public function update($data, $id);
+
+    public function update(Category $category, $data);
 }

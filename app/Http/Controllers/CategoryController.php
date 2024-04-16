@@ -78,7 +78,24 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $user = $request->user();
+        $data = $request->validated();
+
+        $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+        $request->image->storeAs('public/uploads/categories', $fileName);
+        $data['image'] = $fileName;
+
+
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('update-category')) {
+            $category = $this->categoryRepository->update($category, $data);
+            if ($category) {
+                return redirect()->back()->with('success', 'Category updated successfully.');
+            } else {
+                return redirect()->back()->with('error', 'There were an error updating the category, please try again later');
+            }
+        } else {
+            return redirect()->back()->with('error', 'You are not authorized to create a category.');
+        }
     }
 
     /**

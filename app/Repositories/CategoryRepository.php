@@ -20,4 +20,9 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return Category::create($data);
     }
+
+    public function update(Category $category, $data)
+    {
+        return $category->update($data);
+    }
 }
