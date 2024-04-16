@@ -40,4 +40,9 @@ class PermissionRepository implements PermissionRepositoryInterface
     $role->permissions()->saveMany($permissions);
 }
 
+    public function kill(Role $role)
+    {
+        $role->delete();
+    }
+
 }

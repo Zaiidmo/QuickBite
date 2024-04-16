@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
+use App\Models\Permission;
+use App\Models\Role;
+
 interface PermissionRepositoryInterface
 {
     public function allPermissions();
@@ -10,13 +13,13 @@ interface PermissionRepositoryInterface
     public function createRole($data);
 
     public function attachPermissions($data);
-
+    
+    public function kill(Role $role);
     // public static function findByOwner($id);
     
     // public function findById($id);
 
 
-    // public function kill(Permission $permission);
 
     // public function edit(Permission $permission, $data);
 

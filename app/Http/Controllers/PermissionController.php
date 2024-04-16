@@ -33,4 +33,11 @@ class PermissionController extends Controller
 
         return redirect()->back()->with('success', 'Role created successfully');
     }
+
+    public function destroy(Role $role)
+    {
+        // dd($role);
+        $this->permissionRepository->kill($role);
+        return redirect()->back()->with('success', 'Role deleted successfully');
+    }
 }
