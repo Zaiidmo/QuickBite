@@ -39,15 +39,15 @@ class CategoryController extends Controller
     {
         $user = $request->user();
         $data = $request->validated();
-        if ($request->hasFile('image')) {
-            $fileName = time() . '_' . $request['name']->getClientOriginalName();
-            $request->image->storeAs('public/uploads/restaurants', $fileName);
-            $data['image'] = $fileName;
-        }
-        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-category')) {
 
+        $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+        $request->image->storeAs('public/uploads/categories', $fileName);
+        $data['image'] = $fileName;
+
+
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-category')) {
             $category = $this->categoryRepository->create($data);
-            if($category){
+            if ($category) {
                 return redirect()->back()->with('success', 'Category created successfully.');
             } else {
                 return redirect()->back()->with('error', 'There were an error creating the category, please try again later');
@@ -87,6 +87,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $this->categoryRepository->kill($category);
-        return redirect()->back()->with('success','Category deleted successfully.');
+        return redirect()->back()->with('success', 'Category deleted successfully.');
     }
 }
