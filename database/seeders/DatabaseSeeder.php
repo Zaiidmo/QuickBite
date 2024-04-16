@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
         //Role Seeder
         $this->call(RoleSeeder::class);
 
+        //Category Seeder
+        $this->call(CategorySeeder::class);
+
         //Retrieve Roles
         $superAdminRole = Role::where('slug', 'super-admin')->first();
         $adminRole = Role::where('slug', 'admin')->first();
