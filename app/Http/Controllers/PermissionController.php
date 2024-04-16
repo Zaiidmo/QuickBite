@@ -48,4 +48,13 @@ class PermissionController extends Controller
         $this->permissionRepository->edit($role, $data);
         return redirect()->back()->with('success', 'Role updated successfully');
     }
+    public function updatePermissions(Request $request)
+    {
+
+        $user = UserRepository::find($request->user);
+        $data = $request->only('role_id', 'permission_id');
+        $this->permissionRepository->updatePermissions($user, $data);
+        return redirect()->back()->with('success', 'Users\'s Authorizations Updated successfully');
+    }
+
 }

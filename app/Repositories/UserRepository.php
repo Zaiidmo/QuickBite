@@ -49,5 +49,9 @@ class UserRepository implements UserRepositoryInterface
             $query->where('slug', $role);
         })->get();
     }
+
+    public static function find($id) {
+        return User::find($id);
+    }
     
 }

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Permission;
 use App\Models\Role;
+use App\Models\User;
 
 class PermissionRepository implements PermissionRepositoryInterface
 {
@@ -60,7 +61,29 @@ class PermissionRepository implements PermissionRepositoryInterface
         $role->update($data);
 
         // Attach permissions to the role
-        $role->permissions()->sync($permissionIds, false);
+        $role->permissions()->sync($permissionIds, true);
     }
 
+    public function updateRoles(User $user, $data)
+    {
+        $roleIds = $data['role_id'];
+
+        $user->roles()->sync($roleIds, true);
+    }
+
+    public function updatePermissions(User $user, $data)
+    {   
+        $roleIds = $data['role_id'];
+        $permissionIds = $data['permission_id'];
+        if($roleIds != null){
+            $this->updateRoles($user, $data);
+        }
+        if($permissionIds != null){
+            $permissions = [];
+            foreach ($permissionIds as $permissionId) {
+                $permissions[] = Permission::find($permissionId);
+            }
+            $user->permissions()->sync($permissionIds, true);
+        }
+}
 }
