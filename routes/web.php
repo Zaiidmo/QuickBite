@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'role:super-admin'], function () {
     Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions');
+    Route::post('/permissions', [PermissionController::class, 'store'])->name('permissions.store');
 
 });
 

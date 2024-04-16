@@ -16,4 +16,28 @@ class PermissionRepository implements PermissionRepositoryInterface
     {
         return Role::all();
     }
+
+    public function createRole($data){
+        $role = Role::create($data);
+        return $role;
+    }
+
+    public function attachPermissions($data)
+{
+    $permissionIds = $data['permission_id'];
+
+    $permissions = [];
+
+    foreach ($permissionIds as $permissionId) {
+        $permissions[] = Permission::find($permissionId);
+    }
+
+    // Create the role excluding the permission_id from the data
+    unset($data['permission_id']);
+    $role = $this->createRole($data);
+
+    // Attach permissions to the role
+    $role->permissions()->saveMany($permissions);
+}
+
 }

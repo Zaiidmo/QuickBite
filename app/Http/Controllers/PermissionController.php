@@ -26,7 +26,11 @@ class PermissionController extends Controller
         return view('Admin.authorizations', compact('roles', 'permissions', 'users'));
     }
 
-    // public function store(StoreRoleRequest $request)
-    // {
-    // }
+    public function store(StoreRoleRequest $request)
+    {
+        $data = $request->validated();
+        $this->permissionRepository->attachPermissions($data);
+
+        return redirect()->back()->with('success', 'Role created successfully');
+    }
 }
