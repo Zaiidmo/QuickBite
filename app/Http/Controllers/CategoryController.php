@@ -37,7 +37,24 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $user = $request->user();
+        $data = $request->validated();
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_' . $request['name']->getClientOriginalName();
+            $request->image->storeAs('public/uploads/restaurants', $fileName);
+            $data['image'] = $fileName;
+        }
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-category')) {
+
+            $category = $this->categoryRepository->create($data);
+            if($category){
+                return redirect()->back()->with('success', 'Category created successfully.');
+            } else {
+                return redirect()->back()->with('error', 'There were an error creating the category, please try again later');
+            }
+        } else {
+            return redirect()->back()->with('error', 'You are not authorized to create a category.');
+        }
     }
 
     /**

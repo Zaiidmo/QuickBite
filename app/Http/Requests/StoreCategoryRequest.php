@@ -11,7 +11,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'image' => 'required|image',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'The name field is required.',
+            'name.string' => 'The name field must be a string.',
+            'name.max' => 'The name field must not exceed 255 characters.',
+            'image.required' => 'The image field is required.',
+            'image.image' => 'The image field must be an image.',
         ];
     }
 }
