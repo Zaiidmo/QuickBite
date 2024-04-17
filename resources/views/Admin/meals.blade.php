@@ -336,7 +336,7 @@
                 <div
                     class="absolute bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
                     <button data-meal-id="{{ $meal->id }}" id="updatePopup-close-{{ $meal->id }}"
-                        onclick="closeUpdatePopup({{ $restaurant->id }})" type="button"
+                        onclick="closeUpdatePopup({{ $meal->id }})" type="button"
                         class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close">
                         <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">

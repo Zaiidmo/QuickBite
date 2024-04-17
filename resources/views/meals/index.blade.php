@@ -40,7 +40,7 @@
                 class="text-secondary">Delightful</span>
             menus !</h1>
     </section>
-    <section class="max-w-screen-xl lg:mx-auto mx-4 gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+    <section class="max-w-screen-xl mb-4 lg:mx-auto mx-4 gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         <div id="sidebar-multi-level-sidebar"
             class="z-40 transition-transform -translate-x-full sm:translate-x-0 rounded-2xl bg-component h-fit  col-span-1 "
             aria-label="Sidebar">
@@ -140,7 +140,7 @@
                     <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
                     href="{{ route('meals.show', $meal)}}">
                     <img src={{ asset('storage/uploads/meals/' . $meal->image) }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border border-indigo-300 bg-component p-2 rounded-lg">
+                    <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
                         <h4 class="font-bold font-poppins text-secondary text-xl">{{ $meal-> name}}</h4>
                         <p class="mt-2 font-poppins text-white">By : {{ $meal->restaurant->name }}</p>
                         </p>

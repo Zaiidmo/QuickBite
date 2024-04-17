@@ -33,11 +33,11 @@
 
 
 <aside id="sidebar-multi-level-sidebar"
-    class="w-screen hidden top-20 mt-3 lg:mt-0 uppercase lg:block fixed bottom-2 lg:top-2 left-4  z-40 lg:w-72  transition-transform -translate-x-full sm:translate-x-0"
+    class="w-screen  hidden top-20 mt-3 lg:mt-0 uppercase lg:block fixed bottom-2 lg:top-2 left-4  z-40 lg:w-72  transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
     <div
         class="h-full  px-12 lg:px-3 py-4 flex w-full justify-center  overflow-y-auto border-gray-700 backdrop-blur-sm bg-black/40 rounded-2xl">
-        <ul class="space-y-2 lg:w-full font-medium ">
+        <ul class="space-y-2 lg:w-full h-full font-medium pb-24">
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Main Links</label>
 
             <li>
@@ -65,7 +65,27 @@
                     <span class="ms-3">meals</span>
                 </a>
             </li>
-            @role('super-admin')
+            <li>
+                <a href="{{ route('profile') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28"
+                            stroke-linecap="round" stroke-width="2">
+                            <path d="M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21">
+                                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
+                                    values="28;0" />
+                            </path>
+                            <path
+                                d="M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z">
+                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s"
+                                    dur="0.4s" values="28;0" />
+                            </path>
+                        </g>
+                    </svg>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
+                </a>
+            </li>
+            @role('super-admin','admin')
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Admin</label>
 
             <li>
@@ -213,7 +233,7 @@
             </li>
             @endrole
 
-
+            @role('driver')
             <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">Drivers</label>
             <li>
                 <a href="#"
@@ -246,39 +266,9 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
                 </a>
             </li>
+            @endrole
 
-
-            <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">User</label>
-            <li>
-                <a href="{{ route('profile') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 24 24">
-                        <g fill="none" stroke="currentColor" stroke-dasharray="28" stroke-dashoffset="28"
-                            stroke-linecap="round" stroke-width="2">
-                            <path d="M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s"
-                                    values="28;0" />
-                            </path>
-                            <path
-                                d="M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s"
-                                    dur="0.4s" values="28;0" />
-                            </path>
-                        </g>
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('profile') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 20 20">
-                        <path fill="currentColor"
-                            d="M9 2a4 4 0 1 0 0 8a4 4 0 0 0 0-8m-4.991 9A2 2 0 0 0 2 13c0 1.691.833 2.966 2.135 3.797C5.417 17.614 7.145 18 9 18q.617 0 1.21-.057A5.48 5.48 0 0 1 9 14.5c0-1.33.472-2.55 1.257-3.5zm6.626 2.92a2 2 0 0 0 1.43-2.478l-.155-.557q.382-.293.821-.497l.338.358a2 2 0 0 0 2.91.001l.324-.344q.448.212.835.518l-.126.423a2 2 0 0 0 1.456 2.519l.349.082a4.7 4.7 0 0 1 .01 1.017l-.46.117a2 2 0 0 0-1.431 2.479l.156.556q-.383.294-.822.498l-.338-.358a2 2 0 0 0-2.909-.002l-.325.344a4.3 4.3 0 0 1-.835-.518l.127-.422a2 2 0 0 0-1.456-2.52l-.35-.082a4.7 4.7 0 0 1-.01-1.016zm4.865.58a1 1 0 1 0-2 0a1 1 0 0 0 2 0" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Edit Profile</span>
-                </a>
-            </li>
+            
             <li>
                 <form action="{{ route('logout')}}" method="POST">
                     @csrf
