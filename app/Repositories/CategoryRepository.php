@@ -25,4 +25,8 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return $category->update($data);
     }
+
+    public static function getPopularCategories(){
+        return Category::inRandomOrder()->take(3)->get();
+    }
 }

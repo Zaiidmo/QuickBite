@@ -4,16 +4,16 @@
             <h2 class="mb-6 text-sm font-semibold tracking-widest text-white uppercase">Quick Links</h2>
             <ul class="text-gray-500 py-3 tracking-widest dark:text-gray-400 font-medium">
                 <li>
-                    <a href="#" class="hover:underline">Food Menus</a>
+                    <a href=" {{ route('meals')}}" class="hover:underline">Food Menus</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Restaurants</a>
+                    <a href="{{ route('restaurants')}}" class="hover:underline">Restaurants</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline">Offers</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Review</a>
+                    <a href="/#testimonials" class="hover:underline">Review</a>
                 </li>
             </ul>
         </div>
@@ -24,10 +24,10 @@
                     <a href="/" class="hover:underline">About Us</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Linkedin</a>
+                    <a href="https://www.linkedin.com/in/zaiidmoumni" class="hover:underline">Linkedin</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">GitHub</a>
+                    <a href="https://www.github.com/Zaiidmo" class="hover:underline">GitHub</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline">Something</a>
@@ -38,7 +38,7 @@
             <h2 class="mb-6 text-sm font-semibold tracking-widest text-white uppercase">Contact</h2>
             <ul class="text-gray-500 py-3 tracking-widest dark:text-gray-400 font-medium">
                 <li class="">
-                    <a href="/" class="hover:underline">Whatsapp</a>
+                    <a href="#" class="hover:underline">Whatsapp</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline">Support 24</a>
@@ -53,6 +53,6 @@
         </div>
     </div>
     <div class="text-center py-6">
-        <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">© 2024 All rights reserved. Designed by <a href="#" class="hover:underline">Zaiid Moumnii</a></p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">© 2024 All rights reserved. Designed by <a href="https://vlpha.netlify.app" target="_blank" class="hover:underline">Zaiid Moumnii</a></p>
     </div>
 </footer>

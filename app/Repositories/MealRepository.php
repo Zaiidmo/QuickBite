@@ -40,16 +40,20 @@ class MealRepository implements MealRepositoryInterface
     }
 
     public function findRelated($idOwner, $idCategory)
-{
-    $restaurantMeals = Meal::where('restaurant_id', $idOwner)->latest()->take(4)->get();
-    $categoryMeals = Meal::where('category_id', $idCategory)->latest()->take(4)->get();
+    {
+        $restaurantMeals = Meal::where('restaurant_id', $idOwner)->latest()->take(4)->get();
+        $categoryMeals = Meal::where('category_id', $idCategory)->latest()->take(4)->get();
 
-    $relatedObjects = [
-        'restaurantMeals' => $restaurantMeals,
-        'categoryMeals' => $categoryMeals
-    ];
+        $relatedObjects = [
+            'restaurantMeals' => $restaurantMeals,
+            'categoryMeals' => $categoryMeals,
+        ];
 
-    return $relatedObjects;
-}
+        return $relatedObjects;
+    }
 
+    public static function tastyFood()
+    {
+        return Meal::inRandomOrder()->take(3)->get();
+    }
 }

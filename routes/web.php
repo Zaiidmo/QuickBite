@@ -70,5 +70,5 @@ Route::group(['prefix' => 'meals'], function () {
     Route::post('/storingMeal', [MealController::class, 'store'])->name('meals.store');
     Route::delete('/destroyingMeal/{meal}', [MealController::class, 'destroy'])->name('meals.kill');
     Route::put('/meals/{meal}', [MealController::class, 'update'])->name('meals.update');
-    Route::get('/meals/{meal}', [MealController::class, 'show'])->name('meals.show');
+    Route::get('/{meal}', [MealController::class, 'show'])->name('meals.show');
 });

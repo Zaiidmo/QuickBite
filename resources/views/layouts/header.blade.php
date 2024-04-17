@@ -33,31 +33,60 @@
             class="hidden top-0 right-0 w-0 h-screen bg-black/40 backdrop-blur-xl overflow-hidden ">
             <div
                 class="md:max-w-screen-xl md:mx-auto w-screen h-screen md:w-full flex flex-col gap-8 justify-center items-center ">
-                <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="{{route('home')}}">HOME</a>
-                </div>
-                <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="{{route('meals')}}">Meals</a>
-                </div>
-                <div
-                    class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                    <a href="{{route('restaurants')}}">Restaurants</a>
-                </div>
+
+
                 @auth
+                    @role('super-admin', 'admin', 'restaurant-owner')
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                        </div>
+
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('mealsManagement') }}">Meals</a>
+                        </div>
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('restaurantsManagement') }}">Restaurants</a>
+                        </div>
+                    @else
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('home') }}">HOME</a>
+                        </div>
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('meals') }}">Meals</a>
+                        </div>
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('restaurants') }}">Restaurants</a>
+                        </div>
+                        <div
+                            class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                            <a href="{{ route('profile') }}">Profile</a>
+                        </div>
+                    @endrole
+                @else
                     <div
                         class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                        <a href="/">My Cart</a>
+                        <a href="{{ route('home') }}">HOME</a>
                     </div>
                     <div
                         class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
-                        <a href="{{route('dashboard')}}">Dashboard</a>
+                        <a href="{{ route('meals') }}">Meals</a>
+                    </div>
+                    <div
+                        class="font-passero uppercase tracking-widest text-4xl md:text-7xl text-white hover:text-secondary border-b border-secondary">
+                        <a href="{{ route('restaurants') }}">Restaurants</a>
                     </div>
                 @endauth
+
+                {{-- Authentication Buttons --}}
                 <div class="flex flex-col md:flex-row gap-4 ">
                     @auth
-                        <form action="{{route('logout')}}" method="POST">
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit"
                                 class="flex items-center gap-2 border-b-4 border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200 hover:text-black focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
