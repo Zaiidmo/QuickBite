@@ -1,7 +1,7 @@
 <header class="absolute w-screen">
     <nav class="fixed w-full top-0 z-50 border-b border-gray-700 backdrop-blur-sm bg-black/40 rounded-b-2xl flexflex-wrap items-center justify-between  py-2 shadow-dark-mild lg:py-4"
         data-te-navbar-ref>
-        <div class="flex w-full max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
+        <div class="flex max-w-screen-xl mx-auto flex-wrap items-center h-20 justify-between px-3">
             <div>
                 <a class="mx-2 my-1 flex items-center text-white  focus:text-white lg:mb-0 lg:mt-0 hover:text-secondary"
                     href="/">
@@ -14,21 +14,37 @@
             </div>
 
             <!-- Hamburger button for mobile view -->
-            <button id="Hamburger" data-twe-collapse-toggle
-                class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 "
-                type="button" data-twe-collapse-init data-twe-target="#navbarSupportedContent4"
-                aria-controls="navbarSupportedContent4" aria-expanded="false" aria-label="Toggle navigation">
-                <!-- Hamburger icon -->
-                <span class="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </span>
-            </button>
+            <div class="flex justify-end gap-3 items-center h-full">
+
+                <button id="Cart" data-twe-collapse-toggle
+                    class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 "
+                    type="button" data-twe-collapse-init data-twe-target="#navbarSupportedContent4"
+                    aria-controls="navbarSupportedContent4" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- cart icon -->
+                    <span class="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                d="M12.28 6H1.72a1 1 0 0 0-1 1.2l1.1 5.5a1 1 0 0 0 1 .8h8.36a1 1 0 0 0 1-.8l1.1-5.5a1 1 0 0 0-1-1.2M9 2.5L11 6M3 6l2-3.5" />
+                        </svg>
+                    </span>
+                </button>
+
+                <button id="Hamburger" data-twe-collapse-toggle
+                    class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 "
+                    type="button" data-twe-collapse-init data-twe-target="#navbarSupportedContent4"
+                    aria-controls="navbarSupportedContent4" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Hamburger icon -->
+                    <span class="[&>svg]:w-7 [&>svg]:stroke-neutral-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M3 4h18v2H3zm0 7h12v2H3zm0 7h18v2H3z" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
         </div>
-        <!-- Collapsible navbar container -->
+
+        {{-- Collapsible navbar container --}}
+
         <div id="ScreenNavigator"
             class="hidden top-0 right-0 w-0 h-screen bg-black/40 backdrop-blur-xl overflow-hidden ">
             <div
@@ -109,6 +125,51 @@
                     @endauth
                 </div>
             </div>
+        </div>
+
+        {{--  Collapsible Cart --}}
+
+        <div id="ScreenCart"
+            class="hidden rounded-lg top-0 p-8  right-0 h-screen bg-black/40 backdrop-blur-xl overflow-hidden overflow-y-auto">
+
+            <h1
+                class="text-4xl mt-8 md:text-7xl w-full font-bold font-passero text-center mb-4 pb-4 border-b-2 border-secondary text-white ">
+                My
+                <span class="text-secondary ">
+                    Cart
+                </span>
+            </h1>
+
+            <div id="items" class="flex flex-col justify-center gap-4 p-2">
+                <div id="item" class="p-8">
+                    <div class="bg-component p-6 shadow-lg rounded-full flex justify-between items-center">
+                        <div class="flex">
+                            <div class="mr-4"> <img class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100"
+                                    src="" alt="Avatar" />
+                            </div>
+                            <!-- End Input Number -->
+                            <div>
+                                <h1 class="text-xl font-medium text-white">Link</h1>
+                                <p class="text-gray-400">Restaurant</p>
+                            </div>
+                        </div> 
+                        <!-- Input Number -->
+                        <div class="py-2 px-3 inline-block bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700"
+                        data-hs-input-number="">
+                        <div class="flex items-center gap-x-1.5">
+                            <input
+                                class="p-0 w-6 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-white"
+                                type="number" value="0" data-hs-input-number-input="">
+                        </div>
+                    </div>
+                        <button class="bg-blue-500 hover:opacity-75 text-white rounded-full px-8 py-2"> Follow
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </nav>
 </header>

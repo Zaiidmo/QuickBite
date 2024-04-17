@@ -22,13 +22,56 @@
     }
 }
 
+@keyframes slideInCart {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 85vw;
+    }
+}
+
+@media (min-width: 1208px) {
+    @keyframes slideInCart {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 30%;
+        }
+    }
+}
+
+@keyframes slideOutCart {
+    0% {
+        right: 0; 
+    }
+    100% {
+        right: -100%; 
+    }
+}
+
+
 #ScreenNavigator {
     transition: width 0.5s ease-in-out;
 }
 
 #ScreenNavigator:not(.hidden) {
-  animation: slideIn 0.5s forwards;
+    animation: slideIn 0.5s forwards;
 }
 #ScreenNavigator.hidden {
-  animation: slidOut 0.5s forwards;
+    animation: slideOut 0.5s forwards;
+}
+
+
+#ScreenCart {
+    right: -100%;
+    transition: right 0.5s ease-in-out;
+}
+
+#ScreenCart:not(.hidden) {
+    animation: slideInCart 0.5s forwards;
+}
+#ScreenCart.hidden {
+    animation: slideOutCart 0.5s forwards;
 }
