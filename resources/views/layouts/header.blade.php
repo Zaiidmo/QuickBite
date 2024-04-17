@@ -140,32 +140,34 @@
                 </span>
             </h1>
 
-            <div id="items" class="flex flex-col justify-center gap-4 p-2">
-                <div id="item" class="p-8">
-                    <div class="bg-component p-6 shadow-lg rounded-full flex justify-between items-center">
-                        <div class="flex">
-                            <div class="mr-4"> <img class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100"
+            <div id="items" class="flex flex-col justify-center gap-4 mt-12 ">
+
+                <div id="item" >
+                    <div class="bg-component gap-4 lg:gap-0 p-6 shadow-lg rounded-full flex items-start lg:items-center md:justify-between flex-col md:flex-row">
+                        <div class="flex  gap-2 justify-between">
+                            <div class=""> <img class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100"
                                     src="" alt="Avatar" />
                             </div>
-                            <!-- End Input Number -->
                             <div>
                                 <h1 class="text-xl font-medium text-white">Link</h1>
                                 <p class="text-gray-400">Restaurant</p>
                             </div>
-                        </div> 
-                        <!-- Input Number -->
-                        <div class="py-2 px-3 inline-block bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700"
-                        data-hs-input-number="">
-                        <div class="flex items-center gap-x-1.5">
-                            <input
-                                class="p-0 w-6 bg-transparent border-0 text-gray-800 text-center focus:ring-0 dark:text-white"
-                                type="number" value="0" data-hs-input-number-input="">
                         </div>
-                    </div>
-                        <button class="bg-blue-500 hover:opacity-75 text-white rounded-full px-8 py-2"> Follow
-                        </button>
+                        
+                        <!-- Input Number -->
+                       <div class="flex justify-between items-center gap-8">
+                            <div class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
+                                <button id="minus" class="minus bg-transparent px-2 py-0 text-2xl">-</button>
+                                <span class="num text-lg border-x px-2">01</span>
+                                <button id="plus" class="plus bg-transparent px-2 py-0 text-2xl">+</button>
+                            </div>
+    
+                            <span class="bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2"> 45 $
+                            </span>
+                       </div>
                     </div>
                 </div>
+
             </div>
 
 
