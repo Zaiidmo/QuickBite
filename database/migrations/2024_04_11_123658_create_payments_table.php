@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('reference')->unique();
             $table->enum('status', ['pending', 'paid', 'failed', 'canceled'])->default('pending');
-            $table->enum('method', ['cash', 'online']);
+            $table->enum('method', ['cash', 'card', 'online']);
             $table->string('amount');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade');
             $table->foreignId('order_id')->constrained()->onUpdate('cascade');

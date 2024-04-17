@@ -11,18 +11,14 @@ class Order extends Model
 
     protected $fillable = [
         'status',
-        'payment_id',
+        'total_price',
+        'delivery_id',
         'user_id',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function payments()
-    {
-        return $this->hasOne(Payment::class);
     }
 
     public function meals(){
