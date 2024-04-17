@@ -139,36 +139,69 @@
                     Cart
                 </span>
             </h1>
+            @auth
+                <div class="flex flex-col gap-12">
+                    <div id="items" class="flex flex-col justify-center gap-4 mt-12 ">
 
-            <div id="items" class="flex flex-col justify-center gap-4 mt-12 ">
+                        <div id="item">
+                            <div
+                                class="bg-component gap-4 lg:gap-0 p-6 shadow-lg rounded-full flex items-start lg:items-center md:justify-between flex-col md:flex-row">
+                                <div class="flex  gap-2 justify-between">
+                                    <div class=""> <img
+                                            class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100" src=""
+                                            alt="Avatar" />
+                                    </div>
+                                    <div>
+                                        <h1 class="text-xl font-medium text-white">Link</h1>
+                                        <p class="text-gray-400">Restaurant</p>
+                                    </div>
+                                </div>
 
-                <div id="item" >
-                    <div class="bg-component gap-4 lg:gap-0 p-6 shadow-lg rounded-full flex items-start lg:items-center md:justify-between flex-col md:flex-row">
-                        <div class="flex  gap-2 justify-between">
-                            <div class=""> <img class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100"
-                                    src="" alt="Avatar" />
-                            </div>
-                            <div>
-                                <h1 class="text-xl font-medium text-white">Link</h1>
-                                <p class="text-gray-400">Restaurant</p>
+                                <!-- Input Number -->
+                                <div class="flex justify-between items-center gap-8">
+                                    <div
+                                        class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
+                                        <button id="minus" class="minus bg-transparent px-2 py-0 text-2xl">-</button>
+                                        <span class="num text-lg border-x px-2">01</span>
+                                        <button id="plus" class="plus bg-transparent px-2 py-0 text-2xl">+</button>
+                                    </div>
+
+                                    <span
+                                        class="bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">
+                                        45 $
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- Input Number -->
-                       <div class="flex justify-between items-center gap-8">
-                            <div class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
-                                <button id="minus" class="minus bg-transparent px-2 py-0 text-2xl">-</button>
-                                <span class="num text-lg border-x px-2">01</span>
-                                <button id="plus" class="plus bg-transparent px-2 py-0 text-2xl">+</button>
-                            </div>
-    
-                            <span class="bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2"> 45 $
-                            </span>
-                       </div>
+
+                    </div>
+
+                    <div class="flex justify-between items-center gap-8">
+                        <div class="flex items-center gap-4">
+                            <span class="text-white font-poppins text-xl">Total:</span>
+                            <span class="text-white font-poppins text-xl"> 45 $</span>
+                        </div>
+                        <button
+                            class="bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">Checkout</button>
                     </div>
                 </div>
-
-            </div>
+            @else
+                <div class="flex w-full items-center justify-center pt-12">
+                    <div class="flex flex-col gap-4 items-center">
+                        <h1 class="text-4xl font-bold font-passero text-center text-white ">
+                            Your Cart is Empty
+                        </h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-secondary" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M22.73 22.73L1.27 1.27L0 2.54l4.39 4.39l2.21 4.66l-1.35 2.45c-.16.28-.25.61-.25.96a2 2 0 0 0 2 2h7.46l1.38 1.38c-.5.36-.84.95-.84 1.62a2 2 0 0 0 2 2c.67 0 1.26-.33 1.62-.84L21.46 24zM7.42 15a.25.25 0 0 1-.25-.25l.03-.12l.9-1.63h2.36l2 2zm8.13-2c.75 0 1.41-.41 1.75-1.03l3.58-6.47c.08-.16.12-.33.12-.5a1 1 0 0 0-1-1H6.54zM7 18a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
+                        </svg>
+                        <a href="{{ route('login') }}"
+                            class="inline-block rounded-full border-4 hover:text-black border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200  focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
+                            Login to Add Items
+                        </a>
+                    </div>
+                </div>
+            @endauth
 
 
 
