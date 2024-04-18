@@ -70,7 +70,9 @@ addToCartButtons.forEach(addToCartButton => {
         } else {
             window.Notification.requestPermission().then(function (permission) {
                 if (permission === 'granted') {
-                    var notification = new Notification('Meal Already Exists');                   
+                    var notification = new Notification('Meal Already Exists', {
+                        body: `${item.name} already exists in your cart`,
+                    });                   
                 }
             });
         }
@@ -89,37 +91,36 @@ function renderCart() {
     itemsContainer.innerHTML = '';
     cartItems.forEach(item => {
         itemsContainer.innerHTML += `
-        <div id="item">
+        <div id="item" class="w-full">
         <div
-            class="bg-component gap-4 lg:gap-0 p-6 shadow-lg rounded-full flex items-start lg:items-center md:justify-between flex-col md:flex-row">
-            <div class="flex  gap-2 justify-between">
-                <div class=""> <img class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100" src="${item.image}"
+            class="bg-component gap-4 lg:gap-0 p-2 shadow-lg rounded-2xl flex items-start lg:items-center md:justify-between flex-col md:flex-row">
+            <div class="flex  gap-2 justify-between items-center">
+                <div class=""> <img class="shadow sm:w-12 sm:h-12 w-10 h-10 rounded-full bg-gray-100" src="${item.image}"
                         alt="Avatar" />
                 </div>
                 <div>
-                    <h1 class="text-xl font-medium text-white">${item.name}</h1>
-                    <p class="text-gray-400">${item.restaurant}</p>
+                    <h1 class="text-l font-medium text-white">${item.name}</h1>
+                    <p class="text-xs text-gray-400">${item.restaurant}</p>
                 </div>
             </div>
     
             <!-- Input Number -->
-            <div class="flex justify-between items-center gap-8">
+            <div class="flex justify-between w-fit items-center gap-4">
                 <div
                     class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
-                    <button class="minus bg-transparent px-2 py-0 text-2xl">-</button>
-                    <span class="num text-lg border-x px-2">1</span>
-                    <button class="plus bg-transparent px-2 py-0 text-2xl">+</button>
+                    <button class="minus bg-transparent px-2 py-0 ">-</button>
+                    <span class="num text-base border-x px-2">1</span>
+                    <button class="plus bg-transparent px-2 py-0 ">+</button>
                 </div>
     
-                <span class=" bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">
-                    <span class="itemPrices">
+                <span class=" bg-secondary w-fit hover:opacity-75 text-black font-poppins rounded-full px-2 py-1">
+                    <span class="itemPrices text-base">
                         ${item.price}
                     </span>
-                    $
                 </span>
                 
                 <button class="item-remove text-secondary inline-block">
-                <svg xmlns="http://www.w3.org/2000/svg" class=" stroke-2 stroke-primary" width="38" height="41" viewBox="0 0 1216 1312"><path fill="currentColor" d="M1202 1066q0 40-28 68l-136 136q-28 28-68 28t-68-28L608 976l-294 294q-28 28-68 28t-68-28L42 1134q-28-28-28-68t28-68l294-294L42 410q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294l294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L880 704l294 294q28 28 28 68"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class=" stroke-2 stroke-primary" width="22" height="30" viewBox="0 0 1216 1312"><path fill="currentColor" d="M1202 1066q0 40-28 68l-136 136q-28 28-68 28t-68-28L608 976l-294 294q-28 28-68 28t-68-28L42 1134q-28-28-28-68t28-68l294-294L42 410q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294l294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L880 704l294 294q28 28 28 68"/></svg>
                 </button>
                 
             </div>

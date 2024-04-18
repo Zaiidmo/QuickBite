@@ -27,7 +27,7 @@
         width: 0;
     }
     100% {
-        width: 85vw;
+        width: 50vw;
     }
 }
 
@@ -65,7 +65,7 @@
 
 
 #ScreenCart {
-    right: -100%;
+    right:0 ;
     transition: right 0.5s ease-in-out;
 }
 
