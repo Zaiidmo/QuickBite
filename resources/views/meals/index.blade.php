@@ -40,7 +40,8 @@
                 class="text-secondary">Delightful</span>
             menus !</h1>
     </section>
-    <section class="max-w-screen-xl mb-4 lg:mx-auto mx-4 gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+    <section
+        class="max-w-screen-xl mb-4 lg:mx-auto mx-4 gap-4 mt-8 text-center grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         <div id="sidebar-multi-level-sidebar"
             class="z-40 transition-transform -translate-x-full sm:translate-x-0 rounded-2xl bg-component h-fit  col-span-1 "
             aria-label="Sidebar">
@@ -78,7 +79,8 @@
                     <li>
                         <button type="button"
                             class="flex border-2-b font-poppins font-bold border-secondary items-center w-full p-2 transition duration-75 rounded-lg group text-white hover:bg-primary"
-                            aria-controls="Restaurant_dropdown" data-collapse-toggle="Restaurant_dropdown" onclick="filterByRestau()">
+                            aria-controls="Restaurant_dropdown" data-collapse-toggle="Restaurant_dropdown"
+                            onclick="filterByRestau()">
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Filter By Restaurant
                             </span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -135,23 +137,25 @@
         <!-- component -->
         <div class="md:col-span-2 lg:col-span-3 lg:p-4">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4">
-                @if($meals->count() > 0)
-                    @foreach($meals as $meal)
-                    <a class="p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
-                    href="{{ route('meals.show', $meal)}}">
-                    <img src={{ asset('storage/uploads/meals/' . $meal->image) }} class="shadow rounded-lg overflow-hidden border">
-                    <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
-                        <h4 class="font-bold font-poppins text-secondary text-xl">{{ $meal-> name}}</h4>
-                        <p class="mt-2 font-poppins text-white">By : {{ $meal->restaurant->name }}</p>
-                        </p>
-                        <div class="mt-4">
-                            <button type="button"
-                                class="font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Add To Cart</button>
+                @if ($meals->count() > 0)
+                    @foreach ($meals as $meal)
+                        <div class="meal-container p-2 w-fit border border-indigo-300 rounded-2xl hover:shadow-md hover:shadow-secondary flex flex-col items-center"
+                            href="{{ route('meals.show', $meal) }}">
+                            <img src={{ asset('storage/uploads/meals/' . $meal->image) }}
+                                class="meal-image shadow rounded-lg overflow-hidden border">
+                            <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
+                                <h4 class="meal-name font-bold font-poppins text-secondary text-xl">{{ $meal->name }}</h4>
+                                <p class="meal- mt-2 font-poppins text-white">By : {{ $meal->restaurant->name }}</p>
+                                </p>
+                                <div class="mt-4">
+                                    <button type="button"
+                                        class="add-to-cart font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Add
+                                        To Cart</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a>
                     @endforeach
-                    @else
+                @else
                     <div class="flex font-poppins justify-center items-center w-full h-full">
                         <h1 class="text-2xl font-bold text-white">No Meals Found</h1>
                     </div>
@@ -176,5 +180,6 @@
         };
     </script>
 
-<script src="{{asset('assets/js/Navigator.js')}}"></script>
+    <script src="{{ asset('assets/js/Navigator.js') }}"></script>
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
 @endsection

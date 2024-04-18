@@ -167,22 +167,26 @@
                                     </div>
 
                                     <span
-                                        class="bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">
-                                        45 $
+                                        class=" bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">
+                                        <span class="itemPrices">
+                                            45
+                                        </span>
+                                        $
                                     </span>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-
-                    <div class="flex justify-between items-center gap-8">
+                    <div class="flex justify-around items-center gap-8">
+                        <button
+                            class="bg-secondary hover:opacity-50 w-1/2 text-black font-poppins font-extrabold rounded-full px-4 py-2 border-2 border-primary">
+                            Checkout
+                        </button>
                         <div class="flex items-center gap-4">
                             <span class="text-white font-poppins text-xl">Total:</span>
                             <span class="text-white font-poppins text-xl"> 45 $</span>
                         </div>
-                        <button
-                            class="bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">Checkout</button>
                     </div>
                 </div>
             @else

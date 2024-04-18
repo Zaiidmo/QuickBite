@@ -63,4 +63,5 @@
 @endsection
 @section('scripts')
 <script src="{{asset('assets/js/Navigator.js')}}"></script>
+<script src="{{asset('assets/js/cart.js')}}"></script>
 @endsection
