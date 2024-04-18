@@ -132,50 +132,34 @@
         <div id="ScreenCart"
             class="hidden rounded-lg top-0 p-8  right-0 h-screen bg-black/40 backdrop-blur-xl overflow-hidden overflow-y-auto">
 
-            <h1
-                class="text-4xl mt-8 md:text-7xl w-full font-bold font-passero text-center mb-4 pb-4 border-b-2 border-secondary text-white ">
-                My
-                <span class="text-secondary ">
-                    Cart
-                </span>
-            </h1>
+            <div class="flex justify-between w-full items-center border-b-2 border-secondary">
+                <h1
+                    class="text-4xl mt-8 md:text-7xl font-bold font-passero text-center mb-4 pb-4 text-white ">
+                    My
+                    <span class="text-secondary ">
+                        Cart
+                    </span>
+                </h1>
+                <div id="clear-cart" class="group relative w-fit">
+                    <button class="text-orange-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
+                        </svg>
+                    </button>
+                    <span
+                        class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                group-hover:scale-100">Clear Cart
+                    </span>
+            </div>
+            </div>
             @auth
                 <div class="flex flex-col gap-12">
                     <div id="items" class="flex flex-col justify-center gap-4 mt-12 ">
 
-                        <div id="item">
-                            <div
-                                class="bg-component gap-4 lg:gap-0 p-6 shadow-lg rounded-full flex items-start lg:items-center md:justify-between flex-col md:flex-row">
-                                <div class="flex  gap-2 justify-between">
-                                    <div class=""> <img
-                                            class="shadow sm:w-12 sm:h-12 w-14 h-14 rounded-full bg-gray-100" src=""
-                                            alt="Avatar" />
-                                    </div>
-                                    <div>
-                                        <h1 class="text-xl font-medium text-white">Link</h1>
-                                        <p class="text-gray-400">Restaurant</p>
-                                    </div>
-                                </div>
-
-                                <!-- Input Number -->
-                                <div class="flex justify-between items-center gap-8">
-                                    <div
-                                        class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
-                                        <button id="minus" class="minus bg-transparent px-2 py-0 text-2xl">-</button>
-                                        <span class="num text-lg border-x px-2">01</span>
-                                        <button id="plus" class="plus bg-transparent px-2 py-0 text-2xl">+</button>
-                                    </div>
-
-                                    <span
-                                        class=" bg-secondary hover:opacity-75 text-black font-poppins rounded-full px-4 py-2">
-                                        <span class="itemPrices">
-                                            45
-                                        </span>
-                                        $
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        {{--  Cart Content To Be Filles --}}
 
                     </div>
                     <div class="flex justify-around items-center gap-8">
@@ -185,7 +169,7 @@
                         </button>
                         <div class="flex items-center gap-4">
                             <span class="text-white font-poppins text-xl">Total:</span>
-                            <span class="text-white font-poppins text-xl"> 45 $</span>
+                            <span id="total" class="text-white font-poppins text-xl"> 0.00 $</span>
                         </div>
                     </div>
                 </div>

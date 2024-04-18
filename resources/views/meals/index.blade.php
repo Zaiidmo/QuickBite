@@ -145,12 +145,14 @@
                                 class="meal-image shadow rounded-lg overflow-hidden border">
                             <div class="mt-2 border w-full border-indigo-300 bg-component p-2 rounded-lg">
                                 <h4 class="meal-name font-bold font-poppins text-secondary text-xl">{{ $meal->name }}</h4>
-                                <p class="meal- mt-2 font-poppins text-white">By : {{ $meal->restaurant->name }}</p>
+                                <p class="meal-restaurant mt-2 font-poppins text-white">#{{ $meal->restaurant->name }}</p>
                                 </p>
-                                <div class="mt-4">
+                                <div class="mt-4 flex justify-between items-center">
                                     <button type="button"
                                         class="add-to-cart font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-secondary hover:text-black hover:border-primary">Add
                                         To Cart</button>
+                                    <span
+                                        class="meal-price font-poppins border-2 border-secondary inline-flex items-center rounded-full  bg-primary p-2 text-sm font-medium leading-4 text-white shadow-sm ">{{ $meal->price }} $</span>
                                 </div>
                             </div>
                         </div>
