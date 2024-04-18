@@ -1,14 +1,13 @@
 // Function to calculate the total price
-function calculateTotalPrice(itemPriceSpans) {
-    let totalPrice = 0;
+function calculateTotalPrice(itemPriceSpans, totalPrice) {
     itemPriceSpans.forEach(priceSpan => {
         totalPrice += parseFloat(priceSpan.textContent);
     });
-    if (isNaN(totalPrice)) { // Check if totalPrice is NaN
-        totalPrice = 0; // Set totalPrice to 0 if it's NaN
+    if (isNaN(totalPrice)) { 
+        totalPrice = 0;
     }
     const total = totalPrice.toFixed(2);
-    document.getElementById('total').textContent = `${total} $`;
+    document.getElementById('total').textContent = `${totalPrice} $`;
 }
 
 // Event listener to handle item removal
@@ -26,8 +25,8 @@ function attachItemRemoveEventListeners() {
 // Function to remove an item from the cartItems array
 function removeItem(index) {
     cartItems.splice(index, 1);
-    renderCart();
     calculateTotalPrice(itemPriceSpans);
+    renderCart();
     attachButtonEventListeners(); // Reattach event listeners for quantity adjustment
     attachItemRemoveEventListeners(); // Reattach event listeners after removing an item
 }
@@ -48,6 +47,8 @@ addToCartButtons.forEach(addToCartButton => {
             image: addToCartButton.parentElement.parentElement.parentElement.querySelector('.meal-image').src,
             restaurant: addToCartButton.parentElement.parentElement.parentElement.querySelector('.meal-restaurant').innerHTML
         };
+        const itemPriceSpans = document.querySelectorAll('.itemPrices');
+
 
         if (!mealExistsInCart(item)) {
             cartItems.push(item);
@@ -59,6 +60,13 @@ addToCartButtons.forEach(addToCartButton => {
                     });
                 }
             });
+            let totalPrice = parseFloat(`${item.price}`);
+            // console.log(totalPrice);
+            // Render items in the cart
+            calculateTotalPrice(itemPriceSpans, totalPrice); // Pass itemPriceSpans as an argument
+            renderCart();
+            attachButtonEventListeners();
+            attachItemRemoveEventListeners(); 
         } else {
             window.Notification.requestPermission().then(function (permission) {
                 if (permission === 'granted') {
@@ -66,11 +74,6 @@ addToCartButtons.forEach(addToCartButton => {
                 }
             });
         }
-        // Render items in the cart
-        renderCart();
-        calculateTotalPrice(itemPriceSpans); // Pass itemPriceSpans as an argument
-        attachButtonEventListeners();
-        attachItemRemoveEventListeners(); 
     });
 });
 
@@ -82,6 +85,7 @@ function mealExistsInCart(meal) {
 
 // Function to render items in the cart
 function renderCart() {
+    const TOTAL = document.getElementById('total');
     itemsContainer.innerHTML = '';
     cartItems.forEach(item => {
         itemsContainer.innerHTML += `
