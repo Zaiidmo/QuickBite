@@ -1,10 +1,47 @@
+// Function to calculate the total price
+function calculateTotalPrice(itemPriceSpans) {
+    let totalPrice = 0;
+    itemPriceSpans.forEach(priceSpan => {
+        totalPrice += parseFloat(priceSpan.textContent);
+    });
+    if (isNaN(totalPrice)) { // Check if totalPrice is NaN
+        totalPrice = 0; // Set totalPrice to 0 if it's NaN
+    }
+    const total = totalPrice.toFixed(2);
+    document.getElementById('total').textContent = `${total} $`;
+}
+
+// Event listener to handle item removal
+function attachItemRemoveEventListeners() {
+    const removeButtons = document.querySelectorAll('.item-remove');
+    removeButtons.forEach((removeButton, index) => {
+        removeButton.addEventListener('click', () => {
+            removeItem(index);
+        });
+    });
+}
+
+
+
+// Function to remove an item from the cartItems array
+function removeItem(index) {
+    cartItems.splice(index, 1);
+    renderCart();
+    calculateTotalPrice(itemPriceSpans);
+    attachButtonEventListeners(); // Reattach event listeners for quantity adjustment
+    attachItemRemoveEventListeners(); // Reattach event listeners after removing an item
+}
+
+
+
 // Add Item To Cart
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const itemsContainer = document.getElementById('items');
 const cartItems = [];
+const itemPriceSpans = document.querySelectorAll('.itemPrices');
 
 addToCartButtons.forEach(addToCartButton => {
-    addToCartButton.addEventListener('click', () => {
+    addToCartButton.addEventListener('click', () => { 
         const item = {
             name: addToCartButton.parentElement.parentElement.parentElement.querySelector('.meal-name').innerHTML,
             price: addToCartButton.parentElement.parentElement.parentElement.querySelector('.meal-price').innerHTML,
@@ -28,12 +65,15 @@ addToCartButtons.forEach(addToCartButton => {
                     var notification = new Notification('Meal Already Exists');                   
                 }
             });
-            }
+        }
         // Render items in the cart
         renderCart();
+        calculateTotalPrice(itemPriceSpans); // Pass itemPriceSpans as an argument
         attachButtonEventListeners();
+        attachItemRemoveEventListeners(); 
     });
 });
+
 
 // Function to check if a meal already exists in the cartItems array
 function mealExistsInCart(meal) {
@@ -63,7 +103,7 @@ function renderCart() {
                 <div
                     class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
                     <button class="minus bg-transparent px-2 py-0 text-2xl">-</button>
-                    <span class="num text-lg border-x px-2">01</span>
+                    <span class="num text-lg border-x px-2">1</span>
                     <button class="plus bg-transparent px-2 py-0 text-2xl">+</button>
                 </div>
     
@@ -73,6 +113,11 @@ function renderCart() {
                     </span>
                     $
                 </span>
+                
+                <button class="item-remove text-secondary inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class=" stroke-2 stroke-primary" width="38" height="41" viewBox="0 0 1216 1312"><path fill="currentColor" d="M1202 1066q0 40-28 68l-136 136q-28 28-68 28t-68-28L608 976l-294 294q-28 28-68 28t-68-28L42 1134q-28-28-28-68t28-68l294-294L42 410q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294l294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L880 704l294 294q28 28 28 68"/></svg>
+                </button>
+                
             </div>
         </div>
         </div>
@@ -114,30 +159,34 @@ function attachButtonEventListeners() {
         const originalPrice = originalPrices[index];
         const totalPrice = quantity * originalPrice;
         itemPriceSpans[index].textContent = totalPrice;
-        calculateTotalPrice();
+        calculateTotalPrice(itemPriceSpans);
     }
-
-
-    // Function to calculate the total price
-    function calculateTotalPrice() {
-    let totalPrice = 0;
-    itemPriceSpans.forEach(priceSpan => {
-        totalPrice += parseFloat(priceSpan.textContent);
-    });
-    const total = totalPrice.toFixed(2);
-    document.getElementById('total').textContent = `${total} $`; 
-    }
-
 }
 
+document.getElementById('clear-cart').addEventListener('click', clearCart);
+
+// Function to clear the cart
 function clearCart() {
-    const clearer = document.getElementById('clear-cart');
-    clearer.addEventListener('click', () => {
-        console.log('cart cleared');
-        renderCart();
-        calculateTotalPrice();
+    cartItems.length = 0;
+    renderCart();  
+    document.getElementById('total').textContent = '0.00 $';
+}
+
+// Event listener to handle item removal
+function attachItemRemoveEventListeners() {
+    const removeButtons = document.querySelectorAll('.item-remove');
+    removeButtons.forEach((removeButton, index, itemPriceSpans) => {
+        removeButton.addEventListener('click', () => {
+            removeItem(index,itemPriceSpans);
+        });
     });
 }
 
-
+// Function to remove an item from the cartItems array
+function removeItem(index, itemPriceSpans) {
+    cartItems.splice(index, 1);
+    renderCart();
+    calculateTotalPrice(itemPriceSpans);
+    attachItemRemoveEventListeners(); // Reattach event listeners after removing an item
+}
 

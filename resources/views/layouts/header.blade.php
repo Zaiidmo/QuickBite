@@ -140,18 +140,14 @@
                         Cart
                     </span>
                 </h1>
-                <div id="clear-cart" class="group relative w-fit">
-                    <button class="text-orange-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                            viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" />
-                        </svg>
+                <div class="group relative w-fit">
+                    <button id="clear-cart" class="text-red-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 16 16"><path fill="currentColor" d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607l1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4a2 2 0 0 0 0-4h7a2 2 0 1 0 0 4a2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0a1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0M7.354 5.646L8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207L7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5L6.646 6.354a.5.5 0 1 1 .708-.708"/></svg>
                     </button>
                     <span
                         class="absolute -top-14 left-[50%] -translate-x-[50%] 
-                z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
-                group-hover:scale-100">Clear Cart
+                z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                group-hover:scale-100">Clear_Cart
                     </span>
             </div>
             </div>
@@ -168,8 +164,7 @@
                             Checkout
                         </button>
                         <div class="flex items-center gap-4">
-                            <span class="text-white font-poppins text-xl">Total:</span>
-                            <span id="total" class="text-white font-poppins text-xl"> 0.00 $</span>
+                            <span id="total" class="text-white font-poppins text-xl"></span>
                         </div>
                     </div>
                 </div>
