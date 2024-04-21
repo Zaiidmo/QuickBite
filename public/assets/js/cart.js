@@ -1,6 +1,7 @@
 // Function to calculate the total price
-function calculateTotalPrice(itemPriceSpans, totalPrice) {
+function calculateTotalPrice(itemPriceSpans) {
     console.log('Being Calculated :::');
+    let totalPrice = 0;
     itemPriceSpans.forEach(priceSpan => {
         totalPrice += parseFloat(priceSpan.textContent);
     });
@@ -11,29 +12,71 @@ function calculateTotalPrice(itemPriceSpans, totalPrice) {
     document.getElementById('total').textContent = `${totalPrice} $`;
 }
 
+// Function to remove an item from the cartItems array
+function removeItem(index, itemPriceSpans) {
+    cartItems.splice(index, 1);
+    renderCart();
+    attachButtonEventListeners();
+    attachItemRemoveEventListeners(); 
+    calculateTotalPrice(itemPriceSpans);
+}
+
+// Function to update prices
+function updatePrices(index, quantity) {
+    const originalPrice = originalPrices[index];
+    const totalPrice = quantity * originalPrice;
+    itemPriceSpans[index].textContent = totalPrice;
+    calculateTotalPrice(itemPriceSpans); // Calculate total after updating prices
+}
+
 // Event listener to handle item removal
 function attachItemRemoveEventListeners() {
     const removeButtons = document.querySelectorAll('.item-remove');
     removeButtons.forEach((removeButton, index) => {
         removeButton.addEventListener('click', () => {
-            removeItem(index);
+            removeItem(index, itemPriceSpans);
         });
     });
 }
 
+// Function to attach event listeners to plus and minus buttons
+function attachButtonEventListeners() {
+    const plusButtons = document.querySelectorAll('.plus');
+    const minusButtons = document.querySelectorAll('.minus');
+    const numberInputs = document.querySelectorAll('.num');
+    const itemPriceSpans = document.querySelectorAll('.itemPrices');
+    
+    // Define originalPrices here
+    const originalPrices = Array.from(itemPriceSpans).map(priceSpan => parseFloat(priceSpan.textContent));
 
+    plusButtons.forEach((plusButton, index) => {
+        plusButton.addEventListener("click", () => {
+            updateQuantity(index, 1);
+        });
+    });
 
-// Function to remove an item from the cartItems array
-function removeItem(index) {
-    cartItems.splice(index, 1);
-    calculateTotalPrice(itemPriceSpans);
-    renderCart();
-    attachButtonEventListeners(); 
-    attachItemRemoveEventListeners(); // Reattach event listeners after removing an item
+    minusButtons.forEach((minusButton, index) => {
+        minusButton.addEventListener('click', () => {
+            updateQuantity(index, -1);
+        });
+    });
+
+    // Function to update quantity
+    function updateQuantity(index, change) {
+        let currentQuantity = parseInt(numberInputs[index].textContent) + change;
+        currentQuantity = Math.max(1, currentQuantity);
+        numberInputs[index].textContent = currentQuantity;
+        updatePrices(index, currentQuantity, originalPrices); // Pass originalPrices as an argument
+    }
+
+    // Function to update prices
+    function updatePrices(index, quantity, originalPrices) {
+        const originalPrice = originalPrices[index];
+        const totalPrice = quantity * originalPrice;
+        itemPriceSpans[index].textContent = totalPrice;
+        calculateTotalPrice(itemPriceSpans); // Calculate total after updating prices
+    }
 }
-
-
-
 // Add Item To Cart
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const itemsContainer = document.getElementById('items');
@@ -50,7 +93,6 @@ addToCartButtons.forEach(addToCartButton => {
         };
         const itemPriceSpans = document.querySelectorAll('.itemPrices');
 
-
         if (!mealExistsInCart(item)) {
             cartItems.push(item);
             window.Notification.requestPermission().then(function (permission) {
@@ -62,9 +104,7 @@ addToCartButtons.forEach(addToCartButton => {
                 }
             });
             let totalPrice = parseFloat(`${item.price}`);
-            // console.log(totalPrice);
-            // Render items in the cart
-            calculateTotalPrice(itemPriceSpans, totalPrice); // Pass itemPriceSpans as an argument
+            calculateTotalPrice(itemPriceSpans); // Calculate total after adding an item
             renderCart();
             attachButtonEventListeners();
             attachItemRemoveEventListeners(); 
@@ -79,7 +119,6 @@ addToCartButtons.forEach(addToCartButton => {
         }
     });
 });
-
 
 // Function to check if a meal already exists in the cartItems array
 function mealExistsInCart(meal) {
@@ -133,44 +172,7 @@ function renderCart() {
     });
 }
 
-
-// Function to attach event listeners to plus and minus buttons
-function attachButtonEventListeners() {
-    const plusButtons = document.querySelectorAll('.plus');
-    const minusButtons = document.querySelectorAll('.minus');
-    const numberInputs = document.querySelectorAll('.num');
-    const itemPriceSpans = document.querySelectorAll('.itemPrices');
-    const originalPrices = Array.from(itemPriceSpans).map(priceSpan => parseFloat(priceSpan.textContent));
-
-    plusButtons.forEach((plusButton, index) => {
-        plusButton.addEventListener("click", () => {
-            updateQuantity(index, 1);
-        });
-    });
-
-    minusButtons.forEach((minusButton, index) => {
-        minusButton.addEventListener('click', () => {
-            updateQuantity(index, -1);
-        });
-    });
-
-    // Function to update quantity
-    function updateQuantity(index, change) {
-        let currentQuantity = parseInt(numberInputs[index].textContent) + change;
-        currentQuantity = Math.max(1, currentQuantity);
-        numberInputs[index].textContent = currentQuantity;
-        updatePrices(index, currentQuantity);
-    }
-
-    // Function to update prices
-    function updatePrices(index, quantity) {
-        const originalPrice = originalPrices[index];
-        const totalPrice = quantity * originalPrice;
-        itemPriceSpans[index].textContent = totalPrice;
-        calculateTotalPrice(itemPriceSpans);
-    }
-}
-
+// Function to attach event listener for clearing the cart
 document.getElementById('clear-cart').addEventListener('click', clearCart);
 
 // Function to clear the cart
@@ -178,23 +180,5 @@ function clearCart() {
     cartItems.length = 0;
     renderCart();  
     document.getElementById('total').textContent = '0.00 $';
+    calculateTotalPrice(itemPriceSpans); // Calculate total after clearing the cart
 }
-
-// Event listener to handle item removal
-function attachItemRemoveEventListeners() {
-    const removeButtons = document.querySelectorAll('.item-remove');
-    removeButtons.forEach((removeButton, index, itemPriceSpans) => {
-        removeButton.addEventListener('click', () => {
-            removeItem(index,itemPriceSpans);
-        });
-    });
-}
-
-// Function to remove an item from the cartItems array
-function removeItem(index, itemPriceSpans) {
-    cartItems.splice(index, 1);
-    calculateTotalPrice(itemPriceSpans);
-    renderCart();
-    attachItemRemoveEventListeners(); 
-}
-
