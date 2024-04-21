@@ -1,3 +1,33 @@
+// Declare cartItems using let instead of const
+let cartItems = [];
+
+// Function to store cart items in localStorage
+function storeCartItems() {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
+
+// Function to retrieve cart items from localStorage
+function retrieveCartItems(itemPriceSpans) {
+    const storedItems = localStorage.getItem('cartItems');
+    if (storedItems) {
+        cartItems = JSON.parse(storedItems);
+        renderCart(); // Render the cart items after retrieving them
+        calculateTotalPrice(itemPriceSpans); // Calculate the total price after retrieving cart items
+    }
+}
+
+// Function to clear cart items from storage
+function clearStoredCartItems() {
+    localStorage.removeItem('cartItems');
+}
+
+// Call retrieveCartItems when the page loads to populate the cart
+window.addEventListener('DOMContentLoaded', () => {
+    const itemPriceSpans = document.querySelectorAll('.itemPrices');
+    retrieveCartItems(itemPriceSpans);
+});
+
+
 // Function to calculate the total price
 function calculateTotalPrice(itemPriceSpans) {
     console.log('Being Calculated :::');
@@ -15,6 +45,7 @@ function calculateTotalPrice(itemPriceSpans) {
 // Function to remove an item from the cartItems array
 function removeItem(index, itemPriceSpans) {
     cartItems.splice(index, 1);
+    storeCartItems();
     renderCart();
     attachButtonEventListeners();
     attachItemRemoveEventListeners(); 
@@ -80,7 +111,7 @@ function attachButtonEventListeners() {
 // Add Item To Cart
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const itemsContainer = document.getElementById('items');
-const cartItems = [];
+// const cartItems = []; // Remove this line to declare cartItems using let
 const itemPriceSpans = document.querySelectorAll('.itemPrices');
 
 addToCartButtons.forEach(addToCartButton => {
@@ -106,6 +137,7 @@ addToCartButtons.forEach(addToCartButton => {
             let totalPrice = parseFloat(`${item.price}`);
             calculateTotalPrice(itemPriceSpans); // Calculate total after adding an item
             renderCart();
+            storeCartItems();
             attachButtonEventListeners();
             attachItemRemoveEventListeners(); 
         } else {
@@ -178,7 +210,8 @@ document.getElementById('clear-cart').addEventListener('click', clearCart);
 // Function to clear the cart
 function clearCart() {
     cartItems.length = 0;
+    storeCartItems();
     renderCart();  
     document.getElementById('total').textContent = '0.00 $';
-    calculateTotalPrice(itemPriceSpans); // Calculate total after clearing the cart
+    calculateTotalPrice(itemPriceSpans); 
 }
