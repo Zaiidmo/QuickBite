@@ -13,7 +13,7 @@
                         <img class="rounded-2xl w-24 h-24 lg:w-40 lg:h-40 border-4 border-secondary"
                             src="{{ asset('assets/images/avatar.jpg') }}" alt="profile">
                         <div class="flex flex-col lg:gap-4">
-                            <h1 class="font-bold dark:text-white text-gray-700 text-2xl">User Name</h1>
+                            <h1 class="font-bold dark:text-white text-gray-700 text-2xl">{{ $user->username }}</h1>
                             <p class="dark:text-white text-gray-400">{{ $user->email }}</p>
                             <p class="dark:text-white text-gray-400">{{ $user->phone }}</p>
                             <p class="dark:text-white text-gray-400">{{ $user->address }}</p>
