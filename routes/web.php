@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RestaurantController;
 use App\Models\Restaurant;
@@ -71,4 +72,8 @@ Route::group(['prefix' => 'meals'], function () {
     Route::delete('/destroyingMeal/{meal}', [MealController::class, 'destroy'])->name('meals.kill');
     Route::put('/meals/{meal}', [MealController::class, 'update'])->name('meals.update');
     Route::get('/{meal}', [MealController::class, 'show'])->name('meals.show');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/ordering', [OrderController::class, 'store']);
 });

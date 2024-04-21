@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Meal;
 use App\Models\Order;
+use App\Repositories\OrderRepositoryInterface;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    protected $orderRepository;
+
+    public function __construct(OrderRepositoryInterface $orderRepository)
+    {
+        $this->orderRepository = $orderRepository;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -29,9 +38,13 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $order = $request->validated();
+        $newOrder = $this->orderRepository->create($order);
+        return back()->with('success', 'Order Placed successfully')
+            ->with('order', $newOrder);
+            
     }
-
+    
     /**
      * Display the specified resource.
      */

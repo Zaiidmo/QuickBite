@@ -11,7 +11,7 @@ class StoreOrderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class StoreOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'names' => ['required', 'array'],
+            'prices' => ['required', 'array'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'names.required' => 'The names field is required.',
+            'prices.required' => 'The prices field is required.',
         ];
     }
 }
+

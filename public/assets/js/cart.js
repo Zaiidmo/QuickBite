@@ -15,6 +15,7 @@ function retrieveCartItems(itemPriceSpans) {
         calculateTotalPrice(itemPriceSpans);
         attachButtonEventListeners();
         attachItemRemoveEventListeners(); 
+        populateForm();
     }
 }
 
@@ -52,6 +53,7 @@ function removeItem(index, itemPriceSpans) {
     attachButtonEventListeners();
     attachItemRemoveEventListeners(); 
     calculateTotalPrice(itemPriceSpans);
+    populateForm();
 }
 
 // Function to update prices
@@ -142,6 +144,7 @@ addToCartButtons.forEach(addToCartButton => {
             storeCartItems();
             attachButtonEventListeners();
             attachItemRemoveEventListeners(); 
+            populateForm();
         } else {
             window.Notification.requestPermission().then(function (permission) {
                 if (permission === 'granted') {
@@ -243,4 +246,31 @@ function clearCart() {
     document.getElementById('total').textContent = '0.00 $';
     calculateTotalPrice(itemPriceSpans); 
 }
+function populateForm() {
+    const form = document.getElementById('form-inputs');
+    form.innerHTML = '';
+
+    cartItems.forEach(item => {
+        // Create hidden input elements
+        const nameInput = document.createElement('input');
+        nameInput.type = 'hidden';
+        nameInput.name = 'names[]';
+        nameInput.value = item.name;
+
+        const priceInput = document.createElement('input');
+        priceInput.type = 'hidden';
+        priceInput.name = 'prices[]';
+        priceInput.value = item.price;
+
+        // Append input elements to the form
+        form.appendChild(nameInput);
+        form.appendChild(priceInput);
+    });
+}
+
+function handleSubmit() {
+    clearCart();
+    alert('Order has been placed successfully!');
+}
+
 

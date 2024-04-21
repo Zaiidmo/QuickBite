@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['placed', 'OnTheWay', 'Delivered'])->default('placed');
+            $table->enum('status', ['placed', 'OnTheWay', 'Delivered', 'canceled'])->default('placed');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade');
             $table->bigInteger('delivery_id')->unsigned()->nullable();
             $table->foreign('delivery_id')->references('id')->on('users')->onUpdate('cascade');

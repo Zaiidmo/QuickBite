@@ -161,10 +161,16 @@
                         group-hover:scale-100">Clear_Cart
                             </span>
                         </div>
-                        <button
-                            class="bg-secondary hover:opacity-50 w-1/2 text-black font-poppins font-extrabold rounded-full px-4 py-2 border-2 border-primary">
-                            Checkout
-                        </button>
+                        <form action="/ordering" class="w-1/2" method="POST" onsubmit="handleSubmit()">
+                            @csrf
+                            <div id="form-inputs" class="hidden">
+                                {{-- Cart Data --}}
+                            </div>
+                            <button type="submit" id="checkout"
+                                class="bg-secondary w-full hover:opacity-50 text-black font-poppins font-extrabold rounded-full px-4 py-2 border-2 border-primary">
+                                Checkout
+                            </button>
+                        </form>
                         <div class="flex items-center gap-4">
                             <span id="total" class="text-white font-poppins text-xl"></span>
                         </div>
