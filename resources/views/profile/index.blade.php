@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <section id="" class="mx-auto overflow-hidden mt-24 mb-4 lg:mt-0 lg:pr-16">
+    <section id="" class="mx-auto max-w-screen-xl overflow-hidden mt-24 mb-4 lg:pr-16">
         {{-- Main Section --}}
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-            <div class="col-span-1 md:col-span-2 flex mx-4 lg:mx-0 lg:flex-col gap-2 lg:gap-8 ">
+            <div class="col-span-1 md:col-span-2 lg:col-span-3 flex mx-4 lg:mx-0 lg:flex-col gap-2 lg:gap-8 ">
                 <div class="p-4 w-full lg:p-8 bg-black/40 rounded-lg shadow ">
                     <div class="text-left flex gap-8 items-center">
                         <img class="rounded-2xl w-24 h-24 lg:w-40 lg:h-40 border-4 border-secondary"
@@ -28,7 +28,7 @@
                     <p class="text-white m-4">+212 666 666666</p>
                 </div>
             </div>
-            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow sm:col-span-1 md:col-span-2 ">
+            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow sm:col-span-1 md:col-span-2 lg:col-span-3 ">
                 <h1 class="font-passero text-4xl text-center text-white m-4">
                     My <span class="text-secondary">History</span>
                 </h1>
@@ -108,7 +108,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow col-span-1 md:col-span-2 lg:col-span-3">
+            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow col-span-1 md:col-span-2 lg:col-span-3 ">
                 <h1 class="font-passero text-4xl text-center text-white m-4">
                     <span class="text-secondary">Recommended</span> Meals.
                 </h1>
