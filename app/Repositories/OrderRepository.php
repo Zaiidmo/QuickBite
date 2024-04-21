@@ -38,4 +38,9 @@ class OrderRepository implements OrderRepositoryInterface
 
         return $order;
     }
+
+    public static function ordersHistory($id)
+    {
+        return Order::where('user_id', $id)->get();
+    }
 }

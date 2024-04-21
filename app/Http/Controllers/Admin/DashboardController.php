@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Repositories\MealRepository;
+use App\Repositories\OrderRepository;
 use App\Repositories\RestaurantRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
@@ -35,6 +36,9 @@ class DashboardController extends Controller
         return view('Admin.settings');
     }
     public function profile () {
-        return view('profile.index');
+        $user = auth()->user();
+        $ordersHistory = OrderRepository::ordersHistory(auth()->user()->id);
+        $recommendedMeals = MealRepository::tastyFood();
+        return view('profile.index', compact('ordersHistory', 'recommendedMeals', 'user'));
     }
 }
