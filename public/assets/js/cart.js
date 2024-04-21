@@ -12,7 +12,9 @@ function retrieveCartItems(itemPriceSpans) {
     if (storedItems) {
         cartItems = JSON.parse(storedItems);
         renderCart(); // Render the cart items after retrieving them
-        calculateTotalPrice(itemPriceSpans); // Calculate the total price after retrieving cart items
+        calculateTotalPrice(itemPriceSpans);
+        attachButtonEventListeners();
+        attachItemRemoveEventListeners(); 
     }
 }
 
@@ -152,6 +154,8 @@ addToCartButtons.forEach(addToCartButton => {
     });
 });
 
+
+
 // Function to check if a meal already exists in the cartItems array
 function mealExistsInCart(meal) {
     return cartItems.some(item => item.name === meal.name && item.restaurant === meal.restaurant);
@@ -161,7 +165,27 @@ function mealExistsInCart(meal) {
 function renderCart() {
     const TOTAL = document.getElementById('total');
     itemsContainer.innerHTML = '';
-    cartItems.forEach(item => {
+
+    if (cartItems.length === 0) {
+        itemsContainer.innerHTML = `
+                    <div class="flex flex-col gap-4 items-center">
+                        <h1 class="text-4xl font-bold font-passero text-center text-white ">
+                            Your Cart is Empty
+                        </h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-secondary" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M22.73 22.73L1.27 1.27L0 2.54l4.39 4.39l2.21 4.66l-1.35 2.45c-.16.28-.25.61-.25.96a2 2 0 0 0 2 2h7.46l1.38 1.38c-.5.36-.84.95-.84 1.62a2 2 0 0 0 2 2c.67 0 1.26-.33 1.62-.84L21.46 24zM7.42 15a.25.25 0 0 1-.25-.25l.03-.12l.9-1.63h2.36l2 2zm8.13-2c.75 0 1.41-.41 1.75-1.03l3.58-6.47c.08-.16.12-.33.12-.5a1 1 0 0 0-1-1H6.54zM7 18a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
+                        </svg>
+                        <a href="/meals"
+                            class="inline-block rounded-full border-4 hover:text-black border-secondary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-yellow-200  focus:text-white focus:outline-none focus:ring-0 active:text-white motion-reduce:transition-none">
+                            Discover Meals
+                        </a>
+                    </div>
+                </div>`;
+        //Hide the buttom of the cart
+        document.getElementById('bottomCart').classList.add('hidden');
+    } else {
+        cartItems.forEach(item => {
         itemsContainer.innerHTML += `
         <div id="item" class="w-full">
         <div
@@ -182,7 +206,7 @@ function renderCart() {
                     <div
                         class=" input max-w-48 w-fit font-extrabold text-white py-2 px-3 border-2 border-secondary rounded-full bg-primary text-center flex justify-evenly items-center">
                         <button class="minus bg-transparent px-2 py-0 ">-</button>
-                        <span class="num text-base border-x px-2">1</span>
+                        <span class="num text-base border-x px-2">0</span>
                         <button class="plus bg-transparent px-2 py-0 ">+</button>
                     </div>
         
@@ -201,7 +225,11 @@ function renderCart() {
         </div>
         </div>
         `;
-    });
+        });
+        //Display the buttom of the cart
+        document.getElementById('bottomCart').classList.remove('hidden');
+        }
+    
 }
 
 // Function to attach event listener for clearing the cart
@@ -215,3 +243,4 @@ function clearCart() {
     document.getElementById('total').textContent = '0.00 $';
     calculateTotalPrice(itemPriceSpans); 
 }
+

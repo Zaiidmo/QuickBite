@@ -129,7 +129,7 @@
         {{--  Collapsible Cart --}}
 
         <div id="ScreenCart"
-            class="hidden fixed z-50 top-0 pt-0 rounded-lg p-8 right-0 h-screen overflow-hidden ">
+            class="hidden fixed z-50 top-0 pt-0 rounded-lg p-8 right-0 h-screen overflow-hidden  overflow-y-auto">
 
             <div class="flex w-full justify-center rounded-lg items-center border-x border-secondary ">
                 <h1 class="text-4xl lg:my-5 my-3  md:text-7xl font-bold font-passero text-center  text-white ">
@@ -140,13 +140,14 @@
                 </h1>
             </div>
             @auth
-                <div class="flex flex-col justify-between gap-12 border border-secondary w-full overflow-hidden overflow-y-auto rounded-xl bg-black/40 backdrop-blur-xl p-8">
-                    <div id="items" class="flex flex-col justify-center gap-4 mt-12 ">
+                <div class="flex flex-col justify-center gap-4 border border-secondary w-full overflow-hidden overflow-y-auto rounded-xl bg-black/40 backdrop-blur-xl p-8">
+                    <p class="font-poppins text-gray-400"> -- Please select your desired quantity --</p>
+                    <div id="items" class="flex flex-col justify-center mb-8 gap-4">
                         
                         {{--  Cart Content To Be Filles --}}
                         
                     </div>
-                    <div class="flex justify-around items-center gap-8">
+                    <div id="bottomCart" class="flex justify-around items-center gap-8">
                         <div class="group  relative w-fit">
                             <button id="clear-cart" class="text-red-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 16 16">
