@@ -131,8 +131,8 @@
         <div id="ScreenCart"
             class="hidden fixed z-50 top-0 pt-0 rounded-lg p-8 right-0 h-screen overflow-hidden ">
 
-            <div class="flex w-full justify-center rounded-xl items-center border-b border-secondary ">
-                <h1 class="text-4xl lg:my-5 my-3 md:text-7xl font-bold font-passero text-center  text-white ">
+            <div class="flex w-full justify-center rounded-lg items-center border-x border-secondary ">
+                <h1 class="text-4xl lg:my-5 my-3  md:text-7xl font-bold font-passero text-center  text-white ">
                     My
                     <span class="text-secondary ">
                         Cart
@@ -141,25 +141,25 @@
             </div>
             @auth
                 <div class="flex flex-col justify-between gap-12 border border-secondary w-full overflow-hidden overflow-y-auto rounded-xl bg-black/40 backdrop-blur-xl p-8">
-                    <div class="group  relative w-fit">
-                        <button id="clear-cart" class="text-red-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 16 16">
-                                <path fill="currentColor"
-                                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607l1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4a2 2 0 0 0 0-4h7a2 2 0 1 0 0 4a2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0a1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0M7.354 5.646L8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207L7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5L6.646 6.354a.5.5 0 1 1 .708-.708" />
-                            </svg>
-                        </button>
-                        <span
-                            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-                    z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
-                    group-hover:scale-100">Clear_Cart
-                        </span>
-                    </div>
                     <div id="items" class="flex flex-col justify-center gap-4 mt-12 ">
-
+                        
                         {{--  Cart Content To Be Filles --}}
-
+                        
                     </div>
                     <div class="flex justify-around items-center gap-8">
+                        <div class="group  relative w-fit">
+                            <button id="clear-cart" class="text-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 16 16">
+                                    <path fill="currentColor"
+                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607l1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4a2 2 0 0 0 0-4h7a2 2 0 1 0 0 4a2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0a1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0M7.354 5.646L8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207L7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5L6.646 6.354a.5.5 0 1 1 .708-.708" />
+                                </svg>
+                            </button>
+                            <span
+                                class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                        z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                        group-hover:scale-100">Clear_Cart
+                            </span>
+                        </div>
                         <button
                             class="bg-secondary hover:opacity-50 w-1/2 text-black font-poppins font-extrabold rounded-full px-4 py-2 border-2 border-primary">
                             Checkout
