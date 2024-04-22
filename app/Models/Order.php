@@ -25,4 +25,8 @@ class Order extends Model
         return $this->belongsToMany(Meal::class , 'order_meal');
     }
 
+    public function payments(){
+        return $this->hasOne(Payment::class);
+    }
+
 }

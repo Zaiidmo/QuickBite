@@ -40,9 +40,13 @@ class OrderController extends Controller
     {
         $order = $request->validated();
         $newOrder = $this->orderRepository->create($order);
-        return redirect()->route('profile')->with('success', 'Order Placed successfully');
+        $request = new Request();
+        PaymentController::preparePayment($request, $newOrder);
+        return redirect()
+        ->route('profile')
+        ->with('success', 'Order Placed successfully');
     }
-    
+
     /**
      * Display the specified resource.
      */

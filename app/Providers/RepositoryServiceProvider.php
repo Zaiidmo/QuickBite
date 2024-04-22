@@ -8,6 +8,8 @@ use App\Repositories\MealRepository;
 use App\Repositories\MealRepositoryInterface;
 use App\Repositories\OrderRepository;
 use App\Repositories\OrderRepositoryInterface;
+use App\Repositories\PaymentRepository;
+use App\Repositories\PaymentRepositoryInterface;
 use App\Repositories\PermissionRepository;
 use App\Repositories\PermissionRepositoryInterface;
 use App\Repositories\RestaurantRepository;
@@ -26,5 +28,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
+        $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
     }
 }

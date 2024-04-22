@@ -1,7 +1,7 @@
 <header class="absolute w-screen">
     <nav class="fixed w-full top-0 z-50 backdrop-blur-sm bg-black/40 rounded-b-2xl items-center justify-between  py-2 shadow-dark-mild lg:py-4"
         data-te-navbar-ref>
-        <div id="navbar" class="flex w-full max-w-screen-xl lg:mx-auto flex-wrap items-center h-20 justify-between px-3 transition-all duration-300 ease-in-out">            <div>
+        <div id="navbar" class="flex lg:w-full max-w-screen-xl lg:mx-auto flex-wrap items-center h-20 justify-between px-3 transition-all duration-300 ease-in-out">            <div>
                 <a class="mx-2 my-1 flex items-center text-white  focus:text-white lg:mb-0 lg:mt-0 hover:text-secondary"
                     href="/">
                     <img class="mr-2" src={{ asset('assets/images/logo.png') }} style="height: 40px" alt="QuickBite" />

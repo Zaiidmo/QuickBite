@@ -11,7 +11,7 @@ function displayCart() {
     cart.classList.toggle('hidden');
     const navbar = document.getElementById("navbar");
     navbar.classList.toggle('lg:mx-auto');
-    navbar.classList.toggle('md:w-1/2');
+    navbar.classList.toggle('w-1/2');
 }
 
 document.getElementById("Cart").addEventListener("click", displayCart);
