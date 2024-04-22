@@ -4,7 +4,21 @@
 
 @section('content')
 
+
     <section id="" class="mx-auto max-w-screen-xl overflow-hidden mt-24 mb-4 lg:pr-16">
+        @if (session('success'))
+                    <div class="bg-green-100 mb-4 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative "
+                        role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="bg-red-100 mb-4 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative "
+                        role="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
         {{-- Main Section --}}
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
             <div class="col-span-1 md:col-span-2 lg:col-span-3 flex mx-4 lg:mx-0 lg:flex-col gap-2 lg:gap-8 ">
