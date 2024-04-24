@@ -82,6 +82,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $ordersHistory->links()}}
+
             </div>
             <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow col-span-1 md:col-span-2 lg:col-span-3 ">
                 <h1 class="font-passero text-4xl text-center text-white m-4">

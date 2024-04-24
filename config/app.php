@@ -170,7 +170,6 @@ return [
             App\Providers\RouteServiceProvider::class,
             App\Providers\RepositoryServiceProvider::class,
             App\Providers\PermissionsServiceProvider::class,
-            Mollie\Laravel\MollieServiceProvider::class,
         ])
         ->toArray(),
 
@@ -187,7 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()
         ->merge([
-            'Mollie' => Mollie\Laravel\Facades\Mollie::class,
+            //
         ])
         ->toArray(),
 ];

@@ -77,6 +77,6 @@ Route::group(['prefix' => 'meals'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/ordering', [OrderController::class, 'store'])->name('place.order');
-    Route::post('/payment/{order}/paying', [PaymentController::class, 'preparePayment'])->name('payment');
-    Route::post('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/payment/{order}/pay', [PaymentController::class, 'preparePayment'])->name('payment');
+    Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
 });

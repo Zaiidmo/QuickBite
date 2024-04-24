@@ -19,6 +19,7 @@ class RoleSeeder extends Seeder
     {
         $permissions = Permission::all();
         $superPermissions = $permissions->pluck('id')->toArray();
+        $customerPermissions = $permissions->where('slug', 'like', 'view-' or 'slug' , 'like' , 'place-')->pluck('id')->toArray();
         $roles = [
             [
                 'name' => 'Super Admin',
@@ -52,6 +53,8 @@ class RoleSeeder extends Seeder
             // If the role is Super Admin, assign all permissions
             if ($roleData['slug'] === 'super-admin') {
                 $role->permissions()->sync($superPermissions);
+            } else if($roleData['slug'] === 'customer') {
+                $role->permissions()->sync($customerPermissions);
             }
         }
     }

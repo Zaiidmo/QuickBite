@@ -18,7 +18,6 @@ return new class extends Migration
             $table->enum('method', ['cash', 'card', 'online']);
             $table->string('amount');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade');
-            $table->foreignId('order_id')->constrained()->onUpdate('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

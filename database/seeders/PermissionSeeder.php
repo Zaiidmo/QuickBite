@@ -76,6 +76,10 @@ class PermissionSeeder extends Seeder
                 'name'=> 'View Meal',
                 'slug'=> 'view-meal',
             ],
+            [
+                'name'=> 'Place order',
+                'slug'=> 'place-order',
+            ],
 
         ];
 

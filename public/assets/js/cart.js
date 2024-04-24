@@ -270,8 +270,7 @@ function populateForm() {
 
 function handleSubmit() {
     clearCart();
-    return true;
-    // alert('Order has been placed successfully!');
+    alert('Order has been placed successfully!');
 }
 
 

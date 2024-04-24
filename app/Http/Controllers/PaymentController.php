@@ -6,15 +6,17 @@ use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\Order;
 use App\Models\Payment;
+use App\Models\User;
 use App\Repositories\PaymentRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Mollie\Laravel\Facades\Mollie;
 
 class PaymentController extends Controller
 {
-
     protected $paymentRepository;
-    public function __construct(PaymentRepositoryInterface $paymentRepository){
+    public function __construct(PaymentRepositoryInterface $paymentRepository)
+    {
         $this->middleware('auth');
         $this->paymentRepository = $paymentRepository;
     }
@@ -22,20 +24,19 @@ class PaymentController extends Controller
      * Prepare the payment operation
      */
 
-     public static function preparePayment(Request $request, Order $order)
+    public function preparePayment(Request $request, Order $order)
     {
         // Retrieve authenticated user
-        $user = request()->user();
+        $user = $request->user();
 
-        // dd($order);
         // Create a payment request to Mollie
         $payment = Mollie::api()->payments->create([
             'amount' => [
-                'currency' => 'USD', 
-                'value' => $order->total_price . '.00', 
+                'currency' => 'USD',
+                'value' => $order->total_price . '.00',
             ],
             'description' => 'Ticket for Order No : ' . $order->id,
-            'redirectUrl' => route('payment.success'), 
+            'redirectUrl' => route('payment.success'),
             'metadata' => [
                 'order_id' => $order->id,
             ],
@@ -54,11 +55,11 @@ class PaymentController extends Controller
         session(['payment_id' => $payment->id]);
 
         // Redirect customer to Mollie checkout page
-        return redirect($payment->getCheckoutUrl(), 303);
+        return redirect()->away($payment->getCheckoutUrl());
     }
-   
+
     /**
-     * In Case Of Success !!! 
+     * In Case Of Success !!!
      */
     public function success(Request $request)
     {
@@ -69,20 +70,19 @@ class PaymentController extends Controller
 
         // Check if payment is successful
         if ($payment->isPaid()) {
-            // // Retrieve associated payment record from database
-            // $userPayment = Payment::where('reference', $paymentId)->first();
+            // Retrieve associated payment record from database
+            $userPayment = Payment::where('reference', $paymentId)->first();
 
-            // // Update payment status to 'paid'
-            // $userPayment->update(['status' => 'paid']);
+            // Update payment status to 'paid'
+            $userPayment->update(['status' => 'paid']);
 
-            // $orderId = $payment->metadata->order_id;
-            // $order = Order::find($orderId);
-            // $user = auth()->user();
+            $orderId = $payment->metadata->order_id;
+            $order = Order::find($orderId);
+            $user = auth()->user();
 
-            // // Mail::to($user->email)->send(new TicketEmail($pdf));
-            // // Clear payment ID from session
-            // session()->forget('payment_id');
-
+            // Mail::to($user->email)->send(new TicketEmail($pdf));
+            // Clear payment ID from session
+            session()->forget('payment_id');
             return redirect()->route('profile')->with('success', 'Your payment is successful!');
         }
 

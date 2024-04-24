@@ -41,6 +41,6 @@ class OrderRepository implements OrderRepositoryInterface
 
     public static function ordersHistory($id)
     {
-        return Order::where('user_id', $id)->get();
+        return Order::where('user_id', $id)->paginate(10);
     }
 }
