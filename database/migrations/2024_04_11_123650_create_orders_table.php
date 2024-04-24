@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->enum('status', ['placed', 'OnTheWay', 'Delivered', 'canceled'])->default('placed');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade');
-            $table->foreignId('payment_id')->constrained()->onUpdate('cascade');
             $table->bigInteger('delivery_id')->unsigned()->nullable();
             $table->foreign('delivery_id')->references('id')->on('users')->onUpdate('cascade');
             $table->float('total_price');
