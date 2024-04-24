@@ -38,7 +38,8 @@ class DashboardController extends Controller
     public function profile () {
         $user = auth()->user();
         $ordersHistory = OrderRepository::ordersHistory(auth()->user()->id);
+        $placedOrders = OrderRepository::placedOrders(auth()->user()->id);
         $recommendedMeals = MealRepository::tastyFood();
-        return view('profile.index', compact('ordersHistory', 'recommendedMeals', 'user'));
+        return view('profile.index', compact('ordersHistory', 'recommendedMeals', 'user', 'placedOrders'));
     }
 }

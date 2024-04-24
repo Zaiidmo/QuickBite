@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RestaurantController;
 use App\Models\Restaurant;
@@ -75,5 +76,7 @@ Route::group(['prefix' => 'meals'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::post('/ordering', [OrderController::class, 'store']);
+    Route::post('/ordering', [OrderController::class, 'store'])->name('place.order');
+    Route::get('/payment/{order}/pay', [PaymentController::class, 'preparePayment'])->name('payment');
+    Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
 });

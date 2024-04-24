@@ -42,7 +42,7 @@
 
             <div class="mb-8 gap-8 flex flex-col md:flex-row ">
                 <div class="flex flex-col gap-2 w-full lg:w-1/2">
-                    <img alt="item" class="lg:h-auto h-64 rounded-lg" src={{ asset('storage/uploads/meals/' . $meal->image) }}>
+                    <img alt="item" id="item-image" class="lg:h-auto h-64 rounded-lg" src={{ asset('storage/uploads/meals/' . $meal->image) }}>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                         <img alt="item" class="rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
                         <img alt="item" class=" rounded-lg" src={{ asset('assets/images/Pizza.jpg') }}>
@@ -52,8 +52,8 @@
                 </div>
                 <div class="lg:w-1/2 w-full h-fit rounded-3xl lg:p-10 mt-6 lg:mt-0">
 
-                    <h1 class="text-secondary text-3xl font-extrabold mb-2">{{ $meal->name }}</h1>
-                    <p class="text-xl text-gray-400 ">{{ $meal->restaurant->name }}</p>
+                    <h1 id="item-name" class="text-secondary text-3xl font-extrabold mb-2">{{ $meal->name }}</h1>
+                    <p id="item-restaurant" class="text-xl text-gray-400 ">{{ $meal->restaurant->name }}</p>
                     <hr class="my-8">
                     <div class="flex gap-4 mb-8">
                         <p class="text-gray-400">{{ $meal->description }}</p>
@@ -62,9 +62,9 @@
                     <hr>
 
                     <div class="flex gap-4 mt-8 justify-between items-center p-0">
-                        <span class="title-font font-medium text-2xl text-gray-400">$ {{ $meal->price }}</span>
+                        <span id="item-price" class="title-font font-medium text-2xl text-gray-400">$ {{ $meal->price }}</span>
 
-                        <button
+                        <button id="add-single-item"
                             class="group relative h-12 w-fit overflow-hidden rounded-lg bg-primary text-white hover:text-primary text-lg shadow">
                             <div
                                 class="absolute inset-0 w-3 bg-secondary transition-all duration-[250ms] ease-out group-hover:w-full">

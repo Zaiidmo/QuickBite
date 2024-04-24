@@ -273,4 +273,43 @@ function handleSubmit() {
     alert('Order has been placed successfully!');
 }
 
+function addFromSinglePage() {
+        console.log('haha');
+    const item = {
+        name: document.getElementById('item-name').innerHTML,
+        price: document.getElementById('item-price').innerHTML,
+        image: document.getElementById('item-image').src,
+        restaurant: document.getElementById('item-restaurant').innerHTML,    
+    };
+    if (!mealExistsInCart(item)) {
+        cartItems.push(item);
+        window.Notification.requestPermission().then(function (permission) {
+            if (permission === 'granted') {
+                var notification = new Notification('Meal added to cart', {
+                    body: `${item.name} has been added to your cart`,
+                    icon: `${item.image}`
+                });
+            }
+        });
+        let totalPrice = parseFloat(`${item.price}`);
+        calculateTotalPrice(itemPriceSpans); // Calculate total after adding an item
+        renderCart();
+        storeCartItems();
+        attachButtonEventListeners();
+        attachItemRemoveEventListeners(); 
+        populateForm();
+    } else {
+        window.Notification.requestPermission().then(function (permission) {
+            if (permission === 'granted') {
+                var notification = new Notification('Meal Already Exists', {
+                    body: `${item.name} already exists in your cart`,
+                });                   
+            }
+        });
+    }
+}
 
+if(document.getElementById('add-single-item')) {
+    document.getElementById('add-single-item').addEventListener('click', addFromSinglePage);
+
+}
