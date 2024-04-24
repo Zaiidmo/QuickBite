@@ -87,14 +87,17 @@ class PaymentController extends Controller
         }
 
         // If payment is not successful, redirect to failure page
-        return redirect()->route('failure')->with('error', 'Payment was not successful.');
+        return redirect()->route('profile')->with('error', 'Payment was not successful.');
     }
     /**
-     * Store a newly created resource in storage.
+     * Cancel.
      */
-    public function store(StorePaymentRequest $request)
+    public function cancel(Request $request)
     {
-        //
+        $paymentId = session('payment_id');
+        $userPayment = Payment::where('reference', $paymentId)->first();
+        $userPayment->update(['status' => 'canceled']);
+        return redirect()->route('profile')->with('error', 'Payment was canceled.');
     }
 
     /**
