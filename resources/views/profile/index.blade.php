@@ -1,4 +1,4 @@
-@extends('layouts.app')')
+@extends('layouts.app')
 
 @section('title', 'QuickBite | Profile')
 
@@ -85,14 +85,54 @@
                 {{ $ordersHistory->links()}}
 
             </div>
+            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow sm:col-span-1 md:col-span-2 lg:col-span-3 ">
+                <h1 class="font-passero text-4xl text-center text-white m-4">
+                    Currently Placed <span class="text-secondary">Orders</span>
+                </h1>
+                <table class="w-full overflow-auto divide-y divide-gray-400">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Order No
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Amount
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Status
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        @foreach($placedOrders as $placed)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $placed->id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $placed->total_price }} $</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                {{ $placed->status }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                {{ $placed->status }}
+                            </td>
+
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $placedOrders->links()}}
+
+            </div>
             <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow col-span-1 md:col-span-2 lg:col-span-3 ">
                 <h1 class="font-passero text-4xl text-center text-white m-4">
                     <span class="text-secondary">Recommended</span> Meals.
                 </h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4">
                         @foreach($recommendedMeals as $meal)
-                    <div
-                        class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
+                    <a href="{{ route('meals.show', $meal->id) }}" target="_blank" 
+                        class="m-2 group px-10 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-secondary z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden  after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
                         <img src={{ asset('storage/uploads/meals/'. $meal->image) }} alt="{{ $meal->name }}">
 
                         <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
@@ -104,7 +144,7 @@
                             <p class="ordernow-text text-secondary font-semibold group-hover:text-gray-800">
                                 {{ $meal->price }} $
                             </p>
-                    </div>
+                    </a>
                     @endforeach
                    
                 </div>
