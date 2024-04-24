@@ -72,6 +72,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order_id = $order->id;
+        $this->orderRepository->delete($order_id);
+
+        return redirect()->route('profile')->with('success', 'Order deleted successfully');
     }
 }

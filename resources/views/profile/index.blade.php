@@ -89,19 +89,19 @@
                 <h1 class="font-passero text-4xl text-center text-white m-4">
                     Currently Placed <span class="text-secondary">Orders</span>
                 </h1>
-                <table class="w-full overflow-auto divide-y divide-gray-400">
+                <table class="w-full text-center overflow-auto divide-y divide-gray-400">
                     <thead>
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                                 Order No
                             </th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                                 Amount
                             </th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                                 Status
                             </th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
                                 Action
                             </th>
                         </tr>
@@ -116,8 +116,26 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
                                     {{ $placed->status }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
-                                    {{ $placed->status }}
+                                <td class="px-6 py-2 flex align-center justify-center whitespace-nowrap text-sm text-black">
+                                    <div class="group relative w-fit h-fit">
+                                        <form action="{{ route('order.kill', $placed )}}" method="POST" class="w-fit h-fit">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" id="cancel-order" class="text-red-600">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41"
+                                                    viewBox="0 0 512 512">
+                                                    <path fill="currentColor"
+                                                        d="M256 16C123.45 16 16 123.45 16 256s107.45 240 240 240s240-107.45 240-240S388.55 16 256 16m0 60c99.41 0 180 80.59 180 180s-80.59 180-180 180S76 355.41 76 256S156.59 76 256 76m-80.625 60c-.97-.005-2.006.112-3.063.313v-.032c-18.297 3.436-45.264 34.743-33.375 46.626l73.157 73.125l-73.156 73.126c-14.63 14.625 29.275 58.534 43.906 43.906L256 299.906l73.156 73.156c14.63 14.628 58.537-29.28 43.906-43.906l-73.156-73.125l73.156-73.124c14.63-14.625-29.275-58.5-43.906-43.875L256 212.157l-73.156-73.125c-2.06-2.046-4.56-3.015-7.47-3.03z" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                        <span
+                                            class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                                    z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                                    group-hover:scale-100">Cancel
+                                            Order
+                                        </span>
+                                    </div>
                                 </td>
 
                             </tr>

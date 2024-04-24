@@ -43,13 +43,18 @@ class OrderRepository implements OrderRepositoryInterface
     {
         return Order::where('user_id', $id)
             ->whereNotIn('status', ['placed'])
-            ->paginate(10);
+            ->paginate(5);
     }
 
     public static function placedOrders($id)
     {
         return Order::where('user_id', $id)
             ->where('status', 'placed')
-            ->paginate(10);
+            ->paginate(5);
+    }
+
+    public function delete($id)
+    {
+        return Order::destroy($id);
     }
 }

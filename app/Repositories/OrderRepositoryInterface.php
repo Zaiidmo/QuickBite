@@ -10,4 +10,9 @@ interface OrderRepositoryInterface
     public function create($data);
 
     public static function ordersHistory($id);
+
+    public static function placedOrders($id);
+
+    public function delete($id);
+
 }
