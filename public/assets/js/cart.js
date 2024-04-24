@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Function to calculate the total price
 function calculateTotalPrice(itemPriceSpans) {
-    console.log('Being Calculated :::');
+    // console.log('Being Calculated :::');
     let totalPrice = 0;
     itemPriceSpans.forEach(priceSpan => {
         totalPrice += parseFloat(priceSpan.textContent);
@@ -270,11 +270,10 @@ function populateForm() {
 
 function handleSubmit() {
     clearCart();
-    alert('Order has been placed successfully!');
 }
 
 function addFromSinglePage() {
-        console.log('haha');
+        // console.log('haha');
     const item = {
         name: document.getElementById('item-name').innerHTML,
         price: document.getElementById('item-price').innerHTML,
