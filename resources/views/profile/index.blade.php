@@ -138,7 +138,7 @@
                                             </span>
                                         </div>
                                         <div class="group relative w-fit h-fit">
-                                            <button data-placed-id="{{ $placed->id }}" 
+                                            <button data-placed-id="{{ $placed->id }}"
                                                 class="view-details text-secondary">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 32 32">
@@ -154,6 +154,27 @@
                                         group-hover:scale-100">Details
                                             </span>
                                         </div>
+                                        @role('driver')
+                                        <div class="group relative w-fit h-fit">
+                                            <form action="" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="submit" class="view-details text-purple-300">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="currentColor"
+                                                            d="M16 1a1 1 0 0 1 1 1v.999L22 3v6l-2.02-.001l2.767 7.596a4 4 0 1 1-7.62 2.406h-4.253a4.002 4.002 0 0 1-7.8-.229A1.998 1.998 0 0 1 2 17V4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v8a1 1 0 0 0 .883.993L12 13h2a1 1 0 0 0 .993-.883L15 12V3h-3V1zM7 16a2 2 0 1 0 0 4a2 2 0 0 0 0-4m12-.001a2 2 0 1 0 0 4a2 2 0 0 0 0-4m-1.148-7H17V12a3 3 0 0 1-3 3h-2a3.001 3.001 0 0 1-2.829-2H4v2.354A4.002 4.002 0 0 1 10.874 17h4.252a4.002 4.002 0 0 1 4.57-2.94zM9 8H4v3h5zm11-3h-3v2h3zM9 5H4v1h5z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                            <span
+                                                class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                                        z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                                        group-hover:scale-100">Take
+                                                Delivery
+                                            </span>
+                                        </div>
+                                        @endrole
                                     </div>
                                 </td>
 
@@ -191,11 +212,11 @@
         </div>
     </section>
     @foreach ($placedOrders as $order)
-        <section id="details-{{$order->id}}" class=" relative hidden">
+        <section id="details-{{ $order->id }}" class=" relative hidden">
             <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
                 <div
                     class="absolute w-1/2  bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
-                    <button id="details-{{$order->id}}" type="button" data-placed-id="{{ $order->id }}"
+                    <button id="details-{{ $order->id }}" type="button" data-placed-id="{{ $order->id }}"
                         class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"><svg
                             aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +238,8 @@
                         @foreach ($order->meals as $meal)
                             <div class="flex justify-between">
                                 <p class="text-2xl text-component leading-10 font-poppins"><span
-                                        class="text-2xl text-component leading-10 font-poppins"> * </span> {{ $meal->name }}
+                                        class="text-2xl text-component leading-10 font-poppins"> * </span>
+                                    {{ $meal->name }}
                                 </p>
                                 <p class="text-2xl text-component leading-10 font-poppins"> {{ $meal->price }}</p>
                             </div>
@@ -227,7 +249,7 @@
 
                         <div class="flex justify-between">
                             <p class="text-2xl text-component leading-10 font-poppins"> Total Amount </p>
-                            <p class="text-2xl text-component leading-10 font-poppins"> {{$order->total_price}} $</p>
+                            <p class="text-2xl text-component leading-10 font-poppins"> {{ $order->total_price }} $</p>
                         </div>
 
 

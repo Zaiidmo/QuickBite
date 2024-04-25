@@ -77,4 +77,12 @@ class OrderController extends Controller
 
         return redirect()->route('profile')->with('success', 'Order deleted successfully');
     }
+
+    public function takeOnTheWay(Order $order)
+    {
+        $order->status = 'OnTheWay';
+        $order->save();
+
+        return redirect()->route('profile')->with('success', 'Order status updated to on the way');
+    }
 }

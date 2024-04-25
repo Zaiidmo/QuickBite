@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Mail\PaymentSuccess;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\User;
 use App\Repositories\PaymentRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Mollie\Laravel\Facades\Mollie;
 
 class PaymentController extends Controller
@@ -73,6 +75,10 @@ class PaymentController extends Controller
 
             // Update payment status to 'paid'
             $userPayment->update(['status' => 'paid']);
+
+            //Send payment Success Email 
+            $user = $request->user();
+            Mail::to($user->email)->send(new PaymentSuccess());
 
             $orderId = $payment->metadata->order_id;
             $order = Order::find($orderId);
