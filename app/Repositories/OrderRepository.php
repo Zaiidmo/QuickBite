@@ -55,6 +55,6 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function delete($id)
     {
-        return Order::destroy($id);
+        return Order::where('id', $id)->update(['status' => 'canceled']);
     }
 }
