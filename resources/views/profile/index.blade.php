@@ -116,25 +116,44 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
                                     {{ $placed->status }}
                                 </td>
-                                <td class="px-6 py-2 flex align-center justify-center whitespace-nowrap text-sm text-black">
-                                    <div class="group relative w-fit h-fit">
-                                        <form action="{{ route('order.kill', $placed )}}" method="POST" class="w-fit h-fit">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" id="cancel-order" class="text-red-600">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41"
-                                                    viewBox="0 0 512 512">
+                                <td class="text-sm text-black">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <div class="group relative w-fit h-fit">
+                                            <form action="{{ route('order.kill', $placed) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" id="cancel-order" class="text-red-600">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="currentColor"
+                                                            d="M3 16.74L7.76 12L3 7.26L7.26 3L12 7.76L16.74 3L21 7.26L16.24 12L21 16.74L16.74 21L12 16.24L7.26 21zm9-3.33l4.74 4.75l1.42-1.42L13.41 12l4.75-4.74l-1.42-1.42L12 10.59L7.26 5.84L5.84 7.26L10.59 12l-4.75 4.74l1.42 1.42z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                            <span
+                                                class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                                        z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                                        group-hover:scale-100">Cancel
+                                                Order
+                                            </span>
+                                        </div>
+                                        <div class="group relative w-fit h-fit">
+                                            <button data-placed-id="{{ $placed->id }}" 
+                                                class="view-details text-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 32 32">
                                                     <path fill="currentColor"
-                                                        d="M256 16C123.45 16 16 123.45 16 256s107.45 240 240 240s240-107.45 240-240S388.55 16 256 16m0 60c99.41 0 180 80.59 180 180s-80.59 180-180 180S76 355.41 76 256S156.59 76 256 76m-80.625 60c-.97-.005-2.006.112-3.063.313v-.032c-18.297 3.436-45.264 34.743-33.375 46.626l73.157 73.125l-73.156 73.126c-14.63 14.625 29.275 58.534 43.906 43.906L256 299.906l73.156 73.156c14.63 14.628 58.537-29.28 43.906-43.906l-73.156-73.125l73.156-73.124c14.63-14.625-29.275-58.5-43.906-43.875L256 212.157l-73.156-73.125c-2.06-2.046-4.56-3.015-7.47-3.03z" />
+                                                        d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68M16 25c-5.3 0-10.9-3.93-12.93-9C5.1 10.93 10.7 7 16 7s10.9 3.93 12.93 9C26.9 21.07 21.3 25 16 25" />
+                                                    <path fill="currentColor"
+                                                        d="M16 10a6 6 0 1 0 6 6a6 6 0 0 0-6-6m0 10a4 4 0 1 1 4-4a4 4 0 0 1-4 4" />
                                                 </svg>
                                             </button>
-                                        </form>
-                                        <span
-                                            class="absolute -top-14 left-[50%] -translate-x-[50%] 
-                                    z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
-                                    group-hover:scale-100">Cancel
-                                            Order
-                                        </span>
+                                            <span
+                                                class="absolute -top-14 left-[50%] -translate-x-[50%] 
+                                        z-20 origin-left scale-0 px-3 w-fit rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out 
+                                        group-hover:scale-100">Details
+                                            </span>
+                                        </div>
                                     </div>
                                 </td>
 
@@ -171,6 +190,53 @@
             </div>
         </div>
     </section>
+    @foreach ($placedOrders as $order)
+        <section id="details-{{$order->id}}" class=" relative hidden">
+            <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
+                <div
+                    class="absolute w-1/2  bg-black/50 backdrop-blur-xl border-2 border-primary rounded-lg overflow-scroll shadow">
+                    <button id="details-{{$order->id}}" type="button" data-placed-id="{{ $order->id }}"
+                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"><svg
+                            aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                cliprule="evenodd"></path>
+                        </svg>
+                    </button>
+
+                    <div class="p-5">
+
+                        <div class="text-center">
+                            <p
+                                class="mb-10 border-b border-dashed border-component pb-10 text-2xl font-semibold leading-10 text-white font-passero">
+                                Order Details <br>
+                                #{{ $order->id }}
+                            </p>
+                        </div>
+                        @foreach ($order->meals as $meal)
+                            <div class="flex justify-between">
+                                <p class="text-2xl text-component leading-10 font-poppins"><span
+                                        class="text-2xl text-component leading-10 font-poppins"> * </span> {{ $meal->name }}
+                                </p>
+                                <p class="text-2xl text-component leading-10 font-poppins"> {{ $meal->price }}</p>
+                            </div>
+                        @endforeach
+
+                        <hr class="my-8">
+
+                        <div class="flex justify-between">
+                            <p class="text-2xl text-component leading-10 font-poppins"> Total Amount </p>
+                            <p class="text-2xl text-component leading-10 font-poppins"> {{$order->total_price}} $</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    @endforeach
 
 @endsection
 @section('scripts')
@@ -195,4 +261,5 @@
     @endif
     <script src="{{ asset('assets/js/Navigator.js') }}"></script>
     <script src="{{ asset('assets/js/cart.js') }}"></script>
+    <script src="{{ asset('assets/js/profile.js') }}"></script>
 @endsection
