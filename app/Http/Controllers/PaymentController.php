@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\User;
 use App\Repositories\PaymentRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Mollie\Laravel\Facades\Mollie;
 
 class PaymentController extends Controller
@@ -80,8 +78,7 @@ class PaymentController extends Controller
             $order = Order::find($orderId);
             $user = auth()->user();
 
-            // Mail::to($user->email)->send(new TicketEmail($pdf));
-            // Clear payment ID from session
+                        // Clear payment ID from session
             session()->forget('payment_id');
             return redirect()->route('profile')->with('success', 'Your payment is successful!');
         }
