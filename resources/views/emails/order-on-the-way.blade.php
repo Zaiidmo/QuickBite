@@ -2,9 +2,7 @@
 
 # Dear valued customer,
 
-Thank you for your recent purchase! Your order has been successfully placed and paid.
-
-Please find order's details attached.
+We're reaching out to informe you that your order has been shipped and is on its way to you. You can track your order by clicking the button below.
 
 @component('mail::button', ['url' => route('profile')])
 Track Order

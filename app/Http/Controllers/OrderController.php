@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Mail\OrderOnTheWay;
 use App\Models\Meal;
 use App\Models\Order;
 use App\Repositories\OrderRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -82,6 +84,8 @@ class OrderController extends Controller
     {
         $order->status = 'OnTheWay';
         $order->save();
+
+        Mail::to($order->user->email)->send(new OrderOnTheWay($order));
 
         return redirect()->route('profile')->with('success', 'Order status updated to on the way');
     }
