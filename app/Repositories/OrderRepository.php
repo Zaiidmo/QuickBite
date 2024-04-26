@@ -53,8 +53,20 @@ class OrderRepository implements OrderRepositoryInterface
             ->paginate(5);
     }
 
+    public static function ordersToDeliver() {
+        return Order::where('status', 'placed')
+            ->paginate(5);
+    }
+
+    public static function myDeliveries($id)
+    {
+        return Order::where('delivery_id', $id)
+            ->paginate(5);
+    }
+
     public function delete($id)
     {
         return Order::where('id', $id)->update(['status' => 'canceled']);
     }
+
 }

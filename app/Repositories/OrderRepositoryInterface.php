@@ -15,4 +15,9 @@ interface OrderRepositoryInterface
 
     public function delete($id);
 
+    public static function ordersToDeliver();
+
+
+    public static function myDeliveries($id);
+
 }

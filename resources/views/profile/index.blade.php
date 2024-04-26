@@ -87,7 +87,7 @@
             </div>
             <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow sm:col-span-1 md:col-span-2 lg:col-span-3 ">
                 <h1 class="font-passero text-4xl text-center text-white m-4">
-                    Currently Placed <span class="text-secondary">Orders</span>
+                   My Currently Placed <span class="text-secondary">Orders</span>
                 </h1>
                 <table class="w-full text-center overflow-auto divide-y divide-gray-400">
                     <thead>
@@ -154,7 +154,51 @@
                                         group-hover:scale-100">Details
                                             </span>
                                         </div>
-                                        @role('driver')
+                                    </div>
+                                </td>
+
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $placedOrders->links() }}
+
+            </div>
+            @role('driver')
+            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow sm:col-span-1 md:col-span-2 lg:col-span-3 ">
+                <h1 class="font-passero text-4xl text-center text-white m-4">
+                   Orders To <span class="text-secondary">Deliver</span>
+                </h1>
+                <table class="w-full text-center overflow-auto divide-y divide-gray-400">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Order No
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Amount
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Address
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        @foreach ($ordersToDeliver as $order)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $order->id }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $order->total_price }} $
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                    {{ $order->user->address }}
+                                </td>
+                                <td class="text-sm text-black">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        
                                         <div class="group relative w-fit h-fit">
                                             <form action="" method="POST">
                                                 @csrf
@@ -174,7 +218,6 @@
                                                 Delivery
                                             </span>
                                         </div>
-                                        @endrole
                                     </div>
                                 </td>
 
@@ -182,9 +225,50 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $placedOrders->links() }}
+                {{ $ordersToDeliver->links() }}
 
             </div>
+            <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow sm:col-span-1 md:col-span-2 lg:col-span-3 ">
+                <h1 class="font-passero text-4xl text-center text-white m-4">
+                   Picked By <span class="text-secondary">Me</span>
+                </h1>
+                <table class="w-full text-center overflow-auto divide-y divide-gray-400">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Order No
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Amount
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Date
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-xs font-extrabold text-gray-400 uppercase">
+                                Address
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        @foreach ($myDeliveries as $delivery)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $delivery->id }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $delivery->total_price }} $
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $delivery->created_at }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                    {{ $delivery->user->address }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $ordersToDeliver->links() }}
+
+            </div>
+            @endrole
             <div class="p-8 bg-black/40 mx-4 lg:mx-0 rounded-lg shadow col-span-1 md:col-span-2 lg:col-span-3 ">
                 <h1 class="font-passero text-4xl text-center text-white m-4">
                     <span class="text-secondary">Recommended</span> Meals.
