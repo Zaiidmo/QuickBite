@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-interface TestimonmialRepositoryInterface
+interface TestimonialRepositoryInterface
 {
     public function all();
-    public function create(array $data);
+    public function create($data);
 
 }

@@ -22,16 +22,16 @@ class StoreTestimonialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'message' => ['required', 'string'],
-            'name' => ['required', 'string'],
-            'to' => ['required', 'string'],
+            'message' => 'required|string',
+            'name' => 'required|string',
+            'inFavourOf' => 'required|string',
         ];
     }
     public function messages(){
         return [
             'message.required' => 'Please enter a message',
             'name.required' => 'Please enter a name',
-            'to.required' => 'Please select a restaurant',
+            'inFavourOf.required' => 'Please select a restaurant',
         ];
     }
 }

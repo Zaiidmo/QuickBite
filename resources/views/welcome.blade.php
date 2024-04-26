@@ -167,7 +167,8 @@
                 <select name="inFavourOf"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
                             required>
-                            <option selected disabled>Select a category</option>
+                            <option selected disabled>Select a Restaurant</option>
+                            <option value="QuickBite">QuickBite</option>
                             @foreach ($restaurants as $restaurant)
                                 <option value="{{ $restaurant->name }}">{{ $restaurant->name }}</option>
                             @endforeach
