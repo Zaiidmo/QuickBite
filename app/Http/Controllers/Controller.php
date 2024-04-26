@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\CategoryRepository;
 use App\Repositories\MealRepository;
 use App\Repositories\RestaurantRepository;
+use App\Repositories\TestimonialRepository;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -17,6 +18,7 @@ class Controller extends BaseController
         $tastyFood = MealRepository::tastyFood();
         $categories = CategoryRepository::getPopularCategories();
         $restaurants = RestaurantRepository::all();
-        return view('welcome', compact('tastyFood', 'categories', 'restaurants'));
+        $testimonials = TestimonialRepository::all();
+        return view('welcome', compact('tastyFood', 'categories', 'restaurants', 'testimonials'));
     }
 }

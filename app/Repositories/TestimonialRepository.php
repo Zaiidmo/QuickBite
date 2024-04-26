@@ -6,7 +6,7 @@ use App\Models\Testimonial;
 
 class TestimonialRepository implements TestimonialRepositoryInterface
 {
-    public function all()
+    public static function all()
     {
         return Testimonial::all();
     }
