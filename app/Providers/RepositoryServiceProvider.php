@@ -14,6 +14,8 @@ use App\Repositories\PermissionRepository;
 use App\Repositories\PermissionRepositoryInterface;
 use App\Repositories\RestaurantRepository;
 use App\Repositories\RestaurantRepositoryInterface;
+use App\Repositories\TestimonialRepository;
+use App\Repositories\TestimonmialRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\UserRepository;
@@ -29,5 +31,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
         $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
+        $this->app->bind(TestimonmialRepositoryInterface::class, TestimonialRepository::class);
     }
 }

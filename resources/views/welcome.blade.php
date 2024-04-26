@@ -148,32 +148,30 @@
     </section>
     <section class="w-full bg-transparent mt-12">
         <h1 class="my-12 text-3xl lg:text-5xl font-bold font-passero mb-4 text-white text-center">
-            Share Your Ideas With Us
+            Write a testimonial
         </h1>
 
 
-        <form class="max-w-screen-xl lg:my-auto lg:mx-auto mx-4">
+        <form action="{{ route('testimonials.store')}}" method="POST" class="max-w-screen-xl lg:my-auto lg:mx-auto mx-4">
+            @csrf
             <div class="flex gap-12 mb-5">
-                <div class="w-1/2">
-                    <label for="firstname" class="block mb-2 text-sm font-medium text-gray-300">Your First Name</label>
-                    <input type="text" id="firstname" name="fname"
+                <div class="w-full">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
+                    <input type="text" id="name" name="name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
-                        placeholder="First Name" required />
-                </div>
-                <div class="w-1/2">
-                    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Last
-                        Name</label>
-                    <input type="text" id="lastname" name="lname"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
-                        placeholder="Last Name" required />
+                        placeholder="Name" required />
                 </div>
             </div>
             <div class="mb-5">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                    Email</label>
-                <input type="email" id="email" name="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
-                    placeholder="email@example.com" required />
+                <label for="inFavourOf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chose either it's QUICKBITE or a specific restaurant </label>
+                <select name="inFavourOf"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-secondary focus:border-secondary block w-full p-2.5 "
+                            required>
+                            <option selected disabled>Select a category</option>
+                            @foreach ($restaurants as $restaurant)
+                                <option value="{{ $restaurant->name }}">{{ $restaurant->name }}</option>
+                            @endforeach
+                        </select>
             </div>
             <div class="mb-5">
                 <textarea name="message" id="message" placeholder="Your Message Here"

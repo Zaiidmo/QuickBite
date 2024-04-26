@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTestimonialRequest;
 use App\Http\Requests\UpdateTestimonialRequest;
 use App\Models\Testimonial;
+use App\Repositories\TestimonmialRepositoryInterface;
 
 class TestimonialController extends Controller
 {
+
+    protected $testimonialRepository;
+
+    public function __contruct(TestimonmialRepositoryInterface $testimonialRepository) 
+    {
+        $this->testimonialRepository = $testimonialRepository;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -29,7 +37,16 @@ class TestimonialController extends Controller
      */
     public function store(StoreTestimonialRequest $request)
     {
-        //
+        dd($request->validated());
+        if(auth()->check()){
+        $data = $request->validated();
+        $data['user_id'] = auth()->id();
+        $this->testimonialRepository->create($data);
+        return redirect()->route('home')->with('success', 'Testimonial created successfully');
+        } else {
+            return redirect()->route('home')->with('error', 'You need to login to create a testimonial');
+        }
+
     }
 
     /**

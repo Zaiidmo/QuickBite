@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\TestimonialController;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
@@ -82,3 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/deleteOrder/{order}', [OrderController::class, 'destroy'])->name('order.kill');
     Route::put('/takingDelivery/{order}', [OrderController::class, 'takeOnTheWay'])->name('order.deliver');
 });
+
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');});

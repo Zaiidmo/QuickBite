@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('to');
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->text('message');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
