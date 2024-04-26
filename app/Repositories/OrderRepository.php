@@ -48,20 +48,17 @@ class OrderRepository implements OrderRepositoryInterface
 
     public static function placedOrders($id)
     {
-        return Order::where('user_id', $id)
-            ->where('status', 'placed')
-            ->paginate(5);
+        return Order::where('user_id', $id)->where('status', 'placed')->paginate(5);
     }
 
-    public static function ordersToDeliver() {
-        return Order::where('status', 'placed')
-            ->paginate(5);
+    public static function ordersToDeliver()
+    {
+        return Order::where('status', 'placed')->paginate(5);
     }
 
     public static function myDeliveries($id)
     {
-        return Order::where('delivery_id', $id)
-            ->paginate(5);
+        return Order::where('delivery_id', $id)->paginate(5);
     }
 
     public function delete($id)
@@ -69,4 +66,10 @@ class OrderRepository implements OrderRepositoryInterface
         return Order::where('id', $id)->update(['status' => 'canceled']);
     }
 
+    public function takeOnTheWay($user, $order)
+    {
+        $order->status = 'OnTheWay';
+        $order->delivery_id = $user->id;
+        $order->save();
+    }
 }

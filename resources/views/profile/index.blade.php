@@ -200,7 +200,7 @@
                                     <div class="flex gap-2 items-center justify-center">
                                         
                                         <div class="group relative w-fit h-fit">
-                                            <form action="" method="POST">
+                                            <form action="{{ route('order.deliver' , $order)}}" method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <button type="submit" class="view-details text-purple-300">

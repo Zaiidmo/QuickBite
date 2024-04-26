@@ -20,4 +20,6 @@ interface OrderRepositoryInterface
 
     public static function myDeliveries($id);
 
+    public function takeOnTheWay($user, $order);
+
 }

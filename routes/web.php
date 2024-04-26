@@ -80,4 +80,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/payment/{order}/pay', [PaymentController::class, 'preparePayment'])->name('payment');
     Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
     Route::delete('/deleteOrder/{order}', [OrderController::class, 'destroy'])->name('order.kill');
+    Route::put('/takingDelivery/{order}', [OrderController::class, 'takeOnTheWay'])->name('order.deliver');
 });

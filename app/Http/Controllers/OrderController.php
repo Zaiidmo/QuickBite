@@ -82,11 +82,11 @@ class OrderController extends Controller
 
     public function takeOnTheWay(Order $order)
     {
-        $order->status = 'OnTheWay';
-        $order->save();
+        $user = auth()->user();
+        $this->orderRepository->takeOnTheWay($user, $order);
 
-        Mail::to($order->user->email)->send(new OrderOnTheWay($order));
+        Mail::to($order->user->email)->send(new OrderOnTheWay());
 
-        return redirect()->route('profile')->with('success', 'Order status updated to on the way');
+        return redirect()->route('profile')->with('success', 'Delivery Assigned To You Successfully');
     }
 }
