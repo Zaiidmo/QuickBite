@@ -81,12 +81,12 @@
                         <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
                             {{ $category->name }}
                         </h3>
-                        
+
                         <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
                             <span class="font-bold text-gray-800 dark:text-gray-200">{{ $category->meals->count() }}</span>
                             <button
-                            class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Check
-                            Content</button>
+                                class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">Check
+                                Content</button>
                         </div>
                     </div>
                 </div>
@@ -96,105 +96,41 @@
     <section class="w-screen h-screen top-1">
         <div class="w-full h-full flex flex-col items-center justify-center">
             <img src="{{ asset('assets/images/Testimonials.png') }}" alt="hero" class="w-full h-full object-cover" />
-            <div class=" absolute w-full py-8  flex flex-col items-center md:justify-around">
+            <div class="absolute w-full py-8 h-full flex flex-col items-center md:justify-around">
                 <div class="flex flex-col justify-center">
                     <h1 class="text-5xl font-bold font-passero text-center mb-4 text-white "> Our Valuable Clients</h1>
                     <p class="text-xl max-w-4xl font-passero text-center text-neutral-700 dark:text-neutral-300">What
                         people are saying about us ?</p>
                 </div>
-            {{-- <div class="mySwiper absolute w-full py-8  flex flex-col items-center md:justify-around">
-                <div class="flex flex-col justify-center">
-                    <h1 class="text-5xl font-bold font-passero text-center mb-4 text-white "> Our Valuable Clients</h1>
-                    <p class="text-xl max-w-4xl font-passero text-center text-neutral-700 dark:text-neutral-300">What
-                        people are saying about us ?</p>
+    
+                <div id="testimonialSlider" class="swiper-container max-w-screen-lg self-center mx-auto px-8 lg:px-0 text-center">
+                    <swiper-container class="mySwiper" pagination="true">
+                        @foreach($testimonials as $testimonial)
+                        <swiper-slide class="swiper-slide flex flex-col justify-center align-middle">
+                            <div
+                                class="flex flex-col gap-12 items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
+                                <div class="flex w-full justify-around text-white">
+                                    <img class="w-36 lg:w-56 h-36 lg:h-56 border-8 border-secondary rounded-full"
+                                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                                        alt="user's avatar">
+                                </div>
+                                <div class="flex flex-col gap-3 items-center">
+                                    <cite class="text-xl font-medium text-white">{{ $testimonial->user->username }}</cite>
+                                    <cite class="text-sm text-gray-400">{{ $testimonial->inFavourOf }}</cite>
+                                </div>
+                            </div>
+                            <blockquote>
+                                <p class="text-xl lg:text-3xl  italic font-poppins font-medium  text-white">"{{ $testimonial->message }}"</p>
+                            </blockquote>
+                        </swiper-slide>
+                        @endforeach
+                    </swiper-container>
                 </div>
-
-                <div class="max-w-screen-lg self-center mx-auto px-8 lg:px-0 text-center">
-                    <div class="flex flex-col gap-12 items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
-                        <div class="flex w-full justify-around text-white">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="m16 8l1.43 1.393L11.85 15H24v2H11.85l5.58 5.573L16 24l-8-8z" />
-                                    <path fill="currentColor"
-                                        d="M16 30a14 14 0 1 1 14-14a14.016 14.016 0 0 1-14 14m0-26a12 12 0 1 0 12 12A12.014 12.014 0 0 0 16 4" />
-                                </svg>
-                            </button>
-                            <img class="w-36 lg:w-56 h-36 lg:h-56 border-8 border-secondary rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                                alt="profile picture">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="m16 8l-1.43 1.393L20.15 15H8v2h12.15l-5.58 5.573L16 24l8-8z" />
-                                    <path fill="currentColor"
-                                        d="M16 30a14 14 0 1 1 14-14a14.016 14.016 0 0 1-14 14m0-26a12 12 0 1 0 12 12A12.014 12.014 0 0 0 16 4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="flex flex-col gap-3 items-center">
-                            <cite class="text-xl font-medium text-white">Michael Gough</cite>
-                            <cite class="text-sm text-gray-400">CEO at Google</cite>
-                        </div>
-                    </div>
-                    <svg class="w-10 lg:w-20 h-10 lg:h-20 mx-auto mb-3 text-gray-400 dark:text-gray-600" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
-                        <path
-                            d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
-                    </svg>
-                    <blockquote>
-                        <p class="text-xl lg:text-3xl  italic font-poppins font-medium  text-white">"Flowbite is just
-                            awesome. It
-                            contains tons of predesigned components and pages starting from login screen to complex
-                            dashboard. Perfect choice for your next SaaS application."</p>
-                    </blockquote>
-                </div>
-
-            </div> --}}
-            @foreach($testimonials as $testimonial)
-
-                <div class=" mySwiper max-w-screen-lg self-center mx-auto px-8 lg:px-0 text-center">
-                    <div class="flex flex-col gap-12 items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
-                        <div class="flex w-full justify-around text-white">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="m16 8l1.43 1.393L11.85 15H24v2H11.85l5.58 5.573L16 24l-8-8z" />
-                                    <path fill="currentColor"
-                                        d="M16 30a14 14 0 1 1 14-14a14.016 14.016 0 0 1-14 14m0-26a12 12 0 1 0 12 12A12.014 12.014 0 0 0 16 4" />
-                                </svg>
-                            </button>
-                            <img class="w-36 lg:w-56 h-36 lg:h-56 border-8 border-secondary rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                                alt="profile picture">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 32 32">
-                                    <path fill="currentColor"
-                                        d="m16 8l-1.43 1.393L20.15 15H8v2h12.15l-5.58 5.573L16 24l8-8z" />
-                                    <path fill="currentColor"
-                                        d="M16 30a14 14 0 1 1 14-14a14.016 14.016 0 0 1-14 14m0-26a12 12 0 1 0 12 12A12.014 12.014 0 0 0 16 4" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="flex flex-col gap-3 items-center">
-                            <cite class="text-xl font-medium text-white">BY: {{ $testimonial->user->username}}</cite>
-                            <cite class="text-sm text-gray-400">TO : {{ $testimonial->inFavourOf}}</cite>
-                        </div>
-                    </div>
-                    <svg class="w-10 lg:w-20 h-10 lg:h-20 mx-auto mb-3 text-gray-400 dark:text-gray-600" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
-                        <path
-                            d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
-                    </svg>
-                    <blockquote>
-                        <p class="text-xl lg:text-3xl  italic font-poppins font-medium  text-white">"{{$testimonial->message}}"</p>
-                    </blockquote>
-                </div>
-
             </div>
-            @endforeach
         </div>
     </section>
+
+
     <section class="w-full bg-transparent mt-12">
         <h1 class="my-12 text-3xl lg:text-5xl font-bold font-passero mb-4 text-white text-center">
             Write a testimonial
@@ -280,4 +216,17 @@
 @section('scripts')
     <script src={{ asset('assets/js/Navigator.js') }}></script>
     <script src={{ asset('assets/js/cart.js') }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js""></script>
+    {{-- <script>
+        var swiper = new Swiper("#testimonialSlider", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script> --}}
+
+
 @endsection
