@@ -22,7 +22,7 @@ class TestimonialController extends Controller
     public function index()
     {
         $testimonials = $this->testimonialRepository->all();
-        return view('Admin.Testimonials');
+        return view('Admin.Testimonials', compact('testimonials'));
     }
 
     /**

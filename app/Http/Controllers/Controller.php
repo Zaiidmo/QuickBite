@@ -18,7 +18,7 @@ class Controller extends BaseController
         $tastyFood = MealRepository::tastyFood();
         $categories = CategoryRepository::getPopularCategories();
         $restaurants = RestaurantRepository::all();
-        $testimonials = TestimonialRepository::all();
+        $testimonials = TestimonialRepository::approvedTestimonials();
         return view('welcome', compact('tastyFood', 'categories', 'restaurants', 'testimonials'));
     }
 }
