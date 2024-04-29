@@ -166,64 +166,18 @@
                             <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
                                 Total Sold
                             </th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                                Total Income
-                            </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        @foreach($topRestaurants as $topRestaurant)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">John
-                                Brown</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $topRestaurant->restaurant_name}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->owner_name}}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
-
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->total_meals}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->total_orders}}</td>
                         </tr>
-
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Jim
-                                Green</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
-
-                        </tr>
-
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                                Black</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">142</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">234</td>
-
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                                Black</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">3525</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">122</td>
-
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                                Black</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">33</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">55</td>
-
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

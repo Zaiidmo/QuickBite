@@ -20,4 +20,6 @@ interface RestaurantRepositoryInterface
     public function edit(Restaurant $restaurant, $data);
 
     public function menu($id);
+
+    public static function topRestaurants();
 }
