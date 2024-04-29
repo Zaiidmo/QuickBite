@@ -204,86 +204,14 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                @foreach($lastOrders as $lastOrder)
                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#5594</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#{{$lastOrder->id}}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $lastOrder->user->username}}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">23 $</td>
-
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $lastOrder->total_price}} $</td>
                                 </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#6666</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#2000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#2000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#2000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#5594</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">23 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#6666</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#2000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#2000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31 $</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#2000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31 $</td>
-
-                                </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

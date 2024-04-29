@@ -22,7 +22,8 @@ class DashboardController extends Controller
         $ordersCount = Order::all()->count();
         $topUsers = OrderRepository::mostOrdersByUser();
         $topRestaurants = RestaurantRepository::topRestaurants();
-        return view('Admin.index', compact('usersCount', 'restaurantsCount', 'mealsCount', 'ordersCount', 'topUsers', 'topRestaurants'));
+        $lastOrders = OrderRepository::lastOrders();
+        return view('Admin.index', compact('usersCount', 'restaurantsCount', 'mealsCount', 'ordersCount', 'topUsers', 'topRestaurants', 'lastOrders'));
     }
 
     public function users()

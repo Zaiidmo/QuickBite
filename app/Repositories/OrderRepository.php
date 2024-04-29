@@ -75,14 +75,12 @@ class OrderRepository implements OrderRepositoryInterface
     }
 
     public static function mostOrdersByUser()
-{
-    return DB::table('orders')
-        ->join('users', 'orders.user_id', '=', 'users.id')
-        ->select('users.username', 'users.email', DB::raw('count(*) as orders_count'))
-        ->groupBy('orders.user_id', 'users.username', 'users.email')
-        ->orderByDesc('orders_count')
-        ->limit(5)
-        ->get();
-}
+    {
+        return DB::table('orders')->join('users', 'orders.user_id', '=', 'users.id')->select('users.username', 'users.email', DB::raw('count(*) as orders_count'))->groupBy('orders.user_id', 'users.username', 'users.email')->orderByDesc('orders_count')->limit(5)->get();
+    }
 
+    public static function lastOrders()
+    {
+        return Order::orderByDesc('created_at')->limit(5)->get();
+    }
 }

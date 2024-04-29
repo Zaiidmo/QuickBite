@@ -24,4 +24,6 @@ interface OrderRepositoryInterface
 
     public static function mostOrdersByUser();
 
+    public static function lastOrders();
+
 }
