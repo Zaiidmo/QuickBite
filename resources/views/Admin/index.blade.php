@@ -101,7 +101,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    500
+                                    {{$ordersCount}}
                                 </p>
                             </div>
                         </div>
@@ -134,48 +134,14 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        @foreach($topUsers as $topUser)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">John
-                                Brown</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown@email.com
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $topUser->username}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topUser->email}}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
-
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topUser->orders_count}}</td>
                         </tr>
-
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Jim
-                                Green</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen@email.com
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
-
-                        </tr>
-
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                                Black</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                                Black</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                                Black</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

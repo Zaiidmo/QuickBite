@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Repositories\MealRepository;
@@ -13,29 +14,35 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index ()
+    public function index()
     {
         $usersCount = UserRepository::all()->count();
         $restaurantsCount = RestaurantRepository::all()->count();
         $mealsCount = MealRepository::all()->count();
-        return view('Admin.index', compact('usersCount', 'restaurantsCount', 'mealsCount'));
+        $ordersCount = Order::all()->count();
+        $topUsers = OrderRepository::mostOrdersByUser();
+        return view('Admin.index', compact('usersCount', 'restaurantsCount', 'mealsCount', 'ordersCount', 'topUsers'));
     }
 
-    public function users () {
+    public function users()
+    {
         $users = UserRepository::all();
         $customers = UserRepository::findByRole('customer');
         $restaurants = UserRepository::findByRole('restaurant-owner');
         $riders = UserRepository::findByRole('driver');
         return view('Admin.users', compact('users', 'customers', 'restaurants', 'riders'));
     }
-   
-    public function payments () {
+
+    public function payments()
+    {
         return view('Admin.payments');
     }
-    public function settings () {
+    public function settings()
+    {
         return view('Admin.settings');
     }
-    public function profile () {
+    public function profile()
+    {
         $user = auth()->user();
         $ordersHistory = OrderRepository::ordersHistory(auth()->user()->id);
         $placedOrders = OrderRepository::placedOrders(auth()->user()->id);

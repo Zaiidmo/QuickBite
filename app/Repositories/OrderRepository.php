@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Meal;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 
 class OrderRepository implements OrderRepositoryInterface
 {
@@ -72,4 +73,16 @@ class OrderRepository implements OrderRepositoryInterface
         $order->delivery_id = $user->id;
         $order->save();
     }
+
+    public static function mostOrdersByUser()
+{
+    return DB::table('orders')
+        ->join('users', 'orders.user_id', '=', 'users.id')
+        ->select('users.username', 'users.email', DB::raw('count(*) as orders_count'))
+        ->groupBy('orders.user_id', 'users.username', 'users.email')
+        ->orderByDesc('orders_count')
+        ->limit(5)
+        ->get();
+}
+
 }

@@ -22,4 +22,6 @@ interface OrderRepositoryInterface
 
     public function takeOnTheWay($user, $order);
 
+    public static function mostOrdersByUser();
+
 }
