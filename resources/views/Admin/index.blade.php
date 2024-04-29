@@ -32,7 +32,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    {{ $usersCount  }}
+                                    {{ $usersCount }}
                                 </p>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    {{ $restaurantsCount  }}
+                                    {{ $restaurantsCount }}
                                 </p>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    {{ $mealsCount  }}
+                                    {{ $mealsCount }}
                                 </p>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="w-full py-0 text-center">
                                 <p class="text-3xl text-gray-700 dark:text-gray-200">
-                                    {{$ordersCount}}
+                                    {{ $ordersCount }}
                                 </p>
                             </div>
                         </div>
@@ -134,13 +134,14 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                        @foreach($topUsers as $topUser)
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $topUser->username}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topUser->email}}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topUser->orders_count}}</td>
-                        </tr>
+                        @foreach ($topUsers as $topUser)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $topUser->username }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topUser->email }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topUser->orders_count }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -151,7 +152,7 @@
                 <h1 class="font-passero text-2xl text-white m-4">
                     Top <span class="text-secondary">Restaurants</span>
                 </h1>
-                <table class="divide-y divide-gray-400">
+                <table id="topRestaurantsTable" class="divide-y divide-gray-400">
                     <thead>
                         <tr>
                             <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
@@ -169,14 +170,17 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                        @foreach($topRestaurants as $topRestaurant)
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{{ $topRestaurant->restaurant_name}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->owner_name}}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->total_meals}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->total_orders}}</td>
-                        </tr>
+                        @foreach ($topRestaurants as $topRestaurant)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                    {{ $topRestaurant->restaurant_name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->owner_name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->total_meals }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $topRestaurant->total_orders }}
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -204,13 +208,16 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                @foreach($lastOrders as $lastOrder)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#{{$lastOrder->id}}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $lastOrder->user->username}}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">{{ $lastOrder->total_price}} $</td>
-                                </tr>
+                                @foreach ($lastOrders as $lastOrder)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                            #{{ $lastOrder->id }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                            {{ $lastOrder->user->username }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                            {{ $lastOrder->total_price }} $</td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -294,249 +301,265 @@
     @endrole
 
     @role('restaurant-owner')
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
-        <div class="grid gap-6 grid-cols-1 col-span-1">
-            <div
-                class="min-w-0 h-full shadow-xs overflow-hidden font-passero border-2 border-secondary backdrop-blur-sm bg-black/40 rounded-2xl">
-                <div class="p-4 flex flex-col justify-between h-full w-full">
-                    <div class="flex justify-between w-full items-center border-b-2 pb-2 mr-4 border-secondary">
-                        <div class="p-3 rounded-full text-black bg-secondary ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M4.325 9h15.35l-.85-3H5.2zM16.8 11H7.225l-.275 2h10.1zM4 20l1.225-9H3q-.5 0-.788-.4t-.162-.875l1.425-5q.1-.325.35-.525t.6-.2h15.15q.35 0 .6.2t.35.525l1.425 5q.125.475-.162.875T21 11h-2.2l1.2 9h-2l-.675-5H6.675L6 20z" />
-                            </svg>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
+            <div class="grid gap-6 grid-cols-1 col-span-1">
+                <div
+                    class="min-w-0 h-full shadow-xs overflow-hidden font-passero border-2 border-secondary backdrop-blur-sm bg-black/40 rounded-2xl">
+                    <div class="p-4 flex flex-col justify-between h-full w-full">
+                        <div class="flex justify-between w-full items-center border-b-2 pb-2 mr-4 border-secondary">
+                            <div class="p-3 rounded-full text-black bg-secondary ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M4.325 9h15.35l-.85-3H5.2zM16.8 11H7.225l-.275 2h10.1zM4 20l1.225-9H3q-.5 0-.788-.4t-.162-.875l1.425-5q.1-.325.35-.525t.6-.2h15.15q.35 0 .6.2t.35.525l1.425 5q.125.475-.162.875T21 11h-2.2l1.2 9h-2l-.675-5H6.675L6 20z" />
+                                </svg>
+                            </div>
+                            <p class="mb-2 text-xl font-medium  uppercase text-gray-600 dark:text-gray-400">
+                                Restaurants
+                            </p>
                         </div>
-                        <p class="mb-2 text-xl font-medium  uppercase text-gray-600 dark:text-gray-400">
-                            Restaurants
-                        </p>
+                        <div class="w-full text-center">
+                            <p class="text-4xl text-gray-700 dark:text-gray-200">
+                                3
+                            </p>
+                        </div>
                     </div>
-                    <div class="w-full text-center">
-                        <p class="text-4xl text-gray-700 dark:text-gray-200">
-                            3
-                        </p>
+                </div>
+
+                <div
+                    class="min-w-0 h-full shadow-xs overflow-hidden font-passero border-2 border-secondary backdrop-blur-sm bg-black/40 rounded-2xl">
+                    <div class="p-4 flex flex-col justify-between h-full w-full">
+                        <div class="flex justify-between w-full items-center border-b-2 pb-2 mr-4 border-secondary">
+                            <div class="p-3 rounded-full text-black bg-secondary ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                                    <g fill="none" stroke="currentColor" stroke-width="4">
+                                        <path stroke-linejoin="round" d="M6 15h36l-2 27H8z" clip-rule="evenodd" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 19V6h16v13" />
+                                        <path stroke-linecap="round" d="M16 34h16" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="mb-2 text-xl font-medium  uppercase text-gray-600 dark:text-gray-400">
+                                Income
+                            </p>
+                        </div>
+                        <div class="w-full text-center">
+                            <p class="text-4xl text-gray-700 dark:text-gray-200">
+                                500 $
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div
-                class="min-w-0 h-full shadow-xs overflow-hidden font-passero border-2 border-secondary backdrop-blur-sm bg-black/40 rounded-2xl">
-                <div class="p-4 flex flex-col justify-between h-full w-full">
-                    <div class="flex justify-between w-full items-center border-b-2 pb-2 mr-4 border-secondary">
-                        <div class="p-3 rounded-full text-black bg-secondary ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                                <g fill="none" stroke="currentColor" stroke-width="4">
-                                    <path stroke-linejoin="round" d="M6 15h36l-2 27H8z" clip-rule="evenodd" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 19V6h16v13" />
-                                    <path stroke-linecap="round" d="M16 34h16" />
-                                </g>
-                            </svg>
-                        </div>
-                        <p class="mb-2 text-xl font-medium  uppercase text-gray-600 dark:text-gray-400">
-                            Income
-                        </p>
-                    </div>
-                    <div class="w-full text-center">
-                        <p class="text-4xl text-gray-700 dark:text-gray-200">
-                            500 $
-                        </p>
-                    </div>
-                </div>
+                class="flex flex-col w-full backdrop-blur-sm bg-black/40 border-2 border-secondary rounded-lg overflow-x-auto p-1.5 align-middle col-span-1 lg:col-span-2">
+                <h1 class="font-passero text-2xl text-white m-4">
+                    Gain by <span class="text-secondary">Restaurant</span>
+                </h1>
+                <table class="divide-y divide-gray-400">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Shipped Orders
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Income
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">John
+                                Brown</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Jim
+                                Green</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
+                                Black</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
+
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
+                                Black</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
+
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
+                                Black</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div
+                class="flex flex-col w-full backdrop-blur-sm bg-black/40 border-2 border-secondary rounded-lg overflow-x-auto p-1.5 align-middle col-span-2 lg:col-span-3">
+                <h1 class="font-passero text-2xl text-white m-4">
+                    Top <span class="text-secondary">Riders</span>
+                </h1>
+                <table class="divide-y divide-gray-400">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Contact
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
+                                Shipped Orders
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">John
+                                Brown</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Jim
+                                Green</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
+                                Black</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
+
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
+                                Black</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
+
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
+                                Black</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-
-        <div
-            class="flex flex-col w-full backdrop-blur-sm bg-black/40 border-2 border-secondary rounded-lg overflow-x-auto p-1.5 align-middle col-span-1 lg:col-span-2">
-            <h1 class="font-passero text-2xl text-white m-4">
-                Gain by <span class="text-secondary">Restaurant</span>
-            </h1>
-            <table class="divide-y divide-gray-400">
-                <thead>
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Shipped Orders
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Income
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">John
-                            Brown</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
-
-                    </tr>
-
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Jim
-                            Green</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
-
-                    </tr>
-
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                            Black</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                            Black</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                            Black</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div
-            class="flex flex-col w-full backdrop-blur-sm bg-black/40 border-2 border-secondary rounded-lg overflow-x-auto p-1.5 align-middle col-span-2 lg:col-span-3">
-            <h1 class="font-passero text-2xl text-white m-4">
-                Top <span class="text-secondary">Riders</span>
-            </h1>
-            <table class="divide-y divide-gray-400">
-                <thead>
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Name
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Contact
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-start text-xs font-extrabold text-gray-400 uppercase">
-                            Shipped Orders
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">John
-                            Brown</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JohnBrown@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">45</td>
-
-                    </tr>
-
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Jim
-                            Green</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JimGreen@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">27</td>
-
-                    </tr>
-
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                            Black</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                            Black</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                    </tr>
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Joe
-                            Black</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">JoeBlack@email.com
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-white">31</td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
     @endrole
 @endsection
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    document.getElementById('collapse_btn').addEventListener('click', function() {
-        document.getElementById('dropdown-example').classList.toggle('hidden')
-    })
-</script>
-{{-- Earnings Chart --}}
-<script>
-    // Get the canvas element
-    var ctx = document.getElementById('earnings_chart').getContext('2d');
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('collapse_btn').addEventListener('click', function() {
+            document.getElementById('dropdown-example').classList.toggle('hidden')
+        })
+    </script>
+    {{-- Earnings Chart --}}
+    <script>
+        // Get the canvas element
+        var ctx = document.getElementById('earnings_chart').getContext('2d');
 
-    // Define the data for the chart
-    var data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
-            'November', 'December'
-        ],
-        datasets: [{
-            label: 'Earnings ($)',
-            backgroundColor: 'rgb(255, 194, 68)',
-            borderColor: 'rgb(255, 194, 68)',
-            data: [2000, 2500, 1800, 3200, 3500, 3800, 3000, 4000, 3800, 3600, 3200, 3000],
-            color: 'white',
-        }]
-    };
+        // Define the data for the chart
+        var data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                'November', 'December'
+            ],
+            datasets: [{
+                label: 'Earnings ($)',
+                backgroundColor: 'rgb(255, 194, 68)',
+                borderColor: 'rgb(255, 194, 68)',
+                data: [2000, 2500, 1800, 3200, 3500, 3800, 3000, 4000, 3800, 3600, 3200, 3000],
+                color: 'white',
+            }]
+        };
 
-    // Configure the options for the chart
-    var options = {
-        scales: {
-            y: {
-                beginAtZero: false // Allow the y-axis to start at zero
-            }
-        },
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white'
+        // Configure the options for the chart
+        var options = {
+            scales: {
+                y: {
+                    beginAtZero: false // Allow the y-axis to start at zero
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
                 }
             }
-        }
-    };
+        };
 
-    // Create the chart
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: options
-    });
-</script>
+        // Create the chart
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
 
 
-{{-- Restaurants Chart --}}
-<script>
+    {{-- Restaurants Chart --}}
+    <script>
+        function updateChartWithTableData() {
+        const labels = [];
+        const values = [];
+        const tableRows = document.querySelectorAll('#topRestaurantsTable tbody tr');
+        tableRows.forEach(row => {
+            const columns = row.querySelectorAll('td');
+            labels.push(columns[0].innerText);
+            values.push(parseInt(columns[3].innerText));
+        });
+
+        // Update the chart with the extracted data
+        restaurantChart.data.labels = labels;
+        restaurantChart.data.datasets[0].data = values;
+
+        // Update the chart
+        restaurantChart.update();
+    }
+
+    // Chart data
     var restaurantData = {
-        labels: ['Restaurant A', 'Restaurant B', 'Restaurant C', 'Restaurant D', 'Restaurant E', 'Restaurant F',
-            'Restaurant G'
-        ],
+        labels: ['Restaurant A', 'Restaurant B', 'Restaurant C', 'Restaurant D', 'Restaurant E', 'Restaurant F', 'Restaurant G'],
         datasets: [{
-            // label: 'Restaurants Statistics',
             data: [300, 450, 600, 800, 550, 200, 400],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -566,7 +589,7 @@
         plugins: {
             title: {
                 display: true,
-                text: 'Most Seller Restaurants', // Your personalized title
+                text: 'Most Seller Restaurants',
                 font: {
                     size: 18,
                     weight: 'bold',
@@ -583,9 +606,7 @@
         options: restaurantOptions
     });
 
-    //Navigation
-    document.getElementById('Hamburger').addEventListener('click', () => {
-        document.getElementById('sidebar-multi-level-sidebar').classList.toggle('hidden')
-    })
-</script>
+    // Call the function to extract data from the table and update the chart
+    updateChartWithTableData();
+    </script>
 @endsection
