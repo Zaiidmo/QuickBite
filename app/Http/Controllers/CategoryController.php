@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $request->image->storeAs('public/uploads/categories', $fileName);
         $data['image'] = $fileName;
 
-        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('create-category')) {
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->can('create-category')) {
             $category = $this->categoryRepository->create($data);
             if ($category) {
                 return redirect()->back()->with('success', 'Category created successfully.');
@@ -88,7 +88,7 @@ class CategoryController extends Controller
             $data['image'] = $category->image;
         }
 
-        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->hasRole('restaurant-owner') || $user->can('update-category')) {
+        if ($user->hasRole('super-admin') || $user->hasRole('admin') || $user->can('update-category')) {
             $category = $this->categoryRepository->update($category, $data);
             // dd($category, $data)
             if ($category) {
