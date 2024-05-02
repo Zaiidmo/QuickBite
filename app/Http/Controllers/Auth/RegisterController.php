@@ -26,7 +26,7 @@ class RegisterController extends Controller
         
         $attempt = $this->userRepository->create($data);
         if($attempt) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('success', 'Registration successful');
         } return back()->with('error', 'Something went wrong');
     }
 }
