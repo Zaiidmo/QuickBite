@@ -1,6 +1,6 @@
 @extends('layouts.noFooterMaster')
 
-@section('title', 'QuickBite | Login')
+@section('title', 'QuickBite | Reset Password')
 
 @section('content')
     <section class="overflow-hidden h-screen relative font-poppins ">
@@ -15,9 +15,8 @@
                 class="p-12 w-full max-w-lg text-center max-h-full bg-primary border-2 border-secondary rounded-2xl shadow-xl z-20">
                 <div>
                     <h1 class="text-3xl text-white font-passero font-bold text-center tracking-wider mb-4 ">
-                        Welcome Back !</h1>
-                    <p class="text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide">Ready to
-                        indulge in a seamless dining experience ?</p>
+                        Reseting Password ... </h1>
+                    <p class="text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide">Please provide the demanded credentials</p>
                 </div>
                 {{--  Form --}}
                 @if (session('success'))
@@ -33,10 +32,10 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form action="{{ route('login.connect')}}" method="POST" class="flex text-start flex-col gap-4">
+                <form action="{{ route('password-reset.send')}}" method="POST" class="flex text-start flex-col gap-4">
                     @csrf
                     <div class="flex  flex-col gap-2">
-                        <label class="text-white" for="username">Username</label>
+                        <label class="text-white" for="username">Email</label>
                         <div class="flex w-full">
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -54,13 +53,9 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="flex flex-col gap-2">
-                        <div class="flex justify-between items-center">
-                            <label class="text-white" for="password">Password</label>
-                            <a href=" {{route('forgot-password')}}" class="text-secondary underline text-sm "> Forgot Password ?</a>
-
-                        </div>
+                            <label class="text-white" for="password">New Password</label>
+                            
                         <div class="flex w-full">
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -77,24 +72,9 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- <div class="flex items-start mb-5">
-                        <div class="flex items-center h-5">
-                            <input id="remember" type="checkbox" value=""
-                                class="w-4 h-4 border rounded focus:ring-3 bg-gray-700 border-gray-600 dark:focus:ring-secondary dark:ring-offset-secondary dark:focus:ring-offset-gray-800" />
-                        </div>
-                        <label for="remember" class="ms-2 text-sm font-medium text-gray-300">Remember
-                            me</label>
-                    </div> --}}
-
                     <button type="submit"
-                        class="self-center w-1/2 py-2 text-xl text-white bg-primary border-2 rounded-xl hover:text-black hover:bg-secondary hover:border-secondary transition-all">Login</button>
+                        class="self-center w-1/2 py-2 text-xl text-white bg-primary border-2 rounded-xl hover:text-black hover:bg-secondary hover:border-secondary uppercase font-extrabold transition-all">S e n d</button>
                 </form>
-                <div class="text-center mt-6">
-                    <p class="mt-4 text-sm text-white">New To <span class="font-passero">QUICKBITE</span> <a href="/register"
-                            class="underline text-secondary cursor-pointer"> Create an account</a>
-                    </p>
-                </div>
             </div>
             <div class="w-40 h-40 absolute bg-secondary rounded-full top-0 right-12 hidden md:block"></div>
             <div class="w-20 h-40 absolute bg-secondary rounded-full bottom-20 left-10 transform rotate-45 hidden md:block">

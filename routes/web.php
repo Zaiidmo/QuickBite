@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Auth\ForgotPassowrdController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPassowrdController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MealController;
@@ -32,6 +34,10 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
     Route::post('/login', [LoginController::class, 'login'])->name('login.connect');
+    Route::get('/forgot-password', [ForgotPassowrdController::class, 'index'])->name('forgot-password');
+    Route::get('/resetpassword', [ResetPassowrdController::class, 'index'])->name('password.reset');
+    Route::post('/resetpassword', [ResetPassowrdController::class, 'resetPassword'])->name('password-reset.send');
+    Route::post('/forgot-password', [ForgotPassowrdController::class, 'forgotPassword'])->name('forgot-password.send');
 });
 
 Route::group(['middleware' => 'auth'], function () {

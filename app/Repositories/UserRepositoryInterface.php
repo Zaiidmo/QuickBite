@@ -16,4 +16,10 @@ interface UserRepositoryInterface
     // public function update(array $data, $id);
 
     // public function delete($id);
+
+    public static function findByEmail($email);
+
+    public function forgotPassword($user);
+
+    public function updatePassword($user, $password);
 }
